@@ -1,0 +1,16 @@
+.app {
+  min-height: 100vh;
+  background: url("../assets/img/mla_background_accueil_1920x1080.png");
+}
+.header {
+  padding: 2rem;
+  display: flex;
+}
+.header-logo {
+  background: url("../assets/img/mla_logo_820x253.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  clear: both;
+  width: 300px;
+  height: 90px;
+}
