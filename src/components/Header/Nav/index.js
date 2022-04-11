@@ -1,15 +1,13 @@
 import NavItem from "./NavItem";
-import { navTranslation } from "../intl";
+import { bottomNavTranslation, navTranslation } from "../intl";
 
-const Nav = (props) => {
-  return (
-    <div className="header-nav--menu">
-      {Object.values(navTranslation).map((item) => (
-        <NavItem title={item} />
-      ))}
-      <div className="header-nav--prices">Tarifs et Prestations</div>
-    </div>
-  );
-};
+const Nav = (props) => (
+  <div className="header-nav--menu">
+    {Object.values(navTranslation).map((item) => (
+      <NavItem title={item} />
+    ))}
+    <div className="header-nav--prices">{bottomNavTranslation.pricesCta}</div>
+  </div>
+);
 
 export default Nav;
