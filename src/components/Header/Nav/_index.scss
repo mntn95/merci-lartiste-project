@@ -1,0 +1,24 @@
+.header-nav {
+    padding: 2rem;
+    display: flex;
+    &--menu {
+        font-family: 'botanika-mono-regular', serif;
+        display: flex;
+        margin-left: auto;
+        margin-right: 0;
+        gap: 5rem;
+        font-size: 20px;
+        padding-top: 2.5rem;
+        position: relative;
+    }
+    &--prices {
+        position: absolute;
+        top: 6rem;
+        left: 9rem;
+        width: 27%;
+        padding: 0.5rem 1rem;
+        display: block;
+        border: 1px solid black;
+        text-decoration: underline;
+    }
+}

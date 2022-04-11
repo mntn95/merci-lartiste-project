@@ -1,13 +1,17 @@
 import Nav from "./Nav";
-import Logo from "./Logo";
 
-const Header = () => {
-  return (
-    <header className="header">
-      <Logo />
+const Header = () => (
+  <div className="header">
+    <div className="header-nav">
+      {/* Brand Logo */}
+      <div className="header-logo" />
       <Nav />
-    </header>
-  );
-};
+    </div>
+    <div className="header-ellipsis">
+      {/* Ellipsis Logo */}
+      <div className="header-ellipsis-content" />
+    </div>
+  </div>
+);
 
 export default Header;
