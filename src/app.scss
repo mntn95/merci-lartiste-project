@@ -1,6 +1,16 @@
+// Variables
+$textColor: #755018;
+$whiteSpaceColor: #dad2c2;
+$title: 58px;
+$subtitle: 50px;
+$text: 40px;
+$cta: 27px;
+$nav: 35px;
+
 .app {
   min-height: 100vh;
   background: url("../assets/img/mla_background_accueil_1920x1080.png");
+  color: $textColor;
 }
 
 .header {
