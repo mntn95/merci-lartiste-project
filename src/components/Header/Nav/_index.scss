@@ -34,6 +34,8 @@
             text-transform: uppercase;
         }
         &--cta {
+            color: $textColor;
+            border: .8px solid $textColor;
             text-transform: uppercase;
             background-color: inherit;
             padding: .4rem .7rem;

@@ -1,3 +1,4 @@
+import AppointmentApp from "./AppointmentApp";
 import { appointmentTranslation } from "../intl";
 
 const Appointment = () => (
@@ -13,6 +14,7 @@ const Appointment = () => (
         {appointmentTranslation.desc_two}
       </div>
     </div>
+    <AppointmentApp />
   </div>
 );
 
