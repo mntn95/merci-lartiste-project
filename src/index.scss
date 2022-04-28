@@ -1,13 +1,19 @@
 // File imports
 @import "components/Header/Nav";
+@import "components/Main";
+@import "components/Main/Appointment/";
+
 
 // Font imports
-@import url("https: //use.typekit.net/crm5tep.css");
+@font-face {
+  font-family: 'Botanika Mono Regular';
+  src: local('Botanika Mono Regular'), url("../assets/Botanika_Mono/Botanika Mono Regular.otf") format('opentype');
+}
 
 // Style
 body {
   margin: 0;
-  font-family: 'Roboto', 'Oxygen',
+  font-family: 'Botanika Mono Regular', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

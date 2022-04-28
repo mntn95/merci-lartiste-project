@@ -1,0 +1,23 @@
+@import "../../../app.scss";
+
+.appointment {
+    padding-bottom: 8rem;
+    &-space {
+        min-height: 30vh;
+    }
+    &-span {
+        margin: auto;
+        width: 40%;
+    }
+    &-title {
+        font-weight: normal;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+    &-desc {
+        font-size: 22px;
+    }
+    &-app {
+        min-height: 30rem;
+    }
+}
