@@ -1,7 +1,7 @@
 import NavItem from "./NavItem";
 import { bottomNavTranslation, navTranslation } from "../intl";
 
-const Nav = (props) => (
+const Nav = () => (
   <div className="header-nav--menu">
     {Object.values(navTranslation).map((item) => (
       <NavItem title={item} />
