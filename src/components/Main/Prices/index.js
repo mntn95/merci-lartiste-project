@@ -1,6 +1,9 @@
+import MovingText from "./MovingText";
 const Prices = () => (
   <div className="prices">
-    <div className="prices-container"></div>
+    <div className="prices-container">
+      <MovingText />
+    </div>
   </div>
 );
 
