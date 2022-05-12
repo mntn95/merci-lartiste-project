@@ -4,4 +4,12 @@ const appointmentTranslation = {
   desc_two: "Merci l'Artiste! Par ici l ami :",
 };
 
-export { appointmentTranslation };
+const pricesTranslation = {
+  title: "Tarifs et prestations",
+  beardHaircut: "Coupe + Barbe",
+  beardHaircutPrice: "30€",
+  colorHaircut: "Décoloration + coupe",
+  colorHaircutPrice: "90€",
+};
+
+export { appointmentTranslation, pricesTranslation };
