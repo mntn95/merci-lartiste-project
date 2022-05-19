@@ -6,10 +6,14 @@ const appointmentTranslation = {
 
 const pricesTranslation = {
   title: "Tarifs et prestations",
-  beardHaircut: "Coupe + Barbe",
-  beardHaircutPrice: "30€",
-  colorHaircut: "Décoloration + coupe",
-  colorHaircutPrice: "90€",
+  topFirstItem: "Coupe + Barbe",
+  topFirstPrice: "30€",
+  topSecondItem: "Décoloration + coupe",
+  topSecondPrice: "90€",
+  bottomFirstItem: "Coupe",
+  bottomFirstPrice: "20€",
+  bottomSecondItem: "Barbe",
+  bottomSecondPrice: "90€",
 };
 
 export { appointmentTranslation, pricesTranslation };
