@@ -4,7 +4,7 @@ import Ticker from "react-ticker";
 import { pricesTranslation } from "../intl";
 
 const MovingText = ({ direction }) => (
-  <Ticker height={100} direction={direction}>
+  <Ticker height={80} direction={direction}>
     {({ index }) => (
       <div className="prices-ticker">
         <h3 className="prices-ticker--message">{pricesTranslation.title}</h3>

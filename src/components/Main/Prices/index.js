@@ -6,7 +6,7 @@ const Prices = () => (
     <div className="prices-container">
       <MovingText />
       <div className="price-table">
-        <PricesTable marginBottom="380px" position="top" />
+        <PricesTable marginBottom="420px" position="top" />
         <PricesTable position="bottom" />
       </div>
       <MovingText direction="toRight" />
