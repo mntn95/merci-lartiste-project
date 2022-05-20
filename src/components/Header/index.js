@@ -26,11 +26,36 @@ const headerEllipsis = () => ({
   marginTop: "5rem",
 });
 
+const headerNav = () => ({
+  padding: "2rem",
+  display: "flex",
+});
+
+const headerHead = () => ({
+  width: "47%",
+  margin: "auto",
+});
+
+const headerHeadTitle = () => ({
+  fontWeight: "normal",
+  fontSize: "30px",
+  textTransform: "uppercase",
+});
+
+const headerHeadCta = () => ({
+  color: "#755018",
+  border: ".8px solid #755018",
+  textTransform: "uppercase",
+  backgroundColor: "inherit",
+  padding: ".4rem .7rem",
+  marginTop: "3rem",
+});
+
 const Header = () => {
   const { css } = useFela();
   return (
     <div className="header">
-      <div className="header-nav">
+      <div className={css(headerNav)}>
         {/* Brand Logo */}
         <div className={css(headerLogo)} />
         <Nav />
@@ -39,14 +64,14 @@ const Header = () => {
         {/* Ellipsis Logo */}
         <div className={css(headerEllipsis)} />
       </div>
-      <div className="header-head">
-        <h1 className="header-head--title">{bottomNavTranslation.title}</h1>
+      <div className={css(headerHead)}>
+        <h1 className={css(headerHeadTitle)}>{bottomNavTranslation.title}</h1>
         <div className="header-head--span">
           <span>{bottomNavTranslation.firstSubtitle}</span>
           <br />
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
-        <button className="header-head--cta">
+        <button className={css(headerHeadCta)}>
           {bottomNavTranslation.bookingCta}
         </button>
       </div>
