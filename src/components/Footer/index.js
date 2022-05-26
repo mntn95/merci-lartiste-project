@@ -1,8 +1,10 @@
 import { useFela } from "react-fela";
 import { Col, Container, Row } from "react-bootstrap";
 import FooterEllipsis from "../../assets/img/mla_ellipse_contact_593x593.png";
+import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
 
 const footerContainer = () => ({
+  marginBottom: "1rem",
   marginTop: "2rem",
   fontSize: "24px",
 });
@@ -18,6 +20,18 @@ const footerEllipsis = ({ rotate }) => ({
   position: "absolute",
   right: "-10rem",
   top: "-2.5rem",
+});
+
+const footerInstaLogo = () => ({
+  backgroundImage: `url(${FooterInstaLogo})`,
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  clear: "both",
+  bottom: "-7.5rem",
+  right: "-4.5rem",
+  position: "absolute",
+  width: "75px",
+  height: "75px",
 });
 
 const footerContainerItem = () => ({
@@ -49,6 +63,7 @@ const Footer = () => {
         <Col xs={2}>
           <div style={{ position: "relative" }}>
             <div className={css(footerEllipsis({ rotate }))}></div>
+            <div className={css(footerInstaLogo)} />
           </div>
         </Col>
       </Row>
@@ -62,10 +77,11 @@ const Footer = () => {
           </Row>
         </Col>
         <Col xs={8}>
-          <Row className="justify-content-end mt-4">
-            <Col xs="auto">Accueil</Col>
-            <Col xs="auto">A propos</Col>
-            <Col xs="auto">Tarifs et Prestations</Col>
+          <Row>&nbsp;</Row> {/* ¯\_(ツ)_/¯ */}
+          <Row className="justify-content-end ">
+            <Col xs="auto">Accueil |</Col>
+            <Col xs="auto">A propos |</Col>
+            <Col xs="auto">Tarifs et Prestations |</Col>
             <Col xs="auto">Réservation</Col>
           </Row>
         </Col>
