@@ -7,6 +7,7 @@ import mainBackground from "./assets/img/mla_background_accueil_1920x1080.png";
 import FontFace from "./assets/Botanika_Mono/Botanika Mono Regular.otf";
 
 const appStyle = ({ fontFamily, theme }) => ({
+  overflow: "hidden",
   minHeight: "100vh",
   backgroundImage: `url(${mainBackground})`,
   color: theme.textColor,

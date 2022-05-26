@@ -5,7 +5,7 @@ import Appointment from "./Appointment";
 import Prices from "./Prices";
 
 const main = () => ({
-  margin: "4rem 0",
+  marginTop: "4rem",
 });
 
 const mainImage = () => ({

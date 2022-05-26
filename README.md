@@ -18,8 +18,8 @@ You may also see any lint errors in the console.
 
 ### Mockup (Subject to change)
 
-![mockup](./assets/img/merci_lartiste_desktop_1920X1080.png)
+![mockup](./src/assets/img/merci_lartiste_desktop_1920X1080.png)
 
-![hierarchy](./assets/img/merci_lartiste_hierarchie_hexa.png)
+![hierarchy](./src/assets/img/merci_lartiste_hierarchie_hexa.png)
 
-![ui_kit](./assets/img/merci_lartiste_ui_kit.png)
+![ui_kit](./src/assets/img/merci_lartiste_ui_kit.png)
