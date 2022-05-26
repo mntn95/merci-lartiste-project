@@ -1,17 +1,5 @@
 // File imports
 @import "~bootstrap/scss/bootstrap";
-@import "components/Header/Nav";
-@import "components/Main";
-@import "components/Main/Appointment/";
-@import "components/Main/Prices/";
-
-
-
-// Font imports
-@font-face {
-  font-family: 'Botanika Mono Regular';
-  src: local('Botanika Mono Regular'), url("../assets/Botanika_Mono/Botanika Mono Regular.otf") format('opentype');
-}
 
 // Style
 body {
