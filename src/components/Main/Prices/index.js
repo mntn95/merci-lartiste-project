@@ -7,7 +7,7 @@ import PricesTable from "./PricesTable";
 const pricesContainer = () => ({
   backgroundImage: `url(${PricesPicture})`,
   backgroundSize: "100% auto",
-  backgroundRepeat: "noRepeat",
+  backgroundRepeat: "no-repeat",
   clear: "both",
   width: "100%",
   minHeight: "83vh",

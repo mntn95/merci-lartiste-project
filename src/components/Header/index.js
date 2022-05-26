@@ -54,19 +54,19 @@ const headerHeadCta = () => ({
 const Header = () => {
   const { css } = useFela();
   return (
-    <div className="header">
+    <div>
       <div className={css(headerNav)}>
         {/* Brand Logo */}
         <div className={css(headerLogo)} />
         <Nav />
       </div>
-      <div className="header-ellipsis">
+      <div>
         {/* Ellipsis Logo */}
         <div className={css(headerEllipsis)} />
       </div>
       <div className={css(headerHead)}>
         <h1 className={css(headerHeadTitle)}>{bottomNavTranslation.title}</h1>
-        <div className="header-head--span">
+        <div>
           <span>{bottomNavTranslation.firstSubtitle}</span>
           <br />
           <span>{bottomNavTranslation.secondSubtitle}</span>
