@@ -7,7 +7,7 @@ const appointmentApp = () => ({
 const AppointmentApp = () => {
   const { css } = useFela();
 
-  return <div className={css(appointmentApp)} />;
+  return <section className={css(appointmentApp)} />;
 };
 
 export default AppointmentApp;

@@ -18,7 +18,7 @@ const footerEllipsis = ({ rotate }) => ({
   width: "250px",
   height: "250px",
   position: "absolute",
-  right: "-10rem",
+  right: "-6rem",
   top: "-2.5rem",
 });
 
@@ -28,7 +28,7 @@ const footerInstaLogo = () => ({
   backgroundRepeat: "no-repeat",
   clear: "both",
   bottom: "-7.5rem",
-  right: "-4.5rem",
+  right: "-0.5rem",
   position: "absolute",
   width: "75px",
   height: "75px",
@@ -48,45 +48,47 @@ const Footer = () => {
   const rotate = renderer.renderKeyframe(keyframe, {});
 
   return (
-    <Container className={css(footerContainer)}>
-      <Row className={css(footerContainerItem)}>
-        <Col xs={10}>
-          <Row>
-            <Col>11 impasse le verger</Col>
-            <Col xs={7}>Du mardi au samedi</Col>
-          </Row>
-          <Row>
-            <Col>95629 Parmain</Col>
-            <Col xs={7}>De 15h à 20h</Col>
-          </Row>
-        </Col>
-        <Col xs={2}>
-          <div style={{ position: "relative" }}>
-            <div className={css(footerEllipsis({ rotate }))}></div>
-            <div className={css(footerInstaLogo)} />
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={4}>
-          <Row>
-            <Col>- 06 71 10 90 09</Col>
-          </Row>
-          <Row>
-            <Col>- merci-lartiste@gmail.com</Col>
-          </Row>
-        </Col>
-        <Col xs={8}>
-          <Row>&nbsp;</Row> {/* ¯\_(ツ)_/¯ */}
-          <Row className="justify-content-end ">
-            <Col xs="auto">Accueil |</Col>
-            <Col xs="auto">A propos |</Col>
-            <Col xs="auto">Tarifs et Prestations |</Col>
-            <Col xs="auto">Réservation</Col>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+    <footer>
+      <Container fluid className={css(footerContainer)}>
+        <Row className={css(footerContainerItem)}>
+          <Col xs={10}>
+            <Row>
+              <Col>11 impasse le verger</Col>
+              <Col xs={7}>Du mardi au samedi</Col>
+            </Row>
+            <Row>
+              <Col>95629 Parmain</Col>
+              <Col xs={7}>De 15h à 20h</Col>
+            </Row>
+          </Col>
+          <Col xs={2}>
+            <div style={{ position: "relative" }}>
+              <div className={css(footerEllipsis({ rotate }))}></div>
+              <div className={css(footerInstaLogo)} />
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={4}>
+            <Row>
+              <Col>- 06 71 10 90 09</Col>
+            </Row>
+            <Row>
+              <Col>- merci-lartiste@gmail.com</Col>
+            </Row>
+          </Col>
+          <Col xs={8}>
+            <Row>&nbsp;</Row> {/* ¯\_(ツ)_/¯ */}
+            <Row className="justify-content-end ">
+              <Col xs="auto">Accueil |</Col>
+              <Col xs="auto">A propos |</Col>
+              <Col xs="auto">Tarifs et Prestations |</Col>
+              <Col xs="auto">Réservation</Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   );
 };
 

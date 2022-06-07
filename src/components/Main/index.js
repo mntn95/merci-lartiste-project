@@ -21,13 +21,13 @@ const Main = () => {
   const { css } = useFela();
 
   return (
-    <div className={css(main)}>
+    <main className={css(main)}>
       {/* Image */}
       <div className={css(mainImage)} />
       {/* Aside */}
       <Appointment />
       <Prices />
-    </div>
+    </main>
   );
 };
 
