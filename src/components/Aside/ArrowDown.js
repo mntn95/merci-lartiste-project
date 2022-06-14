@@ -2,9 +2,10 @@ import { useFela } from "react-fela";
 import { animateScroll as scroll } from "react-scroll";
 import ArrowPicture from "../../assets/img/mla_arrow_2_30x58.png";
 
-const arrowStyle = ({ ArrowPicture }) => ({
+const arrowStyle = ({ ArrowPicture, arrowOpacity }) => ({
+  opacity: arrowOpacity,
   cursor: "pointer",
-  top: "28rem",
+  top: "10rem",
   right: "0",
   position: "fixed",
   backgroundImage: `url(${ArrowPicture})`,
@@ -12,18 +13,18 @@ const arrowStyle = ({ ArrowPicture }) => ({
   backgroundRepeat: "no-repeat",
   border: "solid",
   borderWidth: "1px 0 1px 1px",
-  width: "70px",
-  height: "90px",
+  width: "82px",
+  height: "100px",
   zIndex: "10",
 });
 
-const ArrowDown = () => {
+const ArrowDown = ({ arrowOpacity }) => {
   const { css } = useFela();
 
   return (
     <div
       onClick={() => scroll.scrollToBottom({ duration: 100, smooth: true })}
-      className={css(arrowStyle({ ArrowPicture }))}
+      className={css(arrowStyle({ ArrowPicture, arrowOpacity }))}
     />
   );
 };

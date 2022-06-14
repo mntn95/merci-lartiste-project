@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useFela } from "react-fela";
 import Aside from "./components/Aside";
 import Header from "./components/Header";
@@ -17,12 +18,42 @@ const appStyle = ({ fontFamily, theme }) => ({
 });
 
 const App = () => {
+  const [arrowDownOpacity, setArrowDownOpacity] = useState(1);
+  const [arrowUpOpacity, setArrowUpOpacity] = useState(0);
+
+  const listenToScroll = () => {
+    let heightToHideFrom = 1000;
+    let currentScroll =
+      document.body.scrollHeight - window.innerHeight - window.pageYOffset;
+    let scrollTop = document.body.scrollHeight - window.innerHeight;
+    console.log({
+      currentScroll,
+      scrollTop,
+    });
+    if (currentScroll <= heightToHideFrom) {
+      setArrowDownOpacity(currentScroll / 1000);
+    } else if (scrollTop - currentScroll <= heightToHideFrom) {
+      setArrowUpOpacity((scrollTop - currentScroll) / 1000);
+    } else {
+      setArrowDownOpacity(1);
+      setArrowUpOpacity(1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
+
   const { css, renderer, theme } = useFela();
   const fontFamily = renderer.renderFont("Botanika Mono Regular", [fontFace]);
   return (
     <div className={css(appStyle({ fontFamily, theme }))}>
       <Header />
-      <Aside />
+      <Aside
+        arrowDownOpacity={arrowDownOpacity}
+        arrowUpOpacity={arrowUpOpacity}
+      />
       <Main />
       <Footer />
     </div>
