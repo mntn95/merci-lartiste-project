@@ -4,14 +4,14 @@ import Ticker from "react-ticker";
 
 import { pricesTranslation } from "../intl";
 
-const pricesTicker = () => ({
+const pricesTicker = {
   padding: "1.4rem 3rem",
-});
+};
 
-const pricesTickerMessage = () => ({
+const pricesTickerMessage = {
   fontSize: "38px",
   textTransform: "uppercase",
-});
+};
 
 const MovingText = ({ direction }) => {
   const { css } = useFela();
