@@ -14,7 +14,7 @@ const pricesTranslation = {
   bottomFirstItem: "Coupe",
   bottomFirstPrice: "20€",
   bottomSecondItem: "Barbe",
-  bottomSecondPrice: "90€",
+  bottomSecondPrice: "20€",
 };
 
 export { appointmentTranslation, pricesTranslation };

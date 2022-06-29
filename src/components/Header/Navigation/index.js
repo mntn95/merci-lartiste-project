@@ -10,10 +10,46 @@ const headerNavMenu = {
   gap: "5rem",
   fontSize: "20px",
   position: "relative",
+  "& .nav": {
+    "&-subMenu": {
+      backgroundColor: "inherit",
+      "&:hover": {
+        backgroundColor: "inherit",
+        textDecoration: "underline",
+      },
+    },
+  },
 };
 
+const navItem = ({ theme }) => ({
+  color: `${theme.textColor}!important`,
+  margin: "1rem",
+  "&:hover": {
+    textDecoration: "underline",
+  },
+  "> div": {
+    border: `1px solid ${theme.textColor}`,
+    borderRadius: "1px",
+    backgroundColor: "inherit",
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
+  "> a": {
+    color: `${theme.textColor}!important`,
+  },
+});
+
+const navSubItem = ({ theme }) => ({
+  color: `${theme.textColor}!important`,
+  "&:hover": {
+    backgroundColor: "inherit",
+    textDecoration: "underline",
+  },
+});
+
 const Navigation = () => {
-  const { css } = useFela();
+  const { css, theme } = useFela();
   return (
     <div className={css(headerNavMenu)}>
       <div style={{ position: "absolute", right: 0 }}>
@@ -21,14 +57,27 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">{navTranslation.home}</Nav.Link>
-              <NavDropdown title="A propos" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="#prices">
+              <Nav.Link className={css(navItem)} href="#home">
+                {navTranslation.home}
+              </Nav.Link>
+              <NavDropdown
+                className={css(navItem({ theme }))}
+                title="A propos"
+                id="collapsible-nav-dropdown"
+              >
+                <NavDropdown.Item
+                  className={css(navSubItem({ theme }))}
+                  href="#prices"
+                >
                   {navTranslation.pricesCta}
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#appointment">{navTranslation.booking}</Nav.Link>
-              <Nav.Link href="#contact">{navTranslation.contact}</Nav.Link>
+              <Nav.Link className={css(navItem)} href="#appointment">
+                {navTranslation.booking}
+              </Nav.Link>
+              <Nav.Link className={css(navItem)} href="#contact">
+                {navTranslation.contact}
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

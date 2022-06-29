@@ -1,4 +1,5 @@
 import { useFela } from "react-fela";
+import { Button } from "react-bootstrap";
 
 import Navigation from "./Navigation";
 import { bottomNavTranslation } from "./intl";
@@ -25,25 +26,39 @@ const header = {
     clear: "both",
     width: "226px",
     height: "221px",
-    marginLeft: "auto",
-    marginRight: "4rem",
-    marginTop: "5rem",
+    "@media (max-width: 1023px)": {
+      margin: "2rem auto 2rem 4rem",
+    },
+    "@media (min-width: 1024px)": {
+      margin: "5rem 4rem 2rem auto",
+    },
   },
   "& .header-head": {
-    width: "47%",
+    "@media (max-width: 1023px)": {
+      width: "90%",
+    },
+    "@media (min-width: 1024px)": {
+      width: "47%",
+    },
     margin: "auto",
+    fontSize: "24px",
     "&--title": {
       fontWeight: "normal",
-      fontSize: "30px",
+      fontSize: "40px",
       textTransform: "uppercase",
     },
     "&--cta": {
+      fontSize: "20px",
       color: "#755018",
       border: ".8px solid #755018",
+      borderRadius: "1px",
       textTransform: "uppercase",
       backgroundColor: "inherit",
-      padding: ".4rem .7rem",
+      padding: ".3rem .7rem .1rem .7rem",
       marginTop: "3rem",
+      "&:hover": {
+        textDecoration: "underline",
+      },
     },
   },
 };
@@ -53,12 +68,10 @@ const Header = () => {
   return (
     <div className={css(header)}>
       <div className="header-nav">
-        {/* Brand Logo */}
         <div className="header-nav--logo" />
         <Navigation />
       </div>
       <div>
-        {/* Ellipsis Logo */}
         <div className="header-ellipsis" />
       </div>
       <div className="header-head">
@@ -68,9 +81,9 @@ const Header = () => {
           <br />
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
-        <button className="header-head--cta">
+        <Button href="#appointment" className="header-head--cta">
           {bottomNavTranslation.bookingCta}
-        </button>
+        </Button>
       </div>
     </div>
   );

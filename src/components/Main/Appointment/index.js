@@ -8,6 +8,15 @@ const appointment = {
       minHeight: "30vh",
     },
     "&--span": {
+      "@media (max-width: 1023px)": {
+        marginLeft: "auto",
+        marginRight: "4rem",
+        width: "60%",
+      },
+      "@media (min-width: 1024px)": {
+        margin: "auto",
+        width: "40%",
+      },
       margin: "auto",
       width: "40%",
       "&-title": {
@@ -37,7 +46,7 @@ const Appointment = () => {
         <div className="appointment--space" />
         <div className="appointment--span">
           <div className="appointment--span-title">
-            <h3>{appointmentTranslation.title}</h3>
+            <span>{appointmentTranslation.title}</span>
           </div>
           <div className="appointment--span-desc">
             {appointmentTranslation.desc_one}
