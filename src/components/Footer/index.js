@@ -52,14 +52,18 @@ const Footer = () => {
     <footer id="contact">
       <Container fluid className={css(footer({ rotate }))}>
         <Row className="footer-row">
-          <Col xs={10}>
+          <Col className="footer-row--column" xs={10}>
             <Row>
-              <Col>{footerTranslation.street}</Col>
-              <Col xs={7}>{footerTranslation.weekDays}</Col>
+              <Col md={6}>{footerTranslation.street}</Col>
+              <Col xs={7} md={6}>
+                {footerTranslation.weekDays}
+              </Col>
             </Row>
             <Row>
-              <Col>{footerTranslation.postalCode}</Col>
-              <Col xs={7}>{footerTranslation.workHours}</Col>
+              <Col md={6}>{footerTranslation.postalCode}</Col>
+              <Col xs={7} md={6}>
+                {footerTranslation.workHours}
+              </Col>
             </Row>
           </Col>
           <Col xs={2}>
@@ -70,7 +74,7 @@ const Footer = () => {
           </Col>
         </Row>
         <Row>
-          <Col xs={4}>
+          <Col>
             <Row>
               <Col>{footerTranslation.phoneNumber}</Col>
             </Row>
@@ -78,7 +82,7 @@ const Footer = () => {
               <Col>{footerTranslation.mailAddress}</Col>
             </Row>
           </Col>
-          <Col xs={8}>
+          <Col style={{ display: "none" }} xs={8}>
             <Row>&nbsp;</Row> {/* ¯\_(ツ)_/¯ */}
             <Row className="justify-content-end ">
               <Col xs="auto">{navTranslation.home} |</Col>
