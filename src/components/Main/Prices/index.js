@@ -40,7 +40,7 @@ const Prices = () => {
         <div className="prices-image" />
         <div className="prices-top--lines">
           <MovingText />
-          <PricesTable marginBottom="420px" position="top" />
+          <PricesTable position="top" />
         </div>
         <div className="prices-bottom--lines">
           <PricesTable position="bottom" />

@@ -6,9 +6,21 @@ import { pricesTranslation } from "../intl";
 
 const pricesTicker = {
   padding: "1.4rem 3rem",
+  "@media (max-width: 1023px)": {
+    padding: "0.5rem 2rem",
+  },
+  "@media (min-width: 1024px)": {
+    padding: "1.4rem 3rem",
+  },
 };
 
 const pricesTickerMessage = {
+  "@media (max-width: 1023px)": {
+    fontSize: "25px",
+  },
+  "@media (min-width: 1024px)": {
+    fontSize: "38px",
+  },
   fontSize: "38px",
   textTransform: "uppercase",
 };
@@ -17,7 +29,7 @@ const MovingText = ({ direction }) => {
   const { css } = useFela();
 
   return (
-    <Ticker height={80} direction={direction}>
+    <Ticker direction={direction}>
       {({ index }) => (
         <div className={css(pricesTicker)}>
           <h3 className={css(pricesTickerMessage)}>
