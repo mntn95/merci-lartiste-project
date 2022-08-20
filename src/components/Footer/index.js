@@ -13,6 +13,12 @@ const footer = ({ rotate }) => ({
     "&-row": {
       marginBottom: "6rem",
       fontSize: "24px",
+      "&--column": {
+        display: "flex",
+        "@media (max-width: 767px)": {
+          flexDirection: "column",
+        },
+      },
       "&--ellipsis": {
         animation: `${rotate} 10s infinite linear`,
         backgroundImage: `url(${FooterEllipsis})`,
@@ -53,18 +59,18 @@ const Footer = () => {
       <Container fluid className={css(footer({ rotate }))}>
         <Row className="footer-row">
           <Col className="footer-row--column" xs={10}>
-            <Row>
-              <Col md={6}>{footerTranslation.street}</Col>
-              <Col xs={7} md={6}>
+            <Col>
+              <Row md={6}>{footerTranslation.street}</Row>
+              <Row md={6}>{footerTranslation.postalCode}</Row>
+            </Col>
+            <Col>
+              <Row xs={7} md={6}>
                 {footerTranslation.weekDays}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={6}>{footerTranslation.postalCode}</Col>
-              <Col xs={7} md={6}>
+              </Row>
+              <Row xs={7} md={6}>
                 {footerTranslation.workHours}
-              </Col>
-            </Row>
+              </Row>
+            </Col>
           </Col>
           <Col xs={2}>
             <div style={{ position: "relative" }}>

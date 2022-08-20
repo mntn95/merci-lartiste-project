@@ -52,8 +52,12 @@ const Navigation = () => {
   const { css, theme } = useFela();
   return (
     <div className={css(headerNavMenu)}>
-      <div style={{ position: "absolute", right: 0 }}>
-        <Navbar collapseOnSelect expand="lg">
+      <div style={{ position: "absolute", right: 0, textAlign: "right" }}>
+        <Navbar
+          collapseOnSelect
+          expand="lg"
+          style={{ justifyContent: "flex-end" }}
+        >
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

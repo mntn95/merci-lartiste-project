@@ -3,6 +3,9 @@ import { animateScroll as scroll } from "react-scroll";
 import ArrowPicture from "../../assets/img/mla_arrow_2_30x58.png";
 
 const arrowStyle = ({ ArrowPicture, arrowOpacity }) => ({
+  "@media (max-width: 767px)": {
+    display: "none",
+  },
   opacity: arrowOpacity,
   cursor: "pointer",
   top: "10rem",
