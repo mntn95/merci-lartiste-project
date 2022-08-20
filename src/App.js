@@ -6,7 +6,9 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 import mainBackground from "./assets/img/mla_background_accueil_1920x1080.png";
-import fontFace from "./assets/Botanika_Mono/Botanika Mono Regular.otf";
+/* import fontFace from "./assets/Botanika_Mono/Botanika Mono Regular.otf";
+ */
+import fontFace from "./assets/Botanika_Mono/webfontkit-20220216-071424/botanika_mono_regular-webfont.woff2";
 
 const appStyle = ({ fontFamily, theme }) => ({
   overflowY: "auto",
