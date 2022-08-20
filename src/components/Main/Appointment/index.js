@@ -8,7 +8,12 @@ const appointment = {
       minHeight: "30vh",
     },
     "&--span": {
-      "@media (max-width: 1023px)": {
+      "@media (max-width: 767px)": {
+        marginRight: "auto",
+        marginLeft: "5rem",
+        width: "90%",
+      },
+      "@media (min-width: 768px) and (max-width: 1023px)": {
         marginLeft: "auto",
         marginRight: "4rem",
         width: "60%",
@@ -20,11 +25,18 @@ const appointment = {
       margin: "auto",
       width: "40%",
       "&-title": {
+        "@media (max-width: 767px)": {
+          fontWeight: "bold",
+          fontSize: "28px",
+        },
         fontWeight: "normal",
         fontSize: "30px",
         textTransform: "uppercase",
       },
       "&-desc": {
+        "@media (max-width: 767px)": {
+          fontSize: "16px",
+        },
         fontSize: "22px",
         "&_link": {
           display: "block",

@@ -15,6 +15,10 @@ const header = {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       clear: "both",
+      "@media (max-width: 767px)": {
+        width: "200px",
+        height: "60px",
+      },
       width: "300px",
       height: "90px",
     },
@@ -26,7 +30,10 @@ const header = {
     clear: "both",
     width: "226px",
     height: "221px",
-    "@media (max-width: 1023px)": {
+    "@media (max-width: 767px)": {
+      margin: "10rem auto 2rem -4.5rem",
+    },
+    "@media (min-width: 768px) and (max-width: 1023px)": {
       margin: "2rem auto 2rem 4rem",
     },
     "@media (min-width: 1024px)": {
@@ -43,12 +50,26 @@ const header = {
     margin: "auto",
     fontSize: "24px",
     "&--title": {
+      "@media (max-width: 767px)": {
+        fontWeight: "bold",
+        fontSize: "30px",
+      },
       fontWeight: "normal",
       fontSize: "40px",
       textTransform: "uppercase",
     },
+    "&--text": {
+      "@media (max-width: 767px)": {
+        fontSize: "18px",
+      },
+    },
+    "&--separator": {
+      "@media (max-width: 767px)": {
+        display: "none",
+      },
+    },
     "&--cta": {
-      fontSize: "20px",
+      fontSize: "16px",
       color: "#755018",
       border: ".8px solid #755018",
       borderRadius: "1px",
@@ -56,6 +77,9 @@ const header = {
       backgroundColor: "inherit",
       padding: ".3rem .7rem .1rem .7rem",
       marginTop: "3rem",
+      "@media (max-width: 767px)": {
+        marginTop: "1rem",
+      },
       "&:hover": {
         textDecoration: "underline",
       },
@@ -76,9 +100,9 @@ const Header = () => {
       </div>
       <div className="header-head">
         <h1 className="header-head--title">{bottomNavTranslation.title}</h1>
-        <div>
+        <div className="header-head--text">
           <span>{bottomNavTranslation.firstSubtitle}</span>
-          <br />
+          <br className="header-head--separator" />
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
         <Button href="#appointment" className="header-head--cta">
