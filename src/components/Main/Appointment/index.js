@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { appointmentTranslation } from "../intl";
 
@@ -5,7 +6,7 @@ const appointment = {
   paddingBottom: "8rem",
   "& .appointment": {
     "&--space": {
-      minHeight: "30vh",
+      minHeight: "300px",
     },
     "&--span": {
       "@media (max-width: 767px)": {
@@ -49,11 +50,16 @@ const appointment = {
   },
 };
 
-const Appointment = () => {
+const Appointment = ({ setAppointmentRef }) => {
   const { css } = useFela();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setAppointmentRef(ref);
+  }, [setAppointmentRef]);
 
   return (
-    <section id="appointment">
+    <section id="appointment" ref={ref}>
       <div className={css(appointment)}>
         <div className="appointment--space" />
         <div className="appointment--span">

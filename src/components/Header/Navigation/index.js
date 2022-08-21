@@ -42,14 +42,16 @@ const navItem = ({ theme }) => ({
 
 const navSubItem = ({ theme }) => ({
   color: `${theme.textColor}!important`,
+  padding: "0 20px!important",
   "&:hover": {
     backgroundColor: "inherit",
     textDecoration: "underline",
   },
 });
 
-const Navigation = () => {
+const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
   const { css, theme } = useFela();
+
   return (
     <div className={css(headerNavMenu)}>
       <div style={{ position: "absolute", right: 0, textAlign: "right" }}>
@@ -61,7 +63,7 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link className={css(navItem)} href="#home">
+              <Nav.Link className={css(navItem)} eventKey="1" href="#home">
                 {navTranslation.home}
               </Nav.Link>
               <NavDropdown
@@ -69,17 +71,43 @@ const Navigation = () => {
                 title="A propos"
                 id="collapsible-nav-dropdown"
               >
-                <NavDropdown.Item
+                <Nav.Link
                   className={css(navSubItem({ theme }))}
-                  href="#prices"
+                  onClick={() =>
+                    appointmentRef.current.scrollIntoView({
+                      behavior: "smooth",
+                      block: "nearest",
+                      inline: "start",
+                    })
+                  }
                 >
                   {navTranslation.pricesCta}
-                </NavDropdown.Item>
+                </Nav.Link>
               </NavDropdown>
-              <Nav.Link className={css(navItem)} href="#appointment">
+              <Nav.Link
+                className={css(navItem)}
+                eventKey="3"
+                onClick={() =>
+                  pricesRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "start",
+                  })
+                }
+              >
                 {navTranslation.booking}
               </Nav.Link>
-              <Nav.Link className={css(navItem)} href="#contact">
+              <Nav.Link
+                className={css(navItem)}
+                eventKey="4"
+                onClick={() =>
+                  contactRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "start",
+                  })
+                }
+              >
                 {navTranslation.contact}
               </Nav.Link>
             </Nav>

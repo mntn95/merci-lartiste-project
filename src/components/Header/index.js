@@ -87,13 +87,17 @@ const header = {
   },
 };
 
-const Header = () => {
+const Header = ({ appointmentRef, contactRef, pricesRef }) => {
   const { css } = useFela();
   return (
     <div className={css(header)}>
       <div className="header-nav">
         <div className="header-nav--logo" />
-        <Navigation />
+        <Navigation
+          appointmentRef={appointmentRef}
+          pricesRef={pricesRef}
+          contactRef={contactRef}
+        />
       </div>
       <div>
         <div className="header-ellipsis" />

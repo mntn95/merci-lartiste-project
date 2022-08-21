@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { Col, Container, Row } from "react-bootstrap";
 import { footerTranslation } from "./intl";
@@ -46,16 +47,21 @@ const footer = ({ rotate }) => ({
   },
 });
 
-const Footer = () => {
+const Footer = ({ setContactRef }) => {
   const { css, renderer } = useFela();
+  const ref = useRef(null);
   const keyframe = (props) => ({
     "0%": { transform: "rotate(0deg)" },
     "100%": { transform: "rotate(360deg)" },
   });
   const rotate = renderer.renderKeyframe(keyframe, {});
 
+  useEffect(() => {
+    setContactRef(ref);
+  }, [setContactRef]);
+
   return (
-    <footer id="contact">
+    <footer id="contact" ref={ref}>
       <Container fluid className={css(footer({ rotate }))}>
         <Row className="footer-row">
           <Col className="footer-row--column" xs={10}>
