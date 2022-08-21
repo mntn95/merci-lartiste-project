@@ -20,7 +20,7 @@ const main = {
   },
 };
 
-const Main = () => {
+const Main = ({ setAppointmentRef, setPricesRef }) => {
   const { css } = useFela();
 
   return (
@@ -31,8 +31,8 @@ const Main = () => {
           Your browser does not support the video tag.
         </video>
       </div>
-      <Appointment />
-      <Prices />
+      <Appointment setAppointmentRef={setAppointmentRef} />
+      <Prices setPricesRef={setPricesRef} />
     </main>
   );
 };

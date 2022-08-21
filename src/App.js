@@ -13,13 +13,17 @@ import fontFace from "./assets/Botanika_Mono/webfontkit-20220216-071424/botanika
 const appStyle = ({ fontFamily, theme }) => ({
   overflowY: "auto",
   overflow: "hidden",
-  minHeight: "100vh",
+  minHeight: "900px",
   backgroundImage: `url(${mainBackground})`,
   color: theme.textColor,
   fontFamily,
 });
 
 const App = () => {
+  const [appointmentRef, setAppointmentRef] = useState(null);
+  const [contactRef, setContactRef] = useState(null);
+  const [pricesRef, setPricesRef] = useState(null);
+
   const [arrowDownOpacity, setArrowDownOpacity] = useState(1);
   const [arrowUpOpacity, setArrowUpOpacity] = useState(0);
 
@@ -28,10 +32,6 @@ const App = () => {
     let currentScroll =
       document.body.scrollHeight - window.innerHeight - window.pageYOffset;
     let scrollTop = document.body.scrollHeight - window.innerHeight;
-    console.log({
-      currentScroll,
-      scrollTop,
-    });
     if (currentScroll <= heightToHideFrom) {
       setArrowDownOpacity(currentScroll / 1000);
     } else if (scrollTop - currentScroll <= heightToHideFrom) {
@@ -51,13 +51,17 @@ const App = () => {
   const fontFamily = renderer.renderFont("Botanika Mono Regular", [fontFace]);
   return (
     <div className={css(appStyle({ fontFamily, theme }))}>
-      <Header />
+      <Header
+        appointmentRef={appointmentRef}
+        contactRef={contactRef}
+        pricesRef={pricesRef}
+      />
       <Aside
         arrowDownOpacity={arrowDownOpacity}
         arrowUpOpacity={arrowUpOpacity}
       />
-      <Main />
-      <Footer />
+      <Main setAppointmentRef={setAppointmentRef} setPricesRef={setPricesRef} />
+      <Footer setContactRef={setContactRef} />
     </div>
   );
 };

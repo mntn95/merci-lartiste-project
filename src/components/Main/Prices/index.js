@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
 import MovingText from "./MovingText";
@@ -16,7 +17,7 @@ const prices = {
       backgroundRepeat: "no-repeat",
       clear: "both",
       width: "100%",
-      minHeight: "133vh",
+      minHeight: "900px",
     },
     "&-top--lines": {
       position: "absolute",
@@ -31,11 +32,16 @@ const prices = {
   },
 };
 
-const Prices = () => {
+const Prices = ({ setPricesRef }) => {
   const { css } = useFela();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setPricesRef(ref);
+  }, [setPricesRef]);
 
   return (
-    <section id="prices">
+    <section id="prices" ref={ref}>
       <div className={css(prices)}>
         <div className="prices-image" />
         <div className="prices-top--lines">
