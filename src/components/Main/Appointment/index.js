@@ -10,9 +10,8 @@ const appointment = {
     },
     "&--span": {
       "@media (max-width: 767px)": {
-        marginRight: "auto",
-        marginLeft: "5rem",
-        width: "90%",
+        margin: "auto",
+        width: "70%",
       },
       "@media (min-width: 768px) and (max-width: 1023px)": {
         marginLeft: "auto",
@@ -28,7 +27,7 @@ const appointment = {
       "&-title": {
         "@media (max-width: 767px)": {
           fontWeight: "bold",
-          fontSize: "28px",
+          fontSize: "24px",
         },
         fontWeight: "normal",
         fontSize: "30px",
@@ -36,7 +35,7 @@ const appointment = {
       },
       "&-desc": {
         "@media (max-width: 767px)": {
-          fontSize: "16px",
+          fontSize: "14px",
         },
         fontSize: "22px",
         "&_link": {
@@ -67,9 +66,7 @@ const Appointment = ({ setAppointmentRef }) => {
             <span>{appointmentTranslation.title}</span>
           </div>
           <div className="appointment--span-desc">
-            {appointmentTranslation.desc_one}
-            <br />
-            {appointmentTranslation.desc_two}
+            {appointmentTranslation.desc}
             <br />
             <a
               className="appointment--span-desc_link"

@@ -30,9 +30,10 @@ const pricesTableItemLeft = ({ position }) => ({
       {
         condition: position === "bottom",
         style: {
-          borderRight: "1px solid white",
+          "@media (min-width: 768px)": {
+            borderRight: "1px solid white",
+          },
           width: "50%",
-          paddingLeft: "6rem",
         },
       },
     ],

@@ -89,6 +89,7 @@ const header = {
 
 const Header = ({ appointmentRef, contactRef, pricesRef }) => {
   const { css } = useFela();
+
   return (
     <div className={css(header)}>
       <div className="header-nav">
@@ -109,7 +110,16 @@ const Header = ({ appointmentRef, contactRef, pricesRef }) => {
           <br className="header-head--separator" />
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
-        <Button href="#appointment" className="header-head--cta">
+        <Button
+          onClick={() =>
+            appointmentRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "start",
+            })
+          }
+          className="header-head--cta"
+        >
           {bottomNavTranslation.bookingCta}
         </Button>
       </div>

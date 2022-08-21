@@ -12,6 +12,9 @@ const footer = ({ rotate }) => ({
   fontSize: "24px",
   "& .footer": {
     "&-row": {
+      "@media (max-width: 767px)": {
+        padding: "1rem",
+      },
       marginBottom: "6rem",
       fontSize: "24px",
       "&--column": {
@@ -64,7 +67,7 @@ const Footer = ({ setContactRef }) => {
     <footer id="contact" ref={ref}>
       <Container fluid className={css(footer({ rotate }))}>
         <Row className="footer-row">
-          <Col className="footer-row--column" xs={10}>
+          <Col className="footer-row--column first" xs={10}>
             <Col>
               <Row md={6}>{footerTranslation.street}</Row>
               <Row md={6}>{footerTranslation.postalCode}</Row>
@@ -85,7 +88,7 @@ const Footer = ({ setContactRef }) => {
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className="footer-row">
           <Col>
             <Row>
               <Col>{footerTranslation.phoneNumber}</Col>
