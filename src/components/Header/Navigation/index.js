@@ -74,7 +74,7 @@ const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
                 <Nav.Link
                   className={css(navSubItem({ theme }))}
                   onClick={() =>
-                    appointmentRef.current.scrollIntoView({
+                    pricesRef.current.scrollIntoView({
                       behavior: "smooth",
                       block: "nearest",
                       inline: "start",
@@ -88,7 +88,7 @@ const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
                 className={css(navItem)}
                 eventKey="3"
                 onClick={() =>
-                  pricesRef.current.scrollIntoView({
+                  appointmentRef.current.scrollIntoView({
                     behavior: "smooth",
                     block: "nearest",
                     inline: "start",

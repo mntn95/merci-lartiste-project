@@ -15,7 +15,10 @@ const pricesTicker = {
 };
 
 const pricesTickerMessage = {
-  "@media (max-width: 1023px)": {
+  "@media (max-width: 767px)": {
+    fontSize: "20px",
+  },
+  "@media (min-width: 768px) and (max-width: 1023px)": {
     fontSize: "25px",
   },
   "@media (min-width: 1024px)": {

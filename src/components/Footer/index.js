@@ -9,16 +9,24 @@ import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
 const footer = ({ rotate }) => ({
   marginBottom: "1rem",
   marginTop: "2rem",
-  fontSize: "24px",
+  paddingLeft: "2rem",
+  fontSize: "20px",
   "& .footer": {
     "&-row": {
-      "@media (max-width: 767px)": {
-        padding: "1rem",
+      "@media (min-width: 768px)": {
+        marginBottom: "2rem",
       },
-      marginBottom: "6rem",
-      fontSize: "24px",
+      fontSize: "20px",
       "&--column": {
         display: "flex",
+        "&.first": {
+          "@media (max-width: 767px)": {
+            marginTop: "10rem",
+            "& > .col": {
+              marginBottom: "2rem",
+            },
+          },
+        },
         "@media (max-width: 767px)": {
           flexDirection: "column",
         },
@@ -84,7 +92,13 @@ const Footer = ({ setContactRef }) => {
           <Col xs={2}>
             <div style={{ position: "relative" }}>
               <div className="footer-row--ellipsis"></div>
-              <div className="footer-row--insta-logo" />
+              <a
+                href="https://www.instagram.com/odium_vision/?hl=fr"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="footer-row--insta-logo" />
+              </a>
             </div>
           </Col>
         </Row>

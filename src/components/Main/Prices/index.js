@@ -21,9 +21,13 @@ const prices = {
         backgroundSize: "cover",
         backgroundPosition: "center",
       },
-      "@media (min-width: 768px)": {
+      "@media (min-width: 768px) and (max-width: 1639px)": {
         backgroundSize: "100% auto",
         minHeight: "900px",
+      },
+      "@media (min-width: 1640px)": {
+        backgroundSize: "100% auto",
+        minHeight: "1200px",
       },
     },
     "&-top--lines": {

@@ -50,7 +50,11 @@ const pricesTableItemLeft = ({ position }) => ({
 });
 
 const pricesTableItemRight = ({ position }) => ({
-  "@media (max-width: 1023px)": {
+  "@media (max-width: 767px)": {
+    padding: "0.5rem",
+    fontSize: "20px",
+  },
+  "@media (min-width: 768px) and (max-width: 1023px)": {
     padding: "0.5rem",
     fontSize: "20px",
     extend: {
