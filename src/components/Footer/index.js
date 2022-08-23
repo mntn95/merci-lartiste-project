@@ -9,13 +9,24 @@ import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
 const footer = ({ rotate }) => ({
   marginBottom: "1rem",
   marginTop: "2rem",
-  fontSize: "24px",
+  paddingLeft: "2rem",
+  fontSize: "20px",
   "& .footer": {
     "&-row": {
-      marginBottom: "6rem",
-      fontSize: "24px",
+      "@media (min-width: 768px)": {
+        marginBottom: "2rem",
+      },
+      fontSize: "20px",
       "&--column": {
         display: "flex",
+        "&.first": {
+          "@media (max-width: 767px)": {
+            marginTop: "10rem",
+            "& > .col": {
+              marginBottom: "2rem",
+            },
+          },
+        },
         "@media (max-width: 767px)": {
           flexDirection: "column",
         },
@@ -64,7 +75,7 @@ const Footer = ({ setContactRef }) => {
     <footer id="contact" ref={ref}>
       <Container fluid className={css(footer({ rotate }))}>
         <Row className="footer-row">
-          <Col className="footer-row--column" xs={10}>
+          <Col className="footer-row--column first" xs={10}>
             <Col>
               <Row md={6}>{footerTranslation.street}</Row>
               <Row md={6}>{footerTranslation.postalCode}</Row>
@@ -81,11 +92,17 @@ const Footer = ({ setContactRef }) => {
           <Col xs={2}>
             <div style={{ position: "relative" }}>
               <div className="footer-row--ellipsis"></div>
-              <div className="footer-row--insta-logo" />
+              <a
+                href="https://www.instagram.com/odium_vision/?hl=fr"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="footer-row--insta-logo" />
+              </a>
             </div>
           </Col>
         </Row>
-        <Row>
+        <Row className="footer-row">
           <Col>
             <Row>
               <Col>{footerTranslation.phoneNumber}</Col>
