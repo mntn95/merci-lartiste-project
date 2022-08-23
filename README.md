@@ -1,6 +1,6 @@
 # Merci L'Artiste Project
 
-Barber Shop website with appointment scheduler made with React.js and Node.js
+Barber Shop website with appointment scheduler made with React.js
 
 ## Available Scripts
 
