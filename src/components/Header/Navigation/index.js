@@ -47,8 +47,8 @@ const navItem = ({ theme }) => ({
 const navSubItem = ({ theme }) => ({
   color: `${theme.textColor}!important`,
   padding: "0 20px!important",
+  backgroundColor: "inherit",
   "&:hover": {
-    backgroundColor: "inherit",
     textDecoration: "underline",
   },
 });
