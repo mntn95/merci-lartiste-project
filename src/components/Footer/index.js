@@ -11,12 +11,18 @@ const footer = ({ rotate }) => ({
   marginTop: "2rem",
   paddingLeft: "2rem",
   fontSize: "20px",
+  "@media (max-width: 767px)": {
+    fontSize: "14px",
+  },
+  "@media (min-width: 768px)": {
+    fontSize: "18px",
+  },
+
   "& .footer": {
     "&-row": {
       "@media (min-width: 768px)": {
         marginBottom: "2rem",
       },
-      fontSize: "20px",
       "&--column": {
         display: "flex",
         "&.first": {

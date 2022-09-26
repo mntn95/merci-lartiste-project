@@ -11,6 +11,16 @@ const prices = {
   height: "0",
   padding: "0 0 56.25%",
   "& .prices": {
+    "&-fade": {
+      backgroundColor: "black",
+      width: "100%",
+      "@media (max-width: 767px)": {
+        minHeight: "400px",
+      },
+      height: "100%",
+      position: "absolute",
+      opacity: ".5",
+    },
     "&-image": {
       backgroundImage: `url(${PricePicture})`,
       backgroundRepeat: "no-repeat",
@@ -60,6 +70,7 @@ const Prices = ({ setPricesRef }) => {
   return (
     <section style={{ minHeight: "400px" }} id="prices" ref={ref}>
       <div className={css(prices)}>
+        <div className="prices-fade" />
         <div className="prices-image" />
         <div className="prices-top--lines">
           <MovingText />

@@ -28,16 +28,18 @@ const header = {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     clear: "both",
-    width: "226px",
-    height: "221px",
+    width: "208px",
+    height: "200px",
     "@media (max-width: 767px)": {
-      margin: "10rem auto 2rem -4.5rem",
+      margin: "10rem auto 1.6rem -4.5rem",
     },
     "@media (min-width: 768px) and (max-width: 1023px)": {
-      margin: "2rem auto 2rem 4rem",
+      margin: "2rem auto 1.6rem 4rem",
     },
     "@media (min-width: 1024px)": {
-      margin: "5rem 4rem 2rem auto",
+      margin: "5rem 10rem 2rem auto",
+      height: "221px",
+      width: "217px",
     },
   },
   "& .header-head": {
@@ -50,8 +52,7 @@ const header = {
     margin: "auto",
     fontSize: "24px",
     "&--title": {
-      "@media (max-width: 767px)": {
-        fontWeight: "bold",
+      "@media (max-width: 1023px)": {
         fontSize: "30px",
       },
       fontWeight: "normal",
@@ -60,6 +61,9 @@ const header = {
     },
     "&--text": {
       "@media (max-width: 767px)": {
+        fontSize: "14px",
+      },
+      "@media (min-width: 768px)": {
         fontSize: "18px",
       },
     },
