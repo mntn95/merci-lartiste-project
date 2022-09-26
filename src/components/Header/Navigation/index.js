@@ -21,6 +21,10 @@ const headerNavMenu = {
   },
 };
 
+const headerNavToggle = {
+  border: "none",
+};
+
 const navItem = ({ theme }) => ({
   color: `${theme.textColor}!important`,
   margin: "1rem",
@@ -43,8 +47,8 @@ const navItem = ({ theme }) => ({
 const navSubItem = ({ theme }) => ({
   color: `${theme.textColor}!important`,
   padding: "0 20px!important",
+  backgroundColor: "inherit",
   "&:hover": {
-    backgroundColor: "inherit",
     textDecoration: "underline",
   },
 });
@@ -60,12 +64,12 @@ const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
           expand="lg"
           style={{ justifyContent: "flex-end" }}
         >
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle
+            className={css(headerNavToggle)}
+            aria-controls="responsive-navbar-nav"
+          />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link className={css(navItem)} eventKey="1" href="#home">
-                {navTranslation.home}
-              </Nav.Link>
               <NavDropdown
                 className={css(navItem({ theme }))}
                 title="A propos"

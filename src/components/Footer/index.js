@@ -2,21 +2,27 @@ import { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { Col, Container, Row } from "react-bootstrap";
 import { footerTranslation } from "./intl";
-import { navTranslation } from "../Header/intl";
 import FooterEllipsis from "../../assets/img/mla_ellipse_contact_593x593.png";
 import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
 
 const footer = ({ rotate }) => ({
   marginBottom: "1rem",
   marginTop: "2rem",
-  paddingLeft: "2rem",
   fontSize: "20px",
+  "@media (max-width: 767px)": {
+    fontSize: "14px",
+  },
+  "@media (min-width: 768px)": {
+    fontSize: "18px",
+  },
   "& .footer": {
     "&-row": {
+      "&.first": {
+        marginLeft: "3px",
+      },
       "@media (min-width: 768px)": {
         marginBottom: "2rem",
       },
-      fontSize: "20px",
       "&--column": {
         display: "flex",
         "&.first": {
@@ -55,10 +61,28 @@ const footer = ({ rotate }) => ({
         height: "75px",
       },
     },
+    "&-mobile-mentions": {
+      cursor: "pointer",
+      "&:hover": {
+        textDecoration: "underline",
+      },
+      "@media (min-width: 768px)": {
+        display: "none",
+      },
+    },
+    "&-desktop-mentions": {
+      cursor: "pointer",
+      "&:hover": {
+        textDecoration: "underline",
+      },
+      "@media (max-width: 767px)": {
+        display: "none",
+      },
+    },
   },
 });
 
-const Footer = ({ setContactRef }) => {
+const Footer = ({ setContactRef, showModal }) => {
   const { css, renderer } = useFela();
   const ref = useRef(null);
   const keyframe = (props) => ({
@@ -74,7 +98,7 @@ const Footer = ({ setContactRef }) => {
   return (
     <footer id="contact" ref={ref}>
       <Container fluid className={css(footer({ rotate }))}>
-        <Row className="footer-row">
+        <Row className="footer-row first">
           <Col className="footer-row--column first" xs={10}>
             <Col>
               <Row md={6}>{footerTranslation.street}</Row>
@@ -93,7 +117,7 @@ const Footer = ({ setContactRef }) => {
             <div style={{ position: "relative" }}>
               <div className="footer-row--ellipsis"></div>
               <a
-                href="https://www.instagram.com/odium_vision/?hl=fr"
+                href="https://www.instagram.com/lartistebarbier/?hl=fr"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -107,17 +131,17 @@ const Footer = ({ setContactRef }) => {
             <Row>
               <Col>{footerTranslation.phoneNumber}</Col>
             </Row>
-            <Row>
+            <Row style={{ width: "83%" }}>
               <Col>{footerTranslation.mailAddress}</Col>
+              <Col
+                onClick={() => showModal(true)}
+                className="footer-desktop-mentions"
+              >
+                {footerTranslation.legalMentions}
+              </Col>
             </Row>
-          </Col>
-          <Col style={{ display: "none" }} xs={8}>
-            <Row>&nbsp;</Row> {/* ¯\_(ツ)_/¯ */}
-            <Row className="justify-content-end ">
-              <Col xs="auto">{navTranslation.home} |</Col>
-              <Col xs="auto">{navTranslation.about} |</Col>
-              <Col xs="auto">{navTranslation.pricesCta} |</Col>
-              <Col xs="auto">{navTranslation.booking}</Col>
+            <Row className="footer-mobile-mentions">
+              <Col>{footerTranslation.legalMentions}</Col>
             </Row>
           </Col>
         </Row>
