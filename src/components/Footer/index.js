@@ -141,7 +141,9 @@ const Footer = ({ setContactRef, showModal }) => {
               </Col>
             </Row>
             <Row className="footer-mobile-mentions">
-              <Col>{footerTranslation.legalMentions}</Col>
+              <Col onClick={() => showModal(true)}>
+                {footerTranslation.legalMentions}
+              </Col>
             </Row>
           </Col>
         </Row>
