@@ -41,6 +41,7 @@ const modalHeader = {
 };
 
 const modalHeaderTitle = {
+  textAlign: "center",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -49,6 +50,7 @@ const modalHeaderTitle = {
 };
 
 const modalContent = {
+  fontSize: "14px",
   display: "flex",
   alignItems: "left",
   justifyContent: "center",
