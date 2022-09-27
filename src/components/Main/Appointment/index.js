@@ -33,8 +33,9 @@ const appointment = {
         textTransform: "uppercase",
       },
       "&-desc": {
-        "@media (max-width: 1023px)": {
-          fontSize: "18px",
+        fontSize: "18px",
+        "@media (min-width: 1441px)": {
+          width: "60%",
         },
         "&_link": {
           display: "block",
