@@ -90,7 +90,7 @@ const Appointment = ({ setAppointmentRef }) => {
       <div className={css(calendarContainer)}>
         <div
           class="calendly-inline-widget"
-          data-url="https://calendly.com/mattngtn?background_color=DAD2C2&text_color=755018"
+          data-url="https://calendly.com/merci-lartiste?background_color=DAD2C2&text_color=755018"
           style={{
             width: "90%",
             height: "700px",
