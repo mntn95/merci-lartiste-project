@@ -6,7 +6,7 @@ const appointment = {
   paddingBottom: "8rem",
   "& .appointment": {
     "&--space": {
-      minHeight: "300px",
+      minHeight: "200px",
     },
     "&--span": {
       "@media (max-width: 767px)": {

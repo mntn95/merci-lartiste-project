@@ -31,7 +31,7 @@ const header = {
     width: "208px",
     height: "200px",
     "@media (max-width: 767px)": {
-      margin: "10rem auto 1.6rem -4.5rem",
+      margin: "4rem auto 1.6rem -4.5rem",
     },
     "@media (min-width: 768px) and (max-width: 1023px)": {
       margin: "2rem auto 1.6rem 4rem",

@@ -16,7 +16,10 @@ const modal = ({ theme }) => ({
   overflow: "scroll",
   marginTop: "4rem",
   backgroundColor: theme.whiteSpaceColor,
-  width: "70%",
+  "@media (min-width: 1024px)": {
+    width: "70%",
+  },
+  width: "90%",
   height: "100%",
   opacity: "1",
 });
