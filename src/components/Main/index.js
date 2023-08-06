@@ -14,7 +14,7 @@ const main = {
       backgroundPosition: "center",
       clear: "both",
       width: "100%",
-      minHeight: "650px",
+      minHeight: "400px",
     },
     "@media (min-width: 768px)": {
       display: "none",
