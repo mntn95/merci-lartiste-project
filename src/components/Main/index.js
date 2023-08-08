@@ -14,10 +14,10 @@ const main = {
       display: "none",
     },
     "& .video-js": {
-      height: "60vh",
+      height: "45vh",
     },
     "& .vjs-tech": {
-      width: "107vh",
+      width: "80vh",
     },
   },
   "& .videoContainer": {
@@ -63,33 +63,12 @@ const Main = ({ setAppointmentRef, setPricesRef }) => {
 
   const handlePlayerReady = (player) => {
     playerRef.current = player;
-    console.log({ player });
-
-    // You can handle player events here, for example:
-    player.on("waiting", () => {
-      console.log("player is waiting");
-    });
-
-    player.on("dispose", () => {
-      console.log("player will dispose");
-    });
   };
 
   return (
     <>
       <main className={css(main)}>
         <div className="mobile-video">
-          {/* <video
-            loading="lazy"
-            loop
-            playsInline
-            autoPlay
-            muted
-            className="video"
-          >
-            <source src={Video} type="video/webm" />
-            Your browser does not support the video tag.
-          </video> */}
           <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
         </div>
         <div className="videoContainer">
