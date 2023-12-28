@@ -10,21 +10,23 @@ import VideoJS from "./videoTest";
 const main = {
   marginTop: "4rem",
   "& .mobile-video": {
-    "@media (min-width: 768px)": {
+    "@media (min-width: 1440px)": {
       display: "none",
     },
     "& .video-js": {
       height: "45vh",
     },
     "& .vjs-tech": {
-      width: "80vh",
+      "@media (max-width: 550px)": {
+        width: "80vh",
+      },
     },
   },
   "& .videoContainer": {
-    "@media (max-width: 767px)": {
+    "@media (max-width: 1439px)": {
       display: "none",
     },
-    "@media (min-width: 768px)": {
+    "@media (min-width: 1440px)": {
       position: "relative",
       width: "100%",
       height: "0",
