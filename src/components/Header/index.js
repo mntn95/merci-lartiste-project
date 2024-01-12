@@ -60,16 +60,13 @@ const header = {
       textTransform: "uppercase",
     },
     "&--text": {
+      textAlign: "justify",
+      padding: "15px 0",
       "@media (max-width: 767px)": {
         fontSize: "14px",
       },
       "@media (min-width: 768px)": {
         fontSize: "18px",
-      },
-    },
-    "&--separator": {
-      "@media (max-width: 767px)": {
-        display: "none",
       },
     },
     "&--cta": {
@@ -111,7 +108,7 @@ const Header = ({ appointmentRef, contactRef, pricesRef }) => {
         <h1 className="header-head--title">{bottomNavTranslation.title}</h1>
         <div className="header-head--text">
           <span>{bottomNavTranslation.firstSubtitle}</span>
-          <br className="header-head--separator" />
+          <br />
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
         <Button

@@ -108,8 +108,9 @@ const Modal = ({ showModal }) => {
             <p>
               L’édition et la direction de la publication du site
               http://www.merci-lartiste.com est assurée par Virgile Palaisy,
-              domicilié 12 all&e de la haute salle 95290 l'isle-adam. Numéro de
-              téléphone est 0671109009 Adresse e-mail post-odium@live.fr.
+              domicilié 93 rue des Martyrs, Champagne-sur-Oise 95660. Numéro de
+              téléphone est 0671109009 Adresse e-mail
+              lartistebarbierofficiel@gmail.com.
             </p>
             <p>
               L'hébergeur du site http://www.merci-lartiste.com est la société
@@ -207,13 +208,13 @@ const Modal = ({ showModal }) => {
               navigation. Les cookies sont de petits fichiers stockés
               temporairement sur le disque dur de l’ordinateur de l’Utilisateur
               par votre navigateur et qui sont nécessaires à l’utilisation du
-              site http://www.merci- lartiste.com. Les cookies ne contiennent
-              pas d’information personnelle et ne peuvent pas être utilisés pour
+              site http://www.merci-lartiste.com. Les cookies ne contiennent pas
+              d’information personnelle et ne peuvent pas être utilisés pour
               identifier quelqu’un. Un cookie contient un identifiant unique,
               généré aléatoirement et donc anonyme. Certains cookies expirent à
               la fin de la visite de l’Utilisateur, d’autres restent.
               L’information contenue dans les cookies est utilisée pour
-              améliorer le site http://www.merci- lartiste.com. En naviguant sur
+              améliorer le site http://www.merci-lartiste.com. En naviguant sur
               le site, L’Utilisateur les accepte. L’Utilisateur doit toutefois
               donner son consentement quant à l’utilisation de certains cookies.
               A défaut d’acceptation, l’Utilisateur est informé que certaines

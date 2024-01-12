@@ -1,10 +1,10 @@
 const footerTranslation = {
-  street: "11 impasse le verger",
-  weekDays: "Du lundi au vendredi",
-  postalCode: "95620 Parmain",
-  workHours: "De 14h à 20h",
+  street: "93 rue des Martyrs",
+  weekDays: "Du mardi au vendredi",
+  postalCode: "Champagne-sur-Oise 95660",
+  workHours: "De 11h à 20h (samedi 18h)",
   phoneNumber: "06 71 10 90 09",
-  mailAddress: "merci-lartiste@gmail.com",
+  mailAddress: "lartistebarbierofficiel@gmail.com",
   legalMentions: "Mentions légales",
 };
 
