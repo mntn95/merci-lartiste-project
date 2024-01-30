@@ -7,13 +7,13 @@ const appointmentTranslation = {
 const pricesTranslation = {
   title: "Tarifs et prestations",
   topFirstItem: "Coupe + Barbe",
-  topFirstPrice: "35€",
+  topFirstPrice: "40€",
   topSecondItem: "Décoloration + coupe",
   topSecondPrice: "90€",
   bottomFirstItem: "Coupe",
-  bottomFirstPrice: "20€",
+  bottomFirstPrice: "25€",
   bottomSecondItem: "Barbe",
-  bottomSecondPrice: "20€",
+  bottomSecondPrice: "25€",
 };
 
 export { appointmentTranslation, pricesTranslation };
