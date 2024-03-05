@@ -117,7 +117,7 @@ const Footer = ({ setContactRef, showModal }) => {
             <div style={{ position: "relative" }}>
               <div className="footer-row--ellipsis"></div>
               <a
-                href="https://www.instagram.com/lartistebarbier/?hl=fr"
+                href="https://www.instagram.com/merci_lartist/?hl=fr"
                 target="_blank"
                 rel="noreferrer"
               >
