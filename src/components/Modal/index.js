@@ -88,7 +88,7 @@ const Modal = ({ showModal }) => {
           <h2 className={css(modalHeaderTitle)}>
             Conditions générales d'utilisation
           </h2>
-          <span>En vigueur au 31/08/2022</span>
+          <span>En vigueur au 05/03/2024</span>
         </div>
         <div className={css(modalContent)}>
           <div className={css(modalContentIntro)}>
