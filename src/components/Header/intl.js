@@ -3,7 +3,7 @@ const navTranslation = {
   about: "A propos",
   booking: "Réservation",
   contact: "Contact",
-  pricesCta: "Tarifs et Prestations",
+  pricesCta: "Tarifs",
 };
 
 const bottomNavTranslation = {

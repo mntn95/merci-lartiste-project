@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <div className={css(appStyle({ textFont, titleFont, theme }))}>
-      {modal && <Modal modal={modal} showModal={handleModal} />}
+      <Modal modal={modal} showModal={handleModal} />
       <Header
         appointmentRef={appointmentRef}
         contactRef={contactRef}

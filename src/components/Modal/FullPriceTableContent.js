@@ -1,8 +1,11 @@
 //@flow
 import * as React from "react";
 import { useFela } from "react-fela";
+import { Modal } from "react-bootstrap";
 
-import FullPricePicture from "../../assets/img/price_table.png";
+import mainBackground from "../../assets/img/mla_background_accueil_1920x1080.png";
+
+import FullPricePicture from "../../assets/img/price_table.jpg";
 
 const pricePictureStyle = {
   backgroundImage: `url(${FullPricePicture})`,
@@ -25,26 +28,23 @@ const pricePictureStyle = {
     minHeight: "1600px",
   },
 };
-const modalClose = {
-  position: "absolute",
-  right: "10%",
-  marginTop: "1rem",
-  width: "fit-content",
-  cursor: "pointer",
-  "&:hover": {
-    textDecoration: "underline",
-  },
-};
 
 const FullPriceTableContent = ({ showModal }) => {
   const { css } = useFela();
   return (
     <>
-      <div className={css(pricePictureStyle)}>
-        <div className={css(modalClose)} onClick={() => showModal(false)}>
-          <span>FERMER</span>
-        </div>
-      </div>
+      <Modal.Header
+        style={{
+          backgroundImage: `url(${mainBackground})`,
+          borderColor: "rgb(117, 80, 24)",
+        }}
+        closeButton
+      >
+        Grille des prix
+      </Modal.Header>
+      <Modal.Body style={{ backgroundImage: `url(${mainBackground})` }}>
+        <div className={css(pricePictureStyle)} />
+      </Modal.Body>
     </>
   );
 };

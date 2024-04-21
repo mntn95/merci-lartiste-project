@@ -90,6 +90,10 @@ const prices = {
           fontSize: "30px",
           padding: "15px 40px",
         },
+        "&:hover": {
+          backgroundColor: "rgb(117, 80, 24)",
+          borderColor: "black",
+        },
       },
     },
   },
