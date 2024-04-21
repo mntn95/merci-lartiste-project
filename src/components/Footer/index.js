@@ -134,14 +134,14 @@ const Footer = ({ setContactRef, showModal }) => {
             <Row style={{ width: "83%" }}>
               <Col>{footerTranslation.mailAddress}</Col>
               <Col
-                onClick={() => showModal(true)}
+                onClick={() => showModal("legalMentions")}
                 className="footer-desktop-mentions"
               >
                 {footerTranslation.legalMentions}
               </Col>
             </Row>
             <Row className="footer-mobile-mentions">
-              <Col onClick={() => showModal(true)}>
+              <Col onClick={() => showModal("legalMentions")}>
                 {footerTranslation.legalMentions}
               </Col>
             </Row>
