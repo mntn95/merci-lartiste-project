@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
+import { Button } from "react-bootstrap";
 import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
 import MovingText from "./MovingText";
 import PricesTable from "./PricesTable";
@@ -56,10 +57,49 @@ const prices = {
       },
       width: "100%",
     },
+    "&-button": {
+      "&--container": {
+        display: "flex",
+        width: "100%",
+        position: "absolute",
+        "@media (max-width: 767px)": {
+          height: "432px",
+        },
+        "@media (min-width: 768px) and (max-width: 1023px)": {
+          height: "60vw",
+        },
+        "@media (min-width: 1023px)": {
+          height: "57vw",
+        },
+      },
+      "&--element": {
+        borderRadius: "1px",
+        margin: "auto",
+        fontSize: "18px",
+        "@media (max-width: 767px)": {
+          padding: "15px 40px",
+        },
+        "@media (min-width: 768px) and (max-width: 1023px)": {
+          padding: "15px 40px",
+        },
+        "@media (min-width: 1023px) and (max-width: 1639px)": {
+          fontSize: "26px",
+          padding: "15px 40px",
+        },
+        "@media (min-width: 1640px)": {
+          fontSize: "30px",
+          padding: "15px 40px",
+        },
+        "&:hover": {
+          backgroundColor: "rgb(117, 80, 24)",
+          borderColor: "black",
+        },
+      },
+    },
   },
 };
 
-const Prices = ({ setPricesRef }) => {
+const Prices = ({ setPricesRef, showModal }) => {
   const { css } = useFela();
   const ref = useRef(null);
 
@@ -71,6 +111,16 @@ const Prices = ({ setPricesRef }) => {
     <section style={{ minHeight: "400px" }} id="prices" ref={ref}>
       <div className={css(prices)}>
         <div className="prices-fade" />
+        <div className="prices-button--container">
+          <Button
+            className="prices-button--element"
+            onClick={() => showModal("fullPriceTable")}
+            size="lg"
+            variant="outline-light"
+          >
+            Voir tous les tarifs
+          </Button>
+        </div>
         <div className="prices-image" />
         <div className="prices-top--lines">
           <MovingText />

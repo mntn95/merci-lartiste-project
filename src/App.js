@@ -16,13 +16,13 @@ const appStyle = ({ textFont, titleFont, theme }) => ({
   backgroundImage: `url(${mainBackground})`,
   color: theme.textColor,
   fontFamily: textFont,
-  "& h1, h2, h3, h4, button": {
+  "& h1, h2, h3, h4": {
     fontFamily: titleFont,
   },
 });
 
 const App = () => {
-  const [modal, showModal] = useState(false);
+  const [modal, showModal] = useState(null);
   const [appointmentRef, setAppointmentRef] = useState(null);
   const [contactRef, setContactRef] = useState(null);
   const [pricesRef, setPricesRef] = useState(null);
@@ -32,27 +32,32 @@ const App = () => {
     titleFontFace,
   ]);
 
-  const handleModal = (boolean) => {
-    if (boolean) {
-      showModal(true);
+  const handleModal = (content) => {
+    console.log(content);
+    if (content) {
+      showModal(content);
       if (typeof window != "undefined" && window.document) {
         document.body.style.overflow = "hidden";
       }
     } else {
-      showModal(false);
+      showModal(null);
       document.body.style.overflow = "unset";
     }
   };
 
   return (
     <div className={css(appStyle({ textFont, titleFont, theme }))}>
-      {modal && <Modal showModal={handleModal} />}
+      <Modal modal={modal} showModal={handleModal} />
       <Header
         appointmentRef={appointmentRef}
         contactRef={contactRef}
         pricesRef={pricesRef}
       />
-      <Main setAppointmentRef={setAppointmentRef} setPricesRef={setPricesRef} />
+      <Main
+        setAppointmentRef={setAppointmentRef}
+        setPricesRef={setPricesRef}
+        showModal={handleModal}
+      />
       <Footer setContactRef={setContactRef} showModal={handleModal} />
     </div>
   );

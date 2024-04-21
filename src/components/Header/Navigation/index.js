@@ -70,27 +70,8 @@ const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
           />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <NavDropdown
-                className={css(navItem({ theme }))}
-                title="A propos"
-                id="collapsible-nav-dropdown"
-              >
-                <Nav.Link
-                  className={css(navSubItem({ theme }))}
-                  onClick={() =>
-                    pricesRef.current.scrollIntoView({
-                      behavior: "smooth",
-                      block: "nearest",
-                      inline: "start",
-                    })
-                  }
-                >
-                  {navTranslation.pricesCta}
-                </Nav.Link>
-              </NavDropdown>
               <Nav.Link
                 className={css(navItem)}
-                eventKey="3"
                 onClick={() =>
                   appointmentRef.current.scrollIntoView({
                     behavior: "smooth",
@@ -100,6 +81,18 @@ const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
                 }
               >
                 {navTranslation.booking}
+              </Nav.Link>
+              <Nav.Link
+                className={css(navItem)}
+                onClick={() =>
+                  pricesRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "start",
+                  })
+                }
+              >
+                {navTranslation.pricesCta}
               </Nav.Link>
               <Nav.Link
                 className={css(navItem)}
