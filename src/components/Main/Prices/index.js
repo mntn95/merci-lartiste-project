@@ -3,6 +3,7 @@ import { useFela } from "react-fela";
 import { Button } from "react-bootstrap";
 import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
 import MovingText from "./MovingText";
+import PricesTableTop from "./PricesTableTop";
 import PricesTable from "./PricesTable";
 
 const prices = {
@@ -124,7 +125,7 @@ const Prices = ({ setPricesRef, showModal }) => {
         <div className="prices-image" />
         <div className="prices-top--lines">
           <MovingText />
-          <PricesTable position="top" />
+          <PricesTableTop position="top" />
         </div>
         <div className="prices-bottom--lines">
           <PricesTable position="bottom" />
