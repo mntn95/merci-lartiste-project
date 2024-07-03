@@ -61,7 +61,7 @@ const LegalMentionsContent = () => {
           <h2 className={css(modalHeaderTitle)}>
             Conditions générales d'utilisation
           </h2>
-          <span>En vigueur au 05/03/2024</span>
+          <span>En vigueur au 05/07/2024</span>
         </div>
         <div className={css(modalContent)}>
           <div className={css(modalContentIntro)}>
@@ -82,8 +82,7 @@ const LegalMentionsContent = () => {
               L’édition et la direction de la publication du site
               http://www.merci-lartiste.com est assurée par Virgile Palaisy,
               domicilié 93 rue des Martyrs, Champagne-sur-Oise 95660. Numéro de
-              téléphone est 0671109009 Adresse e-mail
-              lartistebarbierofficiel@gmail.com.
+              téléphone est 0671109009 Adresse e-mail merci.lartist@gmail.com.
             </p>
             <p>
               L'hébergeur du site http://www.merci-lartiste.com est la société
