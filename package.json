@@ -10,7 +10,6 @@
     "bootstrap": "^5.1.3",
     "fela": "^12.1.2",
     "fela-plugin-extend": "^12.1.2",
-    "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-animations": "^1.0.0",
     "react-bootstrap": "^2.4.0",
@@ -19,6 +18,7 @@
     "react-scripts": "5.0.0",
     "react-scroll": "^1.8.7",
     "react-ticker": "^1.3.2",
+    "sass": "^1.77.6",
     "video.js": "^7.21.1",
     "web-vitals": "^2.1.4"
   },
