@@ -1,8 +1,9 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { appointmentTranslation } from "../intl";
+import { AppointmentComponentProps } from "../../../types";
 
-const appointment = {
+const appointment: any = {
   paddingBottom: "8rem",
   "& .appointment": {
     "&--space": {
@@ -48,15 +49,17 @@ const appointment = {
   },
 };
 
-const calendarContainer = {
+const calendarContainer: any = {
   "@media (max-width: 767px)": {
     width: "100%",
   },
 };
 
-const Appointment = ({ setAppointmentRef }) => {
+const Appointment: React.FC<AppointmentComponentProps> = ({
+  setAppointmentRef,
+}) => {
   const { css } = useFela();
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setAppointmentRef(ref);
@@ -89,7 +92,7 @@ const Appointment = ({ setAppointmentRef }) => {
       </div>
       <div className={css(calendarContainer)}>
         <div
-          class="calendly-inline-widget"
+          className="calendly-inline-widget"
           data-url="https://calendly.com/merci-lartiste?background_color=DAD2C2&text_color=755018"
           style={{
             width: "90%",

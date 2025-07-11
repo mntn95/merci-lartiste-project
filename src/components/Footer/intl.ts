@@ -1,4 +1,6 @@
-const footerTranslation = {
+import { FooterTranslation } from "../../types";
+
+const footerTranslation: FooterTranslation = {
   street: "93 rue des Martyrs",
   weekDays: "Du mardi au vendredi",
   postalCode: "Champagne-sur-Oise 95660",

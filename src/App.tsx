@@ -1,15 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useFela } from "react-fela";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
+import { ModalContent, Ref } from "./types";
 
 import mainBackground from "./assets/img/mla_background_accueil_1920x1080.png";
 import textFontFace from "./assets/Botanika_Mono/webfontkit-20220216-071424/botanika_mono_regular-webfont.woff2";
 import titleFontFace from "./assets/NeueHaasUnica/NeueHaasUnica-Regular.woff2";
 
-const appStyle = ({ textFont, titleFont, theme }) => ({
+interface AppStyleProps {
+  textFont: string;
+  titleFont: string;
+  theme: any;
+}
+
+const appStyle = ({ textFont, titleFont, theme }: AppStyleProps): any => ({
   overflowY: "auto",
   overflow: "hidden",
   minHeight: "900px",
@@ -21,18 +28,22 @@ const appStyle = ({ textFont, titleFont, theme }) => ({
   },
 });
 
-const App = () => {
-  const [modal, showModal] = useState(null);
-  const [appointmentRef, setAppointmentRef] = useState(null);
-  const [contactRef, setContactRef] = useState(null);
-  const [pricesRef, setPricesRef] = useState(null);
+const App: React.FC = () => {
+  const [modal, showModal] = useState<ModalContent>(null);
+  const [appointmentRef, setAppointmentRef] = useState<Ref>(null);
+  const [contactRef, setContactRef] = useState<Ref>(null);
+  const [pricesRef, setPricesRef] = useState<Ref>(null);
   const { css, renderer, theme } = useFela();
-  const textFont = renderer.renderFont("Botanika Mono Regular", [textFontFace]);
-  const titleFont = renderer.renderFont("Neue Haas Unica Regular", [
-    titleFontFace,
-  ]);
 
-  const handleModal = (content) => {
+  // Utilisation temporaire de chaînes de caractères pour les polices
+  const textFont = "Botanika Mono Regular";
+  const titleFont = "Neue Haas Unica Regular";
+
+  // Les polices sont déclarées pour Fela mais on utilise les noms de base
+  renderer.renderFont("Botanika Mono Regular", [textFontFace], {});
+  renderer.renderFont("Neue Haas Unica Regular", [titleFontFace], {});
+
+  const handleModal = (content: ModalContent): void => {
     console.log(content);
     if (content) {
       showModal(content);

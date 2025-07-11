@@ -1,11 +1,16 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { Col, Container, Row } from "react-bootstrap";
+import { FooterProps } from "../../types";
 import { footerTranslation } from "./intl";
 import FooterEllipsis from "../../assets/img/mla_ellipse_contact_593x593.png";
 import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
 
-const footer = ({ rotate }) => ({
+interface FooterStyleProps {
+  rotate: string;
+}
+
+const footer = ({ rotate }: FooterStyleProps): any => ({
   marginBottom: "1rem",
   marginTop: "2rem",
   fontSize: "20px",
@@ -82,18 +87,24 @@ const footer = ({ rotate }) => ({
   },
 });
 
-const Footer = ({ setContactRef, showModal }) => {
+const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
   const { css, renderer } = useFela();
-  const ref = useRef(null);
-  const keyframe = (props) => ({
+  const ref = useRef<HTMLElement>(null);
+
+  const keyframe = (): any => ({
     "0%": { transform: "rotate(0deg)" },
     "100%": { transform: "rotate(360deg)" },
   });
+
   const rotate = renderer.renderKeyframe(keyframe, {});
 
   useEffect(() => {
     setContactRef(ref);
   }, [setContactRef]);
+
+  const handleShowLegalMentions = (): void => {
+    showModal("legalMentions");
+  };
 
   return (
     <footer id="contact" ref={ref}>
@@ -134,14 +145,14 @@ const Footer = ({ setContactRef, showModal }) => {
             <Row style={{ width: "83%" }}>
               <Col>{footerTranslation.mailAddress}</Col>
               <Col
-                onClick={() => showModal("legalMentions")}
+                onClick={handleShowLegalMentions}
                 className="footer-desktop-mentions"
               >
                 {footerTranslation.legalMentions}
               </Col>
             </Row>
             <Row className="footer-mobile-mentions">
-              <Col onClick={() => showModal("legalMentions")}>
+              <Col onClick={handleShowLegalMentions}>
                 {footerTranslation.legalMentions}
               </Col>
             </Row>

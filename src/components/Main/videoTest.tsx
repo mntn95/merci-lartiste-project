@@ -1,11 +1,11 @@
 import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+import { VideoJSProps } from "../../types";
 
-export const VideoJS = (props) => {
-  const videoRef = React.useRef(null);
-  const playerRef = React.useRef(null);
-  const { options, onReady } = props;
+export const VideoJS: React.FC<VideoJSProps> = ({ options, onReady }) => {
+  const videoRef = React.useRef<HTMLDivElement>(null);
+  const playerRef = React.useRef<any>(null);
 
   React.useEffect(() => {
     // Make sure Video.js player is only initialized once
@@ -14,7 +14,9 @@ export const VideoJS = (props) => {
       const videoElement = document.createElement("video-js");
 
       videoElement.classList.add("vjs-big-play-centered");
-      videoRef.current.appendChild(videoElement);
+      if (videoRef.current) {
+        videoRef.current.appendChild(videoElement);
+      }
 
       const player = (playerRef.current = videojs(videoElement, options, () => {
         videojs.log("player is ready");
@@ -29,7 +31,7 @@ export const VideoJS = (props) => {
       player.autoplay(options.autoplay);
       player.src(options.sources);
     }
-  }, [options, videoRef]);
+  }, [options, onReady]);
 
   // Dispose the Video.js player when the functional component unmounts
   React.useEffect(() => {
@@ -41,7 +43,7 @@ export const VideoJS = (props) => {
         playerRef.current = null;
       }
     };
-  }, [playerRef]);
+  }, []);
 
   return (
     <div data-vjs-player>
