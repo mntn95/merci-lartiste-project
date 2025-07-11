@@ -1,60 +1,13 @@
-import React from "react";
-import { useFela } from "react-fela";
-import { Nav, Navbar } from "react-bootstrap";
+import React, { useState } from "react";
 import { NavigationProps } from "../../../types";
 import { navTranslation } from "../intl";
-
-interface NavItemStyleProps {
-  theme: any;
-}
-
-const headerNavMenu: any = {
-  display: "flex",
-  marginLeft: "auto",
-  marginRight: "0",
-  gap: "5rem",
-  fontSize: "20px",
-  position: "relative",
-  "& .nav": {
-    "&-subMenu": {
-      backgroundColor: "inherit",
-      "&:hover": {
-        backgroundColor: "inherit",
-        textDecoration: "underline",
-      },
-    },
-  },
-};
-
-const headerNavToggle: any = {
-  border: "none",
-};
-
-const navItem = ({ theme }: NavItemStyleProps): any => ({
-  color: `${theme.textColor}!important`,
-  margin: "1rem",
-  "&:hover": {
-    textDecoration: "underline",
-  },
-  "> div": {
-    border: `1px solid ${theme.textColor}`,
-    borderRadius: "1px",
-    backgroundColor: "inherit",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-  "> a": {
-    color: `${theme.textColor}!important`,
-  },
-});
 
 const Navigation: React.FC<NavigationProps> = ({
   appointmentRef,
   contactRef,
   pricesRef,
 }) => {
-  const { css, theme } = useFela();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleScrollToRef = (
     ref: React.RefObject<HTMLElement> | null
@@ -66,44 +19,55 @@ const Navigation: React.FC<NavigationProps> = ({
         inline: "start",
       });
     }
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = (): void => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className={css(headerNavMenu)}>
-      <div style={{ position: "absolute", right: 0, textAlign: "right" }}>
-        <Navbar
-          collapseOnSelect
-          expand="lg"
-          style={{ justifyContent: "flex-end" }}
+    <div className="flex ml-auto mr-0 gap-20 text-xl relative">
+      <div className="absolute right-0 text-right">
+        <button
+          className="lg:hidden border-none bg-transparent p-2 text-[#755018]"
+          onClick={toggleMenu}
+          aria-controls="responsive-navbar-nav"
+          aria-expanded={isMenuOpen}
         >
-          <Navbar.Toggle
-            className={css(headerNavToggle)}
-            aria-controls="responsive-navbar-nav"
-          />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link
-                className={css(navItem({ theme }))}
-                onClick={() => handleScrollToRef(appointmentRef)}
-              >
+          <span className="block w-6 h-0.5 bg-[#755018] mb-1"></span>
+          <span className="block w-6 h-0.5 bg-[#755018] mb-1"></span>
+          <span className="block w-6 h-0.5 bg-[#755018]"></span>
+        </button>
+
+        <nav className={`lg:block ${isMenuOpen ? "block" : "hidden"}`}>
+          <div className="flex flex-col lg:flex-row">
+            <div
+              className="text-[#755018] m-4 hover:underline cursor-pointer"
+              onClick={() => handleScrollToRef(appointmentRef)}
+            >
+              <div className="bg-inherit px-2 py-1 hover:underline">
                 {navTranslation.booking}
-              </Nav.Link>
-              <Nav.Link
-                className={css(navItem({ theme }))}
-                onClick={() => handleScrollToRef(pricesRef)}
-              >
+              </div>
+            </div>
+            <div
+              className="text-[#755018] m-4 hover:underline cursor-pointer"
+              onClick={() => handleScrollToRef(pricesRef)}
+            >
+              <div className="bg-inherit px-2 py-1 hover:underline">
                 {navTranslation.pricesCta}
-              </Nav.Link>
-              <Nav.Link
-                className={css(navItem({ theme }))}
-                eventKey="4"
-                onClick={() => handleScrollToRef(contactRef)}
-              >
+              </div>
+            </div>
+            <div
+              className="text-[#755018] m-4 hover:underline cursor-pointer"
+              onClick={() => handleScrollToRef(contactRef)}
+            >
+              <div className="bg-inherit px-2 py-1 hover:underline">
                 {navTranslation.contact}
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
   );
