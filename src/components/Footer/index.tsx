@@ -1,102 +1,11 @@
 import React, { useRef, useEffect } from "react";
-import { useFela } from "react-fela";
-import { Col, Container, Row } from "react-bootstrap";
 import { FooterProps } from "../../types";
 import { footerTranslation } from "./intl";
 import FooterEllipsis from "../../assets/img/mla_ellipse_contact_593x593.png";
 import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
 
-interface FooterStyleProps {
-  rotate: string;
-}
-
-const footer = ({ rotate }: FooterStyleProps): any => ({
-  marginBottom: "1rem",
-  marginTop: "2rem",
-  fontSize: "20px",
-  "@media (max-width: 767px)": {
-    fontSize: "14px",
-  },
-  "@media (min-width: 768px)": {
-    fontSize: "18px",
-  },
-  "& .footer": {
-    "&-row": {
-      "&.first": {
-        marginLeft: "3px",
-      },
-      "@media (min-width: 768px)": {
-        marginBottom: "2rem",
-      },
-      "&--column": {
-        display: "flex",
-        "&.first": {
-          "@media (max-width: 767px)": {
-            marginTop: "10rem",
-            "& > .col": {
-              marginBottom: "2rem",
-            },
-          },
-        },
-        "@media (max-width: 767px)": {
-          flexDirection: "column",
-        },
-      },
-      "&--ellipsis": {
-        animation: `${rotate} 10s infinite linear`,
-        backgroundImage: `url(${FooterEllipsis})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        clear: "both",
-        width: "250px",
-        height: "250px",
-        position: "absolute",
-        right: "-6rem",
-        top: "-2.5rem",
-      },
-      "&--insta-logo": {
-        backgroundImage: `url(${FooterInstaLogo})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        clear: "both",
-        bottom: "-7.5rem",
-        right: "-0.5rem",
-        position: "absolute",
-        width: "75px",
-        height: "75px",
-      },
-    },
-    "&-mobile-mentions": {
-      cursor: "pointer",
-      "&:hover": {
-        textDecoration: "underline",
-      },
-      "@media (min-width: 768px)": {
-        display: "none",
-      },
-    },
-    "&-desktop-mentions": {
-      cursor: "pointer",
-      "&:hover": {
-        textDecoration: "underline",
-      },
-      "@media (max-width: 767px)": {
-        display: "none",
-      },
-    },
-  },
-});
-
 const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
-  const { css, renderer } = useFela();
   const ref = useRef<HTMLElement>(null);
-
-  const keyframe = (): any => ({
-    "0%": { transform: "rotate(0deg)" },
-    "100%": { transform: "rotate(360deg)" },
-  });
-
-  const rotate = renderer.renderKeyframe(keyframe, {});
 
   useEffect(() => {
     setContactRef(ref);
@@ -108,57 +17,75 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
 
   return (
     <footer id="contact" ref={ref}>
-      <Container fluid className={css(footer({ rotate }))}>
-        <Row className="footer-row first">
-          <Col className="footer-row--column first" xs={10}>
-            <Col>
-              <Row md={6}>{footerTranslation.street}</Row>
-              <Row md={6}>{footerTranslation.postalCode}</Row>
-            </Col>
-            <Col>
-              <Row xs={7} md={6}>
-                {footerTranslation.weekDays}
-              </Row>
-              <Row xs={7} md={6}>
-                {footerTranslation.workHours}
-              </Row>
-            </Col>
-          </Col>
-          <Col xs={2}>
-            <div style={{ position: "relative" }}>
-              <div className="footer-row--ellipsis"></div>
+      <div className="w-full px-3 mb-4 mt-8 text-sm md:text-lg">
+        {/* First Row */}
+        <div className="flex flex-wrap ml-[3px] mb-4 md:mb-8">
+          <div className="w-10/12 flex flex-col md:flex-row mt-40 md:mt-0">
+            {/* First sub-column */}
+            <div className="mb-8 md:mb-0 md:w-1/2">
+              <div className="lg:w-1/2">{footerTranslation.street}</div>
+              <div className="lg:w-1/2">{footerTranslation.postalCode}</div>
+            </div>
+            {/* Second sub-column */}
+            <div className="md:w-1/2">
+              <div className="lg:w-1/2">{footerTranslation.weekDays}</div>
+              <div className="lg:w-1/2">{footerTranslation.workHours}</div>
+            </div>
+          </div>
+          <div className="w-2/12">
+            <div className="relative">
+              <div
+                className="absolute -right-24 -top-10 w-[250px] h-[250px] animate-spin-slow bg-cover bg-no-repeat"
+                style={{
+                  backgroundImage: `url(${FooterEllipsis})`,
+                  clear: "both",
+                }}
+              ></div>
               <a
                 href="https://www.instagram.com/merci_lartist/?hl=fr"
                 target="_blank"
                 rel="noreferrer"
               >
-                <div className="footer-row--insta-logo" />
+                <div
+                  className="absolute -bottom-[7.5rem] -right-[0.5rem] w-[75px] h-[75px] bg-cover bg-no-repeat"
+                  style={{
+                    backgroundImage: `url(${FooterInstaLogo})`,
+                    clear: "both",
+                  }}
+                />
               </a>
             </div>
-          </Col>
-        </Row>
-        <Row className="footer-row">
-          <Col>
-            <Row>
-              <Col>{footerTranslation.phoneNumber}</Col>
-            </Row>
-            <Row style={{ width: "83%" }}>
-              <Col>{footerTranslation.mailAddress}</Col>
-              <Col
+          </div>
+        </div>
+        {/* Second Row */}
+        <div className="flex flex-wrap">
+          <div className="w-10/12">
+            {/* First sub-column */}
+            <div className="flex flex-wrap">
+              <div className="w-full">{footerTranslation.phoneNumber}</div>
+            </div>
+            {/* Second sub-column */}
+            <div className="flex flex-wrap w-1/2 md:w-full">
+              <div className="md:w-1/2">{footerTranslation.mailAddress}</div>
+              <div
                 onClick={handleShowLegalMentions}
-                className="footer-desktop-mentions"
+                className="cursor-pointer hover:underline md:block w-auto"
               >
                 {footerTranslation.legalMentions}
-              </Col>
-            </Row>
-            <Row className="footer-mobile-mentions">
-              <Col onClick={handleShowLegalMentions}>
+              </div>
+            </div>
+            {/*             <div className="flex flex-wrap md:hidden">
+              <div
+                onClick={handleShowLegalMentions}
+                className="cursor-pointer hover:underline w-full"
+              >
                 {footerTranslation.legalMentions}
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+              </div>
+            </div>
+ */}{" "}
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
