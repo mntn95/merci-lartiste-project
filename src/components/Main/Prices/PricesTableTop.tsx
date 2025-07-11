@@ -1,8 +1,13 @@
+import React from "react";
 import { useFela } from "react-fela";
-
+import { PricesTableProps } from "../../../types";
 import { pricesTranslation } from "../intl";
 
-const pricesTableItem = ({ position }) => ({
+interface StyleProps {
+  position?: string;
+}
+
+const pricesTableItem = ({ position }: StyleProps): any => ({
   width: "100%",
   display: "flex",
   color: "white",
@@ -18,7 +23,7 @@ const pricesTableItem = ({ position }) => ({
   },
 });
 
-const pricesTableItemLeft = ({ position }) => ({
+const pricesTableItemLeft = ({ position }: StyleProps): any => ({
   "@media (max-width: 1023px)": {
     extend: [
       {
@@ -50,14 +55,18 @@ const pricesTableItemLeft = ({ position }) => ({
   },
 });
 
-const PricesTableTop = ({ marginBottom, position }) => {
+const PricesTableTop: React.FC<PricesTableProps> = ({ position = "top" }) => {
   const { css } = useFela();
+
+  const getTranslationKey = (suffix: string): string => {
+    return (pricesTranslation as any)[position + suffix] || "";
+  };
 
   return (
     <div className={css(pricesTableItem({ position }))}>
       <div className={css(pricesTableItemLeft({ position }))}>
-        {pricesTranslation[position + "FirstItem"]}
-        <span>{pricesTranslation[position + "FirstPrice"]}</span>
+        {getTranslationKey("FirstItem")}
+        <span>{getTranslationKey("FirstPrice")}</span>
       </div>
     </div>
   );

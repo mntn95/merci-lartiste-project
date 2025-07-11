@@ -1,12 +1,13 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
 import { Button } from "react-bootstrap";
+import { PricesComponentProps } from "../../../types";
 import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
 import MovingText from "./MovingText";
 import PricesTableTop from "./PricesTableTop";
 import PricesTable from "./PricesTable";
 
-const prices = {
+const prices: any = {
   marginTop: "4rem",
   position: "relative",
   width: "100%",
@@ -100,13 +101,20 @@ const prices = {
   },
 };
 
-const Prices = ({ setPricesRef, showModal }) => {
+const Prices: React.FC<PricesComponentProps> = ({
+  setPricesRef,
+  showModal,
+}) => {
   const { css } = useFela();
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setPricesRef(ref);
   }, [setPricesRef]);
+
+  const handleShowPrices = (): void => {
+    showModal("fullPriceTable");
+  };
 
   return (
     <section style={{ minHeight: "400px" }} id="prices" ref={ref}>
@@ -115,7 +123,7 @@ const Prices = ({ setPricesRef, showModal }) => {
         <div className="prices-button--container">
           <Button
             className="prices-button--element"
-            onClick={() => showModal("fullPriceTable")}
+            onClick={handleShowPrices}
             size="lg"
             variant="outline-light"
           >

@@ -1,9 +1,14 @@
+import React from "react";
 import { useFela } from "react-fela";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
-
+import { Nav, Navbar } from "react-bootstrap";
+import { NavigationProps } from "../../../types";
 import { navTranslation } from "../intl";
 
-const headerNavMenu = {
+interface NavItemStyleProps {
+  theme: any;
+}
+
+const headerNavMenu: any = {
   display: "flex",
   marginLeft: "auto",
   marginRight: "0",
@@ -21,11 +26,11 @@ const headerNavMenu = {
   },
 };
 
-const headerNavToggle = {
+const headerNavToggle: any = {
   border: "none",
 };
 
-const navItem = ({ theme }) => ({
+const navItem = ({ theme }: NavItemStyleProps): any => ({
   color: `${theme.textColor}!important`,
   margin: "1rem",
   "&:hover": {
@@ -44,17 +49,24 @@ const navItem = ({ theme }) => ({
   },
 });
 
-const navSubItem = ({ theme }) => ({
-  color: `${theme.textColor}!important`,
-  padding: "0 20px!important",
-  backgroundColor: "inherit",
-  "&:hover": {
-    textDecoration: "underline",
-  },
-});
-
-const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
+const Navigation: React.FC<NavigationProps> = ({
+  appointmentRef,
+  contactRef,
+  pricesRef,
+}) => {
   const { css, theme } = useFela();
+
+  const handleScrollToRef = (
+    ref: React.RefObject<HTMLElement> | null
+  ): void => {
+    if (ref?.current) {
+      ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+    }
+  };
 
   return (
     <div className={css(headerNavMenu)}>
@@ -71,39 +83,21 @@ const Navigation = ({ appointmentRef, contactRef, pricesRef }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
-                className={css(navItem)}
-                onClick={() =>
-                  appointmentRef.current.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "start",
-                  })
-                }
+                className={css(navItem({ theme }))}
+                onClick={() => handleScrollToRef(appointmentRef)}
               >
                 {navTranslation.booking}
               </Nav.Link>
               <Nav.Link
-                className={css(navItem)}
-                onClick={() =>
-                  pricesRef.current.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "start",
-                  })
-                }
+                className={css(navItem({ theme }))}
+                onClick={() => handleScrollToRef(pricesRef)}
               >
                 {navTranslation.pricesCta}
               </Nav.Link>
               <Nav.Link
-                className={css(navItem)}
+                className={css(navItem({ theme }))}
                 eventKey="4"
-                onClick={() =>
-                  contactRef.current.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "start",
-                  })
-                }
+                onClick={() => handleScrollToRef(contactRef)}
               >
                 {navTranslation.contact}
               </Nav.Link>

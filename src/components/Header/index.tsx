@@ -1,12 +1,14 @@
+import React from "react";
 import { useFela } from "react-fela";
 import { Button } from "react-bootstrap";
-
 import Navigation from "./Navigation";
 import { bottomNavTranslation } from "./intl";
+import { HeaderProps } from "../../types";
+
 import Logo from "../../assets/img/mla_logo_820x253.png";
 import Ellipsis from "../../assets/img/mla_ellipse_mercilartiste_461x441.png";
 
-const header = {
+const header: any = {
   "& .header-nav": {
     padding: "2rem",
     display: "flex",
@@ -88,8 +90,22 @@ const header = {
   },
 };
 
-const Header = ({ appointmentRef, contactRef, pricesRef }) => {
+const Header: React.FC<HeaderProps> = ({
+  appointmentRef,
+  contactRef,
+  pricesRef,
+}) => {
   const { css } = useFela();
+
+  const handleScrollToAppointment = (): void => {
+    if (appointmentRef?.current) {
+      appointmentRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+    }
+  };
 
   return (
     <div className={css(header)}>
@@ -112,13 +128,7 @@ const Header = ({ appointmentRef, contactRef, pricesRef }) => {
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
         <Button
-          onClick={() =>
-            appointmentRef.current.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-              inline: "start",
-            })
-          }
+          onClick={handleScrollToAppointment}
           className="header-head--cta"
         >
           {bottomNavTranslation.bookingCta}

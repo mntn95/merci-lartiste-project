@@ -1,14 +1,20 @@
+import React from "react";
 import { Modal as BootstrapModal } from "react-bootstrap";
+import { ModalProps } from "../../types";
 import FullPriceTableContent from "./FullPriceTableContent";
 import LegalMentionsContent from "./LegalMentionsContent";
 
-const Modal = ({ modal, showModal }) => {
+const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
+  const handleHide = (): void => {
+    showModal(null);
+  };
+
   return (
     <BootstrapModal
       show={Boolean(modal)}
       size="xl"
       fullscreen="lg-down"
-      onHide={() => showModal(false)}
+      onHide={handleHide}
     >
       {modal === "legalMentions" && <LegalMentionsContent />}
       {modal === "fullPriceTable" && (
