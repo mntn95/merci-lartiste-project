@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useFela } from "react-fela";
+import { InlineWidget } from "react-calendly";
+
 import { appointmentTranslation } from "../intl";
 import { AppointmentComponentProps } from "../../../types";
 
@@ -91,16 +93,15 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
         </div>
       </div>
       <div className={css(calendarContainer)}>
-        <div
-          className="calendly-inline-widget"
-          data-url="https://calendly.com/merci-lartiste?background_color=DAD2C2&text_color=755018"
-          style={{
+        <InlineWidget
+          url="https://calendly.com/merci-lartiste?background_color=DAD2C2&text_color=755018"
+          styles={{
             width: "90%",
-            height: "700px",
+            height: "1000px",
             overflow: "hidden",
             margin: "auto",
           }}
-        ></div>
+        />
       </div>
       <script
         type="text/javascript"
