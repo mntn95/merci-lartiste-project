@@ -1,111 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import { useFela } from "react-fela";
-import { Button } from "react-bootstrap";
 import { PricesComponentProps } from "../../../types";
 import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
 import MovingText from "./MovingText";
-import PricesTableTop from "./PricesTableTop";
 import PricesTable from "./PricesTable";
-
-const prices: any = {
-  marginTop: "4rem",
-  position: "relative",
-  width: "100%",
-  height: "0",
-  padding: "0 0 56.25%",
-  "& .prices": {
-    "&-fade": {
-      backgroundColor: "black",
-      width: "100%",
-      "@media (max-width: 767px)": {
-        minHeight: "400px",
-      },
-      height: "100%",
-      position: "absolute",
-      opacity: ".5",
-    },
-    "&-image": {
-      backgroundImage: `url(${PricePicture})`,
-      backgroundRepeat: "no-repeat",
-      clear: "both",
-      width: "100%",
-      "@media (max-width: 767px)": {
-        minHeight: "400px",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      },
-      "@media (min-width: 768px) and (max-width: 1639px)": {
-        backgroundSize: "100% auto",
-        minHeight: "900px",
-      },
-      "@media (min-width: 1640px)": {
-        backgroundSize: "100% auto",
-        minHeight: "1200px",
-      },
-    },
-    "&-top--lines": {
-      position: "absolute",
-      top: 0,
-      width: "100%",
-    },
-    "&-bottom--lines": {
-      "@media (max-width: 767px)": {
-        position: "relative",
-        bottom: "90px",
-      },
-      "@media (min-width: 768px)": {
-        position: "absolute",
-        bottom: 0,
-      },
-      width: "100%",
-    },
-    "&-button": {
-      "&--container": {
-        display: "flex",
-        width: "100%",
-        position: "absolute",
-        "@media (max-width: 767px)": {
-          height: "432px",
-        },
-        "@media (min-width: 768px) and (max-width: 1023px)": {
-          height: "60vw",
-        },
-        "@media (min-width: 1023px)": {
-          height: "57vw",
-        },
-      },
-      "&--element": {
-        borderRadius: "1px",
-        margin: "auto",
-        fontSize: "18px",
-        "@media (max-width: 767px)": {
-          padding: "15px 40px",
-        },
-        "@media (min-width: 768px) and (max-width: 1023px)": {
-          padding: "15px 40px",
-        },
-        "@media (min-width: 1023px) and (max-width: 1639px)": {
-          fontSize: "26px",
-          padding: "15px 40px",
-        },
-        "@media (min-width: 1640px)": {
-          fontSize: "30px",
-          padding: "15px 40px",
-        },
-        "&:hover": {
-          backgroundColor: "rgb(117, 80, 24)",
-          borderColor: "black",
-        },
-      },
-    },
-  },
-};
 
 const Prices: React.FC<PricesComponentProps> = ({
   setPricesRef,
   showModal,
 }) => {
-  const { css } = useFela();
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -117,25 +19,26 @@ const Prices: React.FC<PricesComponentProps> = ({
   };
 
   return (
-    <section style={{ minHeight: "400px" }} id="prices" ref={ref}>
-      <div className={css(prices)}>
-        <div className="prices-fade" />
-        <div className="prices-button--container">
-          <Button
-            className="prices-button--element"
+    <section id="prices" className="min-h-[400px]" ref={ref}>
+      <div className="mt-20 relative w-full h-0 pb-[56.25%]">
+        <div
+          className="absolute inset-0 bg-no-repeat clear-both w-full min-h-[400px] bg-cover bg-center md:bg-[length:100%_auto]"
+          style={{ backgroundImage: `url(${PricePicture})` }}
+        />
+        <div className="absolute inset-0 bg-black w-full min-h-[400px] md:min-h-0 h-full opacity-50" />
+        <div className="flex w-full absolute inset-0 h-[432px] md:h-[60vw] lg:h-[57vw]">
+          <button
+            className="rounded-[1px] m-auto text-lg md:text-lg lg:text-[26px] 3xl:text-[30px] px-10 py-[15px] border border-white text-white bg-transparent transition-colors duration-200 hover:!bg-[rgb(117,80,24)] hover:!border-black"
             onClick={handleShowPrices}
-            size="lg"
-            variant="outline-light"
           >
             Voir tous les tarifs
-          </Button>
+          </button>
         </div>
-        <div className="prices-image" />
-        <div className="prices-top--lines">
+        <div className="absolute top-0 w-full z-10">
           <MovingText />
-          <PricesTableTop position="top" />
+          <PricesTable position="top" showSecondItem={false} />
         </div>
-        <div className="prices-bottom--lines">
+        <div className="relative max-sm:top-[310px] md:absolute md:bottom-0 w-full z-10">
           <PricesTable position="bottom" />
           <MovingText direction="toRight" />
         </div>

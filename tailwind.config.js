@@ -9,6 +9,9 @@ module.exports = {
       animation: {
         "spin-slow": "spin 10s linear infinite",
       },
+      screens: {
+        "3xl": "1640px",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
