@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
       <div>
         <div
           className="bg-cover bg-no-repeat 
-                     w-[208px] h-[200px] mt-16 mb-6 mr-auto ml-auto -ml-[4.5rem]
+                     w-[208px] h-[200px] mt-16 mb-6 mr-auto -ml-[4.5rem]
                      md:w-[208px] md:h-[200px] md:mt-8 md:mb-6 md:mr-auto md:ml-16
                      lg:w-[217px] lg:h-[221px] lg:mt-20 lg:mr-40 lg:mb-8 lg:ml-auto"
           style={{

@@ -20,3 +20,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+// VideoJS styles - reproduction EXACTE du style Fela original + centrage
+.mobile-video {
+  .video-js {
+    height: 45vh !important;
+  }
+  .vjs-tech {
+    object-fit: cover !important;
+  }
+}
