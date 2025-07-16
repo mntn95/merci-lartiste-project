@@ -1,6 +1,6 @@
-import { FooterTranslation } from "../../types";
+import { FooterLabels } from "../../types";
 
-const footerTranslation: FooterTranslation = {
+const footerLabels: FooterLabels = {
   street: "93 rue des Martyrs",
   weekDays: "Du mardi au vendredi",
   postalCode: "Champagne-sur-Oise 95660",
@@ -10,4 +10,4 @@ const footerTranslation: FooterTranslation = {
   legalMentions: "Mentions légales",
 };
 
-export { footerTranslation };
+export { footerLabels };

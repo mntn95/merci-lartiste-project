@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { InlineWidget } from "react-calendly";
 
-import { appointmentTranslation } from "../intl";
+import { appointmentLabels } from "./labels";
 import { AppointmentComponentProps } from "../../../types";
 
 const Appointment: React.FC<AppointmentComponentProps> = ({
@@ -20,11 +20,11 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
 
         <div className="mx-auto w-[70%] md:w-[60%] lg:w-[40%]">
           <div className="font-bold lg:font-normal text-[30px] uppercase">
-            <h2>{appointmentTranslation.title}</h2>
+            <h2>{appointmentLabels.title}</h2>
           </div>
 
           <div className="text-lg 2xl:w-[60%]">
-            {appointmentTranslation.desc}
+            {appointmentLabels.desc}
             <br />
             {/*             <a
               className="appointment--span-desc_link"
@@ -32,7 +32,7 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
               rel="noreferrer"
               target="_blank"
               >
-              {appointmentTranslation.desc_link}
+              {appointmentLabels.desc_link}
               </a>
             */}
             {/* <!-- Début de widget en ligne Calendly --> */}

@@ -1,6 +1,6 @@
-import { NavTranslation, BottomNavTranslation } from "../../types";
+import { NavLabels, BottomNavLabels } from "../../types";
 
-const navTranslation: NavTranslation = {
+const navLabels: NavLabels = {
   home: "Accueil",
   about: "A propos",
   booking: "Réservation",
@@ -8,7 +8,7 @@ const navTranslation: NavTranslation = {
   pricesCta: "Tarifs",
 };
 
-const bottomNavTranslation: BottomNavTranslation = {
+const bottomNavLabels: BottomNavLabels = {
   title: "Bienvenue l'ami",
   firstSubtitle:
     "Merci l'Artiste! est un univers atypique, un lieu où le client est écouté mais surtout compris. L'expertise et l'élégance sont les maîtres mots.",
@@ -17,4 +17,4 @@ const bottomNavTranslation: BottomNavTranslation = {
   bookingCta: "Réserver en ligne >",
 };
 
-export { bottomNavTranslation, navTranslation };
+export { bottomNavLabels, navLabels };

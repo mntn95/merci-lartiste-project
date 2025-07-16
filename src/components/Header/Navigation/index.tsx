@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
 import { NavigationProps } from "../../../types";
-import { navTranslation } from "../intl";
+import { navLabels } from "../labels";
 
 const Navigation: React.FC<NavigationProps> = ({
   appointmentRef,
   contactRef,
   pricesRef,
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const handleScrollToRef = (
     ref: React.RefObject<HTMLElement> | null
   ): void => {
@@ -19,55 +18,40 @@ const Navigation: React.FC<NavigationProps> = ({
         inline: "start",
       });
     }
-    setIsMenuOpen(false);
-  };
-
-  const toggleMenu = (): void => {
-    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <div className="flex ml-auto mr-0 gap-20 text-xl relative">
       <div className="absolute right-0 text-right">
-        <button
-          className="lg:hidden border-none bg-transparent p-2 text-[#755018]"
-          onClick={toggleMenu}
-          aria-controls="responsive-navbar-nav"
-          aria-expanded={isMenuOpen}
-        >
-          <span className="block w-6 h-0.5 bg-[#755018] mb-1"></span>
-          <span className="block w-6 h-0.5 bg-[#755018] mb-1"></span>
-          <span className="block w-6 h-0.5 bg-[#755018]"></span>
-        </button>
-
-        <nav className={`lg:block ${isMenuOpen ? "block" : "hidden"}`}>
-          <div className="flex flex-col lg:flex-row">
-            <div
-              className="text-[#755018] m-4 hover:underline cursor-pointer"
-              onClick={() => handleScrollToRef(appointmentRef)}
-            >
-              <div className="bg-inherit px-2 py-1 hover:underline">
-                {navTranslation.booking}
-              </div>
-            </div>
-            <div
-              className="text-[#755018] m-4 hover:underline cursor-pointer"
-              onClick={() => handleScrollToRef(pricesRef)}
-            >
-              <div className="bg-inherit px-2 py-1 hover:underline">
-                {navTranslation.pricesCta}
-              </div>
-            </div>
-            <div
-              className="text-[#755018] m-4 hover:underline cursor-pointer"
-              onClick={() => handleScrollToRef(contactRef)}
-            >
-              <div className="bg-inherit px-2 py-1 hover:underline">
-                {navTranslation.contact}
-              </div>
-            </div>
-          </div>
-        </nav>
+        <Navbar collapseOnSelect expand="lg" className="!justify-end">
+          <Navbar.Toggle
+            className="!border-none"
+            aria-controls="responsive-navbar-nav"
+          />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link
+                className="!text-[#755018] m-4 hover:underline rounded-[1px] bg-inherit px-2 py-1"
+                onClick={() => handleScrollToRef(appointmentRef)}
+              >
+                {navLabels.booking}
+              </Nav.Link>
+              <Nav.Link
+                className="!text-[#755018] m-4 hover:underline rounded-[1px] bg-inherit px-2 py-1"
+                onClick={() => handleScrollToRef(pricesRef)}
+              >
+                {navLabels.pricesCta}
+              </Nav.Link>
+              <Nav.Link
+                className="!text-[#755018] m-4 hover:underline rounded-[1px] bg-inherit px-2 py-1"
+                eventKey="4"
+                onClick={() => handleScrollToRef(contactRef)}
+              >
+                {navLabels.contact}
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { PricesTableExtendedProps } from "../../../types";
-import { pricesTranslation } from "../intl";
+import { pricesLabels } from "./labels";
 import PriceItem from "./PriceItem";
 import { getTableContainerClasses } from "./styles";
 
@@ -8,23 +8,23 @@ const PricesTable: React.FC<PricesTableExtendedProps> = ({
   position = "bottom",
   showSecondItem = true,
 }) => {
-  const getTranslationKey = (suffix: string): string => {
-    return (pricesTranslation as any)[position + suffix] || "";
+  const getLabelsKey = (suffix: string): string => {
+    return (pricesLabels as any)[position + suffix] || "";
   };
 
   return (
     <div className={getTableContainerClasses(position)}>
       <PriceItem
-        label={getTranslationKey("FirstItem")}
-        price={getTranslationKey("FirstPrice")}
+        label={getLabelsKey("FirstItem")}
+        price={getLabelsKey("FirstPrice")}
         position="left"
         tablePosition={position}
       />
 
       {showSecondItem && (
         <PriceItem
-          label={getTranslationKey("SecondItem")}
-          price={getTranslationKey("SecondPrice")}
+          label={getLabelsKey("SecondItem")}
+          price={getLabelsKey("SecondPrice")}
           position="right"
           tablePosition={position}
         />
