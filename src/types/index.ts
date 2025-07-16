@@ -123,7 +123,7 @@ export interface MobileVideoProps {
 // TYPES INTERNATIONALISATION
 // =============================================
 
-export interface NavTranslation {
+export interface NavLabels {
   home: string;
   about: string;
   booking: string;
@@ -131,20 +131,20 @@ export interface NavTranslation {
   pricesCta: string;
 }
 
-export interface BottomNavTranslation {
+export interface BottomNavLabels {
   title: string;
   firstSubtitle: string;
   secondSubtitle: string;
   bookingCta: string;
 }
 
-export interface AppointmentTranslation {
+export interface AppointmentLabels {
   title: string;
   desc: string;
   desc_link: string;
 }
 
-export interface PricesTranslation {
+export interface PricesLabels {
   title: string;
   topFirstItem: string;
   topFirstPrice: string;
@@ -154,9 +154,29 @@ export interface PricesTranslation {
   bottomFirstPrice: string;
   bottomSecondItem: string;
   bottomSecondPrice: string;
+  viewAllPricesButton: string;
+  fullPriceTableTitle: string;
 }
 
-export interface FooterTranslation {
+export interface VideoLabels {
+  browserNotSupportedMessage: string;
+  playerReadyLog: string;
+}
+
+export interface Article {
+  title: string;
+  content: string[];
+}
+
+export interface LegalMentionsLabels {
+  title: string;
+  cguTitle: string;
+  effectiveDate: string;
+  introText: string;
+  articles: Article[];
+}
+
+export interface FooterLabels {
   street: string;
   weekDays: string;
   postalCode: string;

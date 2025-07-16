@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavigationProps } from "../../../types";
-import { navTranslation } from "../intl";
+import { navLabels } from "../labels";
 
 const Navigation: React.FC<NavigationProps> = ({
   appointmentRef,
@@ -47,7 +47,7 @@ const Navigation: React.FC<NavigationProps> = ({
               onClick={() => handleScrollToRef(appointmentRef)}
             >
               <div className="bg-inherit px-2 py-1 hover:underline">
-                {navTranslation.booking}
+                {navLabels.booking}
               </div>
             </div>
             <div
@@ -55,7 +55,7 @@ const Navigation: React.FC<NavigationProps> = ({
               onClick={() => handleScrollToRef(pricesRef)}
             >
               <div className="bg-inherit px-2 py-1 hover:underline">
-                {navTranslation.pricesCta}
+                {navLabels.pricesCta}
               </div>
             </div>
             <div
@@ -63,7 +63,7 @@ const Navigation: React.FC<NavigationProps> = ({
               onClick={() => handleScrollToRef(contactRef)}
             >
               <div className="bg-inherit px-2 py-1 hover:underline">
-                {navTranslation.contact}
+                {navLabels.contact}
               </div>
             </div>
           </div>

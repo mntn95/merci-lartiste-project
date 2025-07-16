@@ -3,6 +3,7 @@ import { PricesComponentProps } from "../../../types";
 import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
 import MovingText from "./MovingText";
 import PricesTable from "./PricesTable";
+import { pricesLabels } from "./labels";
 
 const Prices: React.FC<PricesComponentProps> = ({
   setPricesRef,
@@ -31,7 +32,7 @@ const Prices: React.FC<PricesComponentProps> = ({
             className="rounded-[1px] m-auto text-lg md:text-lg lg:text-[26px] 3xl:text-[30px] px-10 py-[15px] border border-white text-white bg-transparent transition-colors duration-200 hover:!bg-[rgb(117,80,24)] hover:!border-black"
             onClick={handleShowPrices}
           >
-            Voir tous les tarifs
+            {pricesLabels.viewAllPricesButton}
           </button>
         </div>
         <div className="absolute top-0 w-full z-10">

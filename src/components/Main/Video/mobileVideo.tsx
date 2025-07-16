@@ -2,6 +2,7 @@ import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 import { MobileVideoProps } from "../../../types";
+import { videoLabels } from "./labels";
 
 export const MobileVideo: React.FC<MobileVideoProps> = ({
   options,
@@ -21,7 +22,7 @@ export const MobileVideo: React.FC<MobileVideoProps> = ({
       }
 
       const player = (playerRef.current = videojs(videoElement, options, () => {
-        videojs.log("player is ready");
+        videojs.log(videoLabels.playerReadyLog);
         onReady && onReady(player);
       }));
     } else {

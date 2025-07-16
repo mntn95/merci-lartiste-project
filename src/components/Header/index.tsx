@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "./Navigation";
-import { bottomNavTranslation } from "./intl";
+import { bottomNavLabels } from "./labels";
 import { HeaderProps } from "../../types";
 
 import Logo from "../../assets/img/mla_logo_820x253.png";
@@ -53,20 +53,20 @@ const Header: React.FC<HeaderProps> = ({
 
       <div className="w-[90%] lg:w-[47%] mx-auto text-2xl">
         <h1 className="text-[30px] lg:text-[40px] font-normal uppercase">
-          {bottomNavTranslation.title}
+          {bottomNavLabels.title}
         </h1>
 
         <div className="text-justify py-[15px] text-sm md:text-lg">
-          <span>{bottomNavTranslation.firstSubtitle}</span>
+          <span>{bottomNavLabels.firstSubtitle}</span>
           <br />
-          <span>{bottomNavTranslation.secondSubtitle}</span>
+          <span>{bottomNavLabels.secondSubtitle}</span>
         </div>
 
         <button
           onClick={handleScrollToAppointment}
           className="text-base text-[#755018] border-[0.8px] border-[#755018] rounded-[1px] uppercase bg-inherit px-[0.7rem] py-[0.3rem] pb-[0.1rem] mt-8 lg:mt-12 hover:underline"
         >
-          {bottomNavTranslation.bookingCta}
+          {bottomNavLabels.bookingCta}
         </button>
       </div>
     </div>
