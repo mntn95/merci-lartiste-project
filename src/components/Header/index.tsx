@@ -1,6 +1,4 @@
 import React from "react";
-import { useFela } from "react-fela";
-import { Button } from "react-bootstrap";
 import Navigation from "./Navigation";
 import { bottomNavTranslation } from "./intl";
 import { HeaderProps } from "../../types";
@@ -8,95 +6,11 @@ import { HeaderProps } from "../../types";
 import Logo from "../../assets/img/mla_logo_820x253.png";
 import Ellipsis from "../../assets/img/mla_ellipse_mercilartiste_461x441.png";
 
-const header: any = {
-  "& .header-nav": {
-    padding: "2rem",
-    display: "flex",
-    "&--logo": {
-      backgroundImage: `url(${Logo})`,
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      clear: "both",
-      "@media (max-width: 767px)": {
-        width: "200px",
-        height: "60px",
-      },
-      width: "300px",
-      height: "90px",
-    },
-  },
-  "& .header-ellipsis": {
-    backgroundImage: `url(${Ellipsis})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    clear: "both",
-    width: "208px",
-    height: "200px",
-    "@media (max-width: 767px)": {
-      margin: "4rem auto 1.6rem -4.5rem",
-    },
-    "@media (min-width: 768px) and (max-width: 1023px)": {
-      margin: "2rem auto 1.6rem 4rem",
-    },
-    "@media (min-width: 1024px)": {
-      margin: "5rem 10rem 2rem auto",
-      height: "221px",
-      width: "217px",
-    },
-  },
-  "& .header-head": {
-    "@media (max-width: 1023px)": {
-      width: "90%",
-    },
-    "@media (min-width: 1024px)": {
-      width: "47%",
-    },
-    margin: "auto",
-    fontSize: "24px",
-    "&--title": {
-      "@media (max-width: 1023px)": {
-        fontSize: "30px",
-      },
-      fontWeight: "normal",
-      fontSize: "40px",
-      textTransform: "uppercase",
-    },
-    "&--text": {
-      textAlign: "justify",
-      padding: "15px 0",
-      "@media (max-width: 767px)": {
-        fontSize: "14px",
-      },
-      "@media (min-width: 768px)": {
-        fontSize: "18px",
-      },
-    },
-    "&--cta": {
-      fontSize: "16px",
-      color: "#755018",
-      border: ".8px solid #755018",
-      borderRadius: "1px",
-      textTransform: "uppercase",
-      backgroundColor: "inherit",
-      padding: ".3rem .7rem .1rem .7rem",
-      marginTop: "3rem",
-      "@media (max-width: 767px)": {
-        marginTop: "1rem",
-      },
-      "&:hover": {
-        textDecoration: "underline",
-      },
-    },
-  },
-};
-
 const Header: React.FC<HeaderProps> = ({
   appointmentRef,
   contactRef,
   pricesRef,
 }) => {
-  const { css } = useFela();
-
   const handleScrollToAppointment = (): void => {
     if (appointmentRef?.current) {
       appointmentRef.current.scrollIntoView({
@@ -108,31 +22,52 @@ const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <div className={css(header)}>
-      <div className="header-nav">
-        <div className="header-nav--logo" />
+    <div>
+      <div className="p-8 flex">
+        <div
+          className="bg-cover bg-no-repeat w-[200px] h-[60px] md:w-[300px] md:h-[90px]"
+          style={{
+            backgroundImage: `url(${Logo})`,
+            clear: "both",
+          }}
+        />
         <Navigation
           appointmentRef={appointmentRef}
           pricesRef={pricesRef}
           contactRef={contactRef}
         />
       </div>
+
       <div>
-        <div className="header-ellipsis" />
+        <div
+          className="bg-cover bg-no-repeat 
+                     w-[208px] h-[200px] mt-16 mb-6 mr-auto -ml-[4.5rem]
+                     md:w-[208px] md:h-[200px] md:mt-8 md:mb-6 md:mr-auto md:ml-16
+                     lg:w-[217px] lg:h-[221px] lg:mt-20 lg:mr-40 lg:mb-8 lg:ml-auto"
+          style={{
+            backgroundImage: `url(${Ellipsis})`,
+            clear: "both",
+          }}
+        />
       </div>
-      <div className="header-head">
-        <h1 className="header-head--title">{bottomNavTranslation.title}</h1>
-        <div className="header-head--text">
+
+      <div className="w-[90%] lg:w-[47%] mx-auto text-2xl">
+        <h1 className="text-[30px] lg:text-[40px] font-normal uppercase">
+          {bottomNavTranslation.title}
+        </h1>
+
+        <div className="text-justify py-[15px] text-sm md:text-lg">
           <span>{bottomNavTranslation.firstSubtitle}</span>
           <br />
           <span>{bottomNavTranslation.secondSubtitle}</span>
         </div>
-        <Button
+
+        <button
           onClick={handleScrollToAppointment}
-          className="header-head--cta"
+          className="text-base text-[#755018] border-[0.8px] border-[#755018] rounded-[1px] uppercase bg-inherit px-[0.7rem] py-[0.3rem] pb-[0.1rem] mt-8 lg:mt-12 hover:underline"
         >
           {bottomNavTranslation.bookingCta}
-        </Button>
+        </button>
       </div>
     </div>
   );

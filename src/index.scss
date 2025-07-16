@@ -1,18 +1,61 @@
+// Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 // File imports
 @import "~bootstrap/scss/bootstrap";
+
+// Custom font faces
+@font-face {
+  font-family: "Botanika Mono Regular";
+  src: url("./assets/Botanika_Mono/webfontkit-20220216-071424/botanika_mono_regular-webfont.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Unica Regular";
+  src: url("./assets/NeueHaasUnica/NeueHaasUnica-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Custom utility classes
+@layer utilities {
+  .font-botanika {
+    font-family: "Botanika Mono Regular", "Oxygen", "Ubuntu", "Cantarell",
+      "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
+
+  .font-neue-haas {
+    font-family: "Neue Haas Unica Regular", sans-serif;
+  }
+}
 
 // Style
 body {
   margin: 0;
-  font-family: 'Botanika Mono Regular', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Botanika Mono Regular", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.mobile-video {
+  .video-js {
+    height: 45vh !important;
+  }
+  .vjs-tech {
+    object-fit: cover !important;
+  }
 }

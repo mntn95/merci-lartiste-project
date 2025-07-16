@@ -1,14 +1,16 @@
 import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { VideoJSProps } from "../../types";
+import { MobileVideoProps } from "../../../types";
 
-export const VideoJS: React.FC<VideoJSProps> = ({ options, onReady }) => {
+export const MobileVideo: React.FC<MobileVideoProps> = ({
+  options,
+  onReady,
+}) => {
   const videoRef = React.useRef<HTMLDivElement>(null);
   const playerRef = React.useRef<any>(null);
 
   React.useEffect(() => {
-    // Make sure Video.js player is only initialized once
     if (!playerRef.current) {
       // The Video.js player needs to be _inside_ the component el for React 18 Strict Mode.
       const videoElement = document.createElement("video-js");
@@ -22,9 +24,6 @@ export const VideoJS: React.FC<VideoJSProps> = ({ options, onReady }) => {
         videojs.log("player is ready");
         onReady && onReady(player);
       }));
-
-      // You could update an existing player in the `else` block here
-      // on prop change, for example:
     } else {
       const player = playerRef.current;
 
@@ -52,4 +51,4 @@ export const VideoJS: React.FC<VideoJSProps> = ({ options, onReady }) => {
   );
 };
 
-export default VideoJS;
+export default MobileVideo;

@@ -77,6 +77,17 @@ export interface PricesTableProps {
   marginBottom?: string | number;
 }
 
+export interface PriceItemProps {
+  label: string;
+  price: string;
+  position: "left" | "right";
+  tablePosition: "top" | "bottom";
+}
+
+export interface PricesTableExtendedProps extends PricesTableProps {
+  showSecondItem?: boolean;
+}
+
 export interface ModalContentProps {
   showModal?: (content: ModalContent) => void;
 }
@@ -85,12 +96,12 @@ export interface ModalContentProps {
 // TYPES VIDEO.JS
 // =============================================
 
-export interface VideoJSSource {
+export interface MobileVideoSource {
   src: string;
   type: string;
 }
 
-export interface VideoJSOptions {
+export interface MobileVideoOptions {
   autoplay?: boolean | "muted" | "play" | "any";
   controls?: boolean;
   width?: number;
@@ -99,12 +110,12 @@ export interface VideoJSOptions {
   playsinline?: boolean;
   responsive?: boolean;
   fluid?: boolean;
-  sources?: VideoJSSource[];
+  sources?: MobileVideoSource[];
   [key: string]: any;
 }
 
-export interface VideoJSProps {
-  options: VideoJSOptions;
+export interface MobileVideoProps {
+  options: MobileVideoOptions;
   onReady?: (player: any) => void;
 }
 

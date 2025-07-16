@@ -1,66 +1,12 @@
 import React, { useRef, useEffect } from "react";
-import { useFela } from "react-fela";
 import { InlineWidget } from "react-calendly";
 
 import { appointmentTranslation } from "../intl";
 import { AppointmentComponentProps } from "../../../types";
 
-const appointment: any = {
-  paddingBottom: "8rem",
-  "& .appointment": {
-    "&--space": {
-      minHeight: "200px",
-    },
-    "&--span": {
-      "@media (max-width: 767px)": {
-        margin: "auto",
-        width: "70%",
-      },
-      "@media (min-width: 768px) and (max-width: 1023px)": {
-        margin: "auto",
-        width: "60%",
-      },
-      "@media (min-width: 1024px)": {
-        margin: "auto",
-        width: "40%",
-      },
-      margin: "auto",
-      width: "40%",
-      "&-title": {
-        "@media (max-width: 1023px)": {
-          fontWeight: "bold",
-          fontSize: "30px",
-        },
-        fontWeight: "normal",
-        fontSize: "30px",
-        textTransform: "uppercase",
-      },
-      "&-desc": {
-        fontSize: "18px",
-        "@media (min-width: 1441px)": {
-          width: "60%",
-        },
-        "&_link": {
-          display: "block",
-          margin: "4rem 0 4rem 0",
-          color: "inherit",
-          fontStyle: "italic",
-        },
-      },
-    },
-  },
-};
-
-const calendarContainer: any = {
-  "@media (max-width: 767px)": {
-    width: "100%",
-  },
-};
-
 const Appointment: React.FC<AppointmentComponentProps> = ({
   setAppointmentRef,
 }) => {
-  const { css } = useFela();
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -69,13 +15,15 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
 
   return (
     <section id="appointment" ref={ref}>
-      <div className={css(appointment)}>
-        <div className="appointment--space" />
-        <div className="appointment--span">
-          <div className="appointment--span-title">
+      <div className="pb-32">
+        <div className="min-h-[200px]" />
+
+        <div className="mx-auto w-[70%] md:w-[60%] lg:w-[40%]">
+          <div className="font-bold lg:font-normal text-[30px] uppercase">
             <h2>{appointmentTranslation.title}</h2>
           </div>
-          <div className="appointment--span-desc">
+
+          <div className="text-lg 2xl:w-[60%]">
             {appointmentTranslation.desc}
             <br />
             {/*             <a
@@ -86,13 +34,14 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
               >
               {appointmentTranslation.desc_link}
               </a>
-            */}{" "}
+            */}
             {/* <!-- Début de widget en ligne Calendly --> */}
             {/* <!-- Fin de widget en ligne Calendly --> */}
           </div>
         </div>
       </div>
-      <div className={css(calendarContainer)}>
+
+      <div className="w-full md:w-auto">
         <InlineWidget
           url="https://calendly.com/merci-lartiste?background_color=DAD2C2&text_color=755018"
           styles={{
