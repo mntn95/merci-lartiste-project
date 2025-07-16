@@ -38,12 +38,6 @@ importers:
       bootstrap:
         specifier: ^5.3.1
         version: 5.3.7(@popperjs/core@2.11.8)
-      fela:
-        specifier: ^12.2.1
-        version: 12.2.1
-      fela-plugin-extend:
-        specifier: ^12.2.1
-        version: 12.2.1(fela@12.2.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -59,9 +53,6 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
-      react-fela:
-        specifier: ^12.2.1
-        version: 12.2.1(fela@12.2.1)(react@18.3.1)
       react-scripts:
         specifier: 5.0.1
         version: 5.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.28.0))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.28.0))(@types/babel__core@7.20.5)(eslint@8.57.1)(react@18.3.1)(sass@1.89.2)(type-fest@0.21.3)(typescript@4.9.5)
@@ -2258,9 +2249,6 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  css-in-js-utils@3.1.0:
-    resolution: {integrity: sha512-fJAcud6B3rRu+KHYk+Bwf+WFL2MDCJJ1XG9x137tJQ0xYxor7XziQtuGFbWNdqrvF4Tk26O3H73nfVqXt/fW1A==}
-
   css-loader@6.11.0:
     resolution: {integrity: sha512-CTJ+AEQJjq5NzLga5pE39qdiSV56F8ywCIsqNIRF0r7BDgWsN25aazToqAFg7ZrtA/U016xudB3ffgweORxX7g==}
     engines: {node: '>= 12.13.0'}
@@ -2892,9 +2880,6 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
-  fast-loops@1.1.4:
-    resolution: {integrity: sha512-8dbd3XWoKCTms18ize6JmQF1SFnnfj5s0B7rRry22EofgMu7B6LKHVh+XfFqFGsqnbH54xgeO83PzpKI+ODhlg==}
-
   fast-uri@3.0.6:
     resolution: {integrity: sha512-Atfo14OibSv5wAp4VWNsFYE1AchQRTv9cBGWET4pZWHzYshFSS9NQI6I57rdKn9croWVMbYFbLhJ+yJvmZIIHw==}
 
@@ -2907,30 +2892,6 @@ packages:
 
   fb-watchman@2.0.2:
     resolution: {integrity: sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==}
-
-  fela-bindings@12.2.1:
-    resolution: {integrity: sha512-h3Fkj1TTDKIH9BIf9PnDomkonsfCSUoSCX8TJzWgNsfO/nUVqfX9n0O6aDi93KPzrAqWrHWYCWrYay0fXmWnRA==}
-    peerDependencies:
-      fela: '*'
-
-  fela-dom@12.2.1:
-    resolution: {integrity: sha512-e6dJ6iCQdicLgZYht17yDx8s/nvFQ7cKcx7lMArBPegu6JwSFJO56ajcgiX1RoFoorTKZJhhDASJ9cKSHscOrg==}
-
-  fela-plugin-extend@12.2.1:
-    resolution: {integrity: sha512-J6XJe+9V4+oaSR+p4/8A8RVTQK1/o6U4T/FY0dRATasyqc80zeQuCh8QjxGiMVeF1x1rqfpSrslLTBWENzVTWQ==}
-    peerDependencies:
-      fela: '>=11'
-
-  fela-tools@12.2.1:
-    resolution: {integrity: sha512-iUiw6mQKJWgQ9rcTePiAATQozEGu+NSa7XrtWGdqcGz/+QYTujq0LBWT5JCXFkrObWEdRjkA7h6xO01IsoXbGQ==}
-    peerDependencies:
-      fela: '>=11'
-
-  fela-utils@12.2.1:
-    resolution: {integrity: sha512-EohJ6/VXslYPXw9cAtTMP91GAWMYa++Wpppmnyp+Dp3KL01GzQB3ISKx/YH1uP/J13BtXq8e1F2xHBTnLDCSRw==}
-
-  fela@12.2.1:
-    resolution: {integrity: sha512-20wRo5RLWCtq9ApRMHOAk/xnvkX+R6uuSqYGm03Mt64brqnJiSjV/4CsmBo94sMxslN07R3bItNndedK5Zzc1A==}
 
   file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
@@ -3259,9 +3220,6 @@ packages:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
 
-  hyphenate-style-name@1.1.0:
-    resolution: {integrity: sha512-WDC/ui2VVRrz3jOVi+XtjqkDjiVjTtFaAGiW37k6b+ohyQ5wYDOGkvCZa8+H0nx3gyvv0+BST9xuOgIyGQ00gw==}
-
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -3510,10 +3468,6 @@ packages:
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-
-  isobject@3.0.1:
-    resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
-    engines: {node: '>=0.10.0'}
 
   istanbul-lib-coverage@3.2.2:
     resolution: {integrity: sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg==}
@@ -4850,9 +4804,6 @@ packages:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
     engines: {node: '>= 0.8'}
 
-  react-addons-shallow-compare@15.6.3:
-    resolution: {integrity: sha512-EDJbgKTtGRLhr3wiGDXK/+AEJ59yqGS+tKE6mue0aNXT6ZMR7VJbbzIiT6akotmHg1BLj46ElJSb+NBMp80XBg==}
-
   react-animations@1.0.0:
     resolution: {integrity: sha512-ePPpVgdKnNEXm+LP1ww5s3n0JzebBw9QdRfxRqogzeg1PDIn6kf0pmvgeTeVZQXXpGmHImkIeTiaQR1O6xjntA==}
 
@@ -4894,12 +4845,6 @@ packages:
 
   react-error-overlay@6.1.0:
     resolution: {integrity: sha512-SN/U6Ytxf1QGkw/9ve5Y+NxBbZM6Ht95tuXNMKs8EJyFa/Vy/+Co3stop3KBHARfn/giv+Lj1uUnTfOJ3moFEQ==}
-
-  react-fela@12.2.1:
-    resolution: {integrity: sha512-hBCVWFMQAMqTMEw2l2VoUC3iytPQiJZCgeTlElUOnhSccpQpnVtJdezDHGqG5RVAXbAV0DXyB6ZfunlrGvk9ng==}
-    peerDependencies:
-      fela: '>=11.3'
-      react: '*'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -5219,9 +5164,6 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shallow-equal@1.2.1:
-    resolution: {integrity: sha512-S4vJDjHHMBaiZuT9NPb616CSmLf618jawtv3sufLl6ivK8WocjAo58cXwbRV1cgqxH0Qbv+iUt6m05eqEa2IRA==}
-
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
     engines: {node: '>=8'}
@@ -5270,10 +5212,6 @@ packages:
 
   sockjs@0.3.24:
     resolution: {integrity: sha512-GJgLTZ7vYb/JtPSSZ10hsOYIvEYsjbNU+zPdIHcUaWVNUEPivzxku31865sSSud0Da0W4lEeOPlmw93zLQchuQ==}
-
-  sort-css-media-queries@1.5.4:
-    resolution: {integrity: sha512-YP5W/h4Sid/YP7Lp87ejJ5jP13/Mtqt2vx33XyhO+IAugKlufRPbOrPlIiEUuxmpNBSBd3EeeQpFhdu3RfI2Ag==}
-    engines: {node: '>= 6.3.0'}
 
   source-list-map@2.0.1:
     resolution: {integrity: sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==}
@@ -8646,10 +8584,6 @@ snapshots:
       postcss: 8.5.6
       postcss-selector-parser: 6.1.2
 
-  css-in-js-utils@3.1.0:
-    dependencies:
-      hyphenate-style-name: 1.1.0
-
   css-loader@6.11.0(webpack@5.100.1):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.6)
@@ -9476,8 +9410,6 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-loops@1.1.4: {}
-
   fast-uri@3.0.6: {}
 
   fastq@1.19.1:
@@ -9491,50 +9423,6 @@ snapshots:
   fb-watchman@2.0.2:
     dependencies:
       bser: 2.1.1
-
-  fela-bindings@12.2.1(fela@12.2.1):
-    dependencies:
-      fast-loops: 1.1.4
-      fela: 12.2.1
-      fela-dom: 12.2.1
-      fela-tools: 12.2.1(fela@12.2.1)
-      react-addons-shallow-compare: 15.6.3
-      shallow-equal: 1.2.1
-
-  fela-dom@12.2.1:
-    dependencies:
-      css-in-js-utils: 3.1.0
-      fast-loops: 1.1.4
-      fela-utils: 12.2.1
-      sort-css-media-queries: 1.5.4
-
-  fela-plugin-extend@12.2.1(fela@12.2.1):
-    dependencies:
-      css-in-js-utils: 3.1.0
-      fast-loops: 1.1.4
-      fela: 12.2.1
-      fela-utils: 12.2.1
-      isobject: 3.0.1
-
-  fela-tools@12.2.1(fela@12.2.1):
-    dependencies:
-      css-in-js-utils: 3.1.0
-      fast-loops: 1.1.4
-      fela: 12.2.1
-      fela-utils: 12.2.1
-
-  fela-utils@12.2.1:
-    dependencies:
-      css-in-js-utils: 3.1.0
-      fast-loops: 1.1.4
-
-  fela@12.2.1:
-    dependencies:
-      css-in-js-utils: 3.1.0
-      csstype: 3.1.3
-      fast-loops: 1.1.4
-      fela-utils: 12.2.1
-      isobject: 3.0.1
 
   file-entry-cache@6.0.1:
     dependencies:
@@ -9908,8 +9796,6 @@ snapshots:
 
   human-signals@2.1.0: {}
 
-  hyphenate-style-name@1.1.0: {}
-
   iconv-lite@0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -10126,8 +10012,6 @@ snapshots:
   isarray@2.0.5: {}
 
   isexe@2.0.0: {}
-
-  isobject@3.0.1: {}
 
   istanbul-lib-coverage@3.2.2: {}
 
@@ -11718,10 +11602,6 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-addons-shallow-compare@15.6.3:
-    dependencies:
-      object-assign: 4.1.1
-
   react-animations@1.0.0: {}
 
   react-app-polyfill@3.0.0:
@@ -11799,14 +11679,6 @@ snapshots:
       scheduler: 0.23.2
 
   react-error-overlay@6.1.0: {}
-
-  react-fela@12.2.1(fela@12.2.1)(react@18.3.1):
-    dependencies:
-      fela: 12.2.1
-      fela-bindings: 12.2.1(fela@12.2.1)
-      fela-dom: 12.2.1
-      prop-types: 15.8.1
-      react: 18.3.1
 
   react-is@16.13.1: {}
 
@@ -12243,8 +12115,6 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shallow-equal@1.2.1: {}
-
   shebang-command@2.0.0:
     dependencies:
       shebang-regex: 3.0.0
@@ -12296,8 +12166,6 @@ snapshots:
       faye-websocket: 0.11.4
       uuid: 8.3.2
       websocket-driver: 0.7.4
-
-  sort-css-media-queries@1.5.4: {}
 
   source-list-map@2.0.1: {}
 

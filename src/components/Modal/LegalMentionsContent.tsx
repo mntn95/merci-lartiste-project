@@ -1,30 +1,8 @@
 import React from "react";
-import { useFela } from "react-fela";
 import { Modal } from "react-bootstrap";
 import mainBackground from "../../assets/img/mla_background_accueil_1920x1080.png";
 
-const legalMentionsStyle: any = {
-  padding: "2rem",
-  fontSize: "14px",
-  lineHeight: "1.6",
-  "& h2": {
-    fontSize: "18px",
-    marginBottom: "1rem",
-    fontWeight: "bold",
-  },
-  "& h3": {
-    fontSize: "16px",
-    marginBottom: "0.5rem",
-    fontWeight: "bold",
-  },
-  "& p": {
-    marginBottom: "1rem",
-  },
-};
-
 const LegalMentionsContent: React.FC = () => {
-  const { css } = useFela();
-
   return (
     <>
       <Modal.Header
@@ -37,7 +15,7 @@ const LegalMentionsContent: React.FC = () => {
         Mentions légales
       </Modal.Header>
       <Modal.Body style={{ backgroundImage: `url(${mainBackground})` }}>
-        <div className={css(legalMentionsStyle)}>
+        <div className="p-8 text-sm leading-relaxed [&_h2]:text-lg [&_h2]:mb-4 [&_h2]:font-bold [&_h3]:text-base [&_h3]:mb-2 [&_h3]:font-bold [&_p]:mb-4">
           <h2>Mentions légales</h2>
 
           <h3>Identité</h3>
