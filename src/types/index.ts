@@ -43,6 +43,10 @@ export interface ModalHandler {
 // TYPES COMPOSANTS PRINCIPAUX
 // =============================================
 
+export interface LayoutProps {
+  children: React.ReactNode;
+}
+
 export interface HeaderProps extends NavigationRefs {}
 
 export interface MainProps
