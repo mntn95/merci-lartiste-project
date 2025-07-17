@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { PricesComponentProps } from "../../../types";
-import PricePicture from "../../../assets/img/mla_img_2_1920x1078.png";
+import PricePicture from "../../../assets/img/work_image.webp";
 import MovingText from "./MovingText";
 import PricesTable from "./PricesTable";
 import { pricesLabels } from "./labels";

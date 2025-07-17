@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { FooterProps } from "../../types";
 import { footerLabels } from "./labels";
-import FooterEllipsis from "../../assets/img/mla_ellipse_contact_593x593.png";
-import FooterInstaLogo from "../../assets/img/mla_picto_instagram_238x238.png";
+import FooterEllipsis from "../../assets/img/contact_ellipsis.png";
+import FooterInstaLogo from "../../assets/img/insta_logo.png";
 
 const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
   const ref = useRef<HTMLElement>(null);

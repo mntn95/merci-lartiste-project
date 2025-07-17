@@ -1,7 +1,7 @@
 import React from "react";
 import { MobileVideoOptions } from "../../../types";
-import Video from "../../../assets/img/merci_artiste.webm";
-import VideoMobile from "../../../assets/img/compressedMerciLartiste.mp4";
+import Video from "../../../assets/videos/merci_artiste.webm";
+import VideoMobile from "../../../assets/videos/compressedMerciLartiste.mp4";
 import MobileVideo from "./mobileVideo";
 import { videoLabels } from "./labels";
 

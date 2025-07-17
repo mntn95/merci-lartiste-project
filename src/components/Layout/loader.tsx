@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import LoaderImage from "../../assets/img/loader.png";
 
 const Loader: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -23,7 +24,7 @@ const Loader: React.FC = () => {
         className="animate-spin-slow"
         width={150}
         height={150}
-        src="/android-chrome-192x192.png"
+        src={LoaderImage}
         alt="loader"
       />
     </motion.div>
