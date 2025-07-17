@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 import { ModalContentProps } from "../../types";
-import mainBackground from "../../assets/img/mla_background_accueil_1920x1080.png";
-import FullPricePicture from "../../assets/img/price_table.jpg";
+import mainBackground from "../../assets/img/background.png";
+import FullPricePicture from "../../assets/img/price_table.webp";
 import { pricesLabels } from "../Main/Prices/labels";
 
 const FullPriceTableContent: React.FC<ModalContentProps> = ({ showModal }) => {

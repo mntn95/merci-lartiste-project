@@ -3,8 +3,8 @@ import Navigation from "./Navigation";
 import { bottomNavLabels } from "./labels";
 import { HeaderProps } from "../../types";
 
-import Logo from "../../assets/img/mla_logo_820x253.png";
-import Ellipsis from "../../assets/img/mla_ellipse_mercilartiste_461x441.png";
+import Logo from "../../assets/img/logo.png";
+import Ellipsis from "../../assets/img/header_double_ellipsis.png";
 
 const Header: React.FC<HeaderProps> = ({
   appointmentRef,

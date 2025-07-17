@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import mainBackground from "../../../assets/img/mla_background_accueil_1920x1080.png";
+import mainBackground from "../../../assets/img/background.png";
 
 interface ModalWrapperProps {
   title: string;
