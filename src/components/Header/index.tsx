@@ -1,4 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useMediaQuery } from "@mui/material";
+
 import Navigation from "./Navigation";
 import { bottomNavLabels } from "./labels";
 import { HeaderProps } from "../../types";
@@ -11,6 +14,8 @@ const Header: React.FC<HeaderProps> = ({
   contactRef,
   pricesRef,
 }) => {
+  const isDesktop = useMediaQuery("(min-width:1024px)");
+
   const handleScrollToAppointment = (): void => {
     if (appointmentRef?.current) {
       appointmentRef.current.scrollIntoView({
@@ -24,7 +29,15 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div>
       <div className="p-8 flex">
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 1.5,
+            duration: 0.5,
+            type: "spring",
+            stiffness: 50,
+          }}
           className="bg-cover bg-no-repeat w-[200px] h-[60px] md:w-[300px] md:h-[90px]"
           style={{
             backgroundImage: `url(${Logo})`,
@@ -39,7 +52,15 @@ const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div>
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: isDesktop ? 200 : -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 2,
+            duration: 0.5,
+            type: "spring",
+            stiffness: 50,
+          }}
           className="bg-cover bg-no-repeat 
                      w-[208px] h-[200px] mt-16 mb-6 mr-auto -ml-[4.5rem]
                      md:w-[208px] md:h-[200px] md:mt-8 md:mb-6 md:mr-auto md:ml-16
@@ -52,22 +73,41 @@ const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div className="w-[90%] lg:w-[47%] mx-auto text-2xl">
-        <h1 className="text-[30px] lg:text-[40px] font-normal uppercase">
-          {bottomNavLabels.title}
-        </h1>
+        <motion.div
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            delay: 2.5,
+            duration: 0.5,
+            type: "spring",
+            stiffness: 50,
+          }}
+        >
+          <h1 className="text-[30px] lg:text-[40px] font-normal uppercase">
+            {bottomNavLabels.title}
+          </h1>
 
-        <div className="text-justify py-[15px] text-sm md:text-lg">
-          <span>{bottomNavLabels.firstSubtitle}</span>
-          <br />
-          <span>{bottomNavLabels.secondSubtitle}</span>
-        </div>
+          <div className="text-justify py-[15px] text-sm md:text-lg">
+            <span className="whitespace-pre-line">
+              {bottomNavLabels.subTitle}
+            </span>
+          </div>
+        </motion.div>
 
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 3.5,
+            duration: 1.5,
+            type: "spring",
+            stiffness: 50,
+          }}
           onClick={handleScrollToAppointment}
           className="text-base text-[#755018] border-[0.8px] border-[#755018] rounded-[1px] uppercase bg-inherit px-[0.7rem] py-[0.3rem] pb-[0.1rem] mt-8 lg:mt-12 hover:underline"
         >
           {bottomNavLabels.bookingCta}
-        </button>
+        </motion.button>
       </div>
     </div>
   );

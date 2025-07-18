@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
+import { motion } from "framer-motion";
 import { NavigationProps } from "../../../types";
 import { navLabels } from "../labels";
 
@@ -21,7 +22,17 @@ const Navigation: React.FC<NavigationProps> = ({
   };
 
   return (
-    <div className="flex ml-auto mr-0 gap-20 text-xl relative">
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 1.75,
+        duration: 0.5,
+        type: "spring",
+        stiffness: 50,
+      }}
+      className="flex ml-auto mr-0 gap-20 text-xl relative"
+    >
       <div className="absolute right-0 text-right">
         <Navbar collapseOnSelect expand="lg" className="!justify-end">
           <Navbar.Toggle
@@ -53,7 +64,7 @@ const Navigation: React.FC<NavigationProps> = ({
           </Navbar.Collapse>
         </Navbar>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

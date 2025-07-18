@@ -137,8 +137,7 @@ export interface NavLabels {
 
 export interface BottomNavLabels {
   title: string;
-  firstSubtitle: string;
-  secondSubtitle: string;
+  subTitle: string;
   bookingCta: string;
 }
 
