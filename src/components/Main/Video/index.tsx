@@ -1,4 +1,6 @@
 import React from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
+
 import { MobileVideoOptions } from "../../../types";
 import Video from "../../../assets/videos/merci_artiste.webm";
 import VideoMobile from "../../../assets/videos/compressedMerciLartiste.mp4";
@@ -7,6 +9,14 @@ import { videoLabels } from "./labels";
 
 const VideoComponent: React.FC = () => {
   const playerRef = React.useRef<any>(null);
+  const containerRef = React.useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 95%", "end end"],
+  });
+
+  const scrollY = useSpring(scrollYProgress, { stiffness: 200, damping: 20 });
 
   const mobileVideoOptions: MobileVideoOptions = {
     autoplay: "muted",
@@ -28,7 +38,14 @@ const VideoComponent: React.FC = () => {
   };
 
   return (
-    <>
+    <motion.div
+      ref={containerRef}
+      initial={{
+        opacity: 0,
+      }}
+      viewport={{ once: true }}
+      style={{ opacity: scrollY }}
+    >
       <div className="mobile-video xl:hidden">
         <MobileVideo options={mobileVideoOptions} onReady={handlePlayerReady} />
       </div>
@@ -44,7 +61,7 @@ const VideoComponent: React.FC = () => {
           {videoLabels.browserNotSupportedMessage}
         </video>
       </div>
-    </>
+    </motion.div>
   );
 };
 

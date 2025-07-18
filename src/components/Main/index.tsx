@@ -11,7 +11,7 @@ const Main: React.FC<MainProps> = ({
 }) => {
   return (
     <>
-      <main className="mt-16">
+      <main className="mt-44">
         <VideoComponent />
         <Appointment setAppointmentRef={setAppointmentRef} />
         <Prices setPricesRef={setPricesRef} showModal={showModal} />

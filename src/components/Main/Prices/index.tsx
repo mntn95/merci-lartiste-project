@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { PricesComponentProps } from "../../../types";
 import PricePicture from "../../../assets/img/work_image.webp";
 import MovingText from "./MovingText";
@@ -28,12 +29,21 @@ const Prices: React.FC<PricesComponentProps> = ({
         />
         <div className="absolute inset-0 bg-black w-full min-h-[400px] md:min-h-0 h-full opacity-50" />
         <div className="flex w-full absolute inset-0 h-[432px] md:h-[60vw] lg:h-[57vw]">
-          <button
+          <motion.button
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.5,
+              type: "spring",
+              stiffness: 50,
+            }}
+            viewport={{ once: true }}
             className="rounded-[1px] m-auto text-lg md:text-lg lg:text-[26px] 3xl:text-[30px] px-10 py-[15px] border border-white text-white bg-transparent transition-colors duration-200 hover:!bg-[rgb(117,80,24)] hover:!border-black"
             onClick={handleShowPrices}
           >
             {pricesLabels.viewAllPricesButton}
-          </button>
+          </motion.button>
         </div>
         <div className="absolute top-0 w-full z-10">
           <MovingText />
