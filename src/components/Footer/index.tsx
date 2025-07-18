@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { FooterProps } from "../../types";
 import { footerLabels } from "./labels";
 import FooterEllipsis from "../../assets/img/contact_ellipsis.png";
@@ -11,6 +12,12 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
     setContactRef(ref);
   }, [setContactRef]);
 
+  const commonMotionParams = {
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    viewport: { once: true },
+  };
+
   const handleShowLegalMentions = (): void => {
     showModal("legalMentions");
   };
@@ -20,14 +27,28 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
       <div className="w-full px-3 mb-4 mt-8 text-sm md:text-lg">
         <div className="flex flex-wrap ml-[3px] mb-4 md:mb-8">
           <div className="w-10/12 flex flex-col md:flex-row mt-40 md:mt-0">
-            <div className="mb-8 md:mb-0 md:w-1/2">
+            <motion.div
+              {...commonMotionParams}
+              transition={{
+                delay: 0.5,
+                duration: 0.5,
+              }}
+              className="mb-8 md:mb-0 md:w-1/2"
+            >
               <div className="lg:w-1/2">{footerLabels.street}</div>
               <div className="lg:w-1/2">{footerLabels.postalCode}</div>
-            </div>
-            <div className="md:w-1/2">
+            </motion.div>
+            <motion.div
+              {...commonMotionParams}
+              transition={{
+                delay: 0.7,
+                duration: 0.5,
+              }}
+              className="md:w-1/2"
+            >
               <div className="lg:w-1/2">{footerLabels.weekDays}</div>
               <div className="lg:w-1/2">{footerLabels.workHours}</div>
-            </div>
+            </motion.div>
           </div>
           <div className="w-2/12">
             <div className="relative">
@@ -54,7 +75,14 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <motion.div
+          {...commonMotionParams}
+          transition={{
+            delay: 0.7,
+            duration: 0.5,
+          }}
+          className="flex flex-wrap"
+        >
           <div className="w-10/12">
             <div className="flex flex-wrap">
               <div className="w-full">{footerLabels.phoneNumber}</div>
@@ -69,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
