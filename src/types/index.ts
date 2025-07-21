@@ -72,6 +72,10 @@ export interface PricesComponentProps {
   showModal: (content: ModalContent) => void;
 }
 
+export interface ServicesComponentProps {
+  // Pas de props spécifiques pour l'instant
+}
+
 export interface MovingTextProps {
   direction?: "toLeft" | "toRight";
 }
@@ -189,6 +193,11 @@ export interface FooterLabels {
   legalMentions: string;
 }
 
+export interface ServicesLabels {
+  title: string;
+  subtitle: string;
+}
+
 // =============================================
 // TYPES PRIX ET SERVICES
 // =============================================
@@ -200,6 +209,14 @@ export interface PriceItem {
   price: number;
   duration?: string;
   category?: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  duration: string;
 }
 
 export interface PricesProps {

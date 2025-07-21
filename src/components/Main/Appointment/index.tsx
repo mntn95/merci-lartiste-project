@@ -1,17 +1,19 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { InlineWidget } from "react-calendly";
-import { useMediaQuery } from "@mui/material";
-
+/* import { InlineWidget } from "react-calendly";
+ */
+/* import { useMediaQuery } from "@mui/material";
+ */
 import { appointmentLabels } from "./labels";
 import { AppointmentComponentProps } from "../../../types";
+import Services from "../Services";
 
 const Appointment: React.FC<AppointmentComponentProps> = ({
   setAppointmentRef,
 }) => {
   const ref = useRef<HTMLElement>(null);
-  const isWideDesktop = useMediaQuery("(min-width:1440px)");
-
+  /*   const isWideDesktop = useMediaQuery("(min-width:1440px)");
+   */
   useEffect(() => {
     setAppointmentRef(ref);
   }, [setAppointmentRef]);
@@ -63,8 +65,9 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
           </motion.div>
         </div>
       </div>
+      <Services />
 
-      <motion.div
+      {/* <motion.div
         {...commonMotionParams}
         transition={{
           delay: 0.4,
@@ -88,7 +91,7 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
         type="text/javascript"
         src="https://assets.calendly.com/assets/external/widget.js"
         async
-      ></script>
+      ></script> */}
     </section>
   );
 };
