@@ -1,0 +1,21 @@
+import React from "react";
+import { ServiceItem } from "../../../../types";
+
+interface ServicePricingProps {
+  service: ServiceItem;
+}
+
+const ServicePricing: React.FC<ServicePricingProps> = ({ service }) => (
+  <div className="flex flex-row lg:flex-col items-end lg:items-end text-right gap-2 lg:gap-1 min-w-[120px]">
+    <div className="flex flex-col items-end">
+      <span className="text-2xl lg:text-3xl font-bold text-[#755018] group-hover:text-[#8B6B1A] transition-colors duration-300">
+        {service.price}€
+      </span>
+      <span className="text-sm text-gray-500 font-medium">
+        {service.duration}
+      </span>
+    </div>
+  </div>
+);
+
+export default ServicePricing;
