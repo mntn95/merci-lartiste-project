@@ -1,6 +1,9 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import mainBackground from "../../../assets/img/background.png";
+import {
+  useResponsiveBackground,
+  backgroundImages,
+} from "../../../hooks/useResponsiveBackground";
 
 interface ModalWrapperProps {
   title: string;
@@ -8,8 +11,10 @@ interface ModalWrapperProps {
 }
 
 const ModalWrapper: React.FC<ModalWrapperProps> = ({ title, children }) => {
+  const backgroundImage = useResponsiveBackground(backgroundImages);
+
   const modalStyles = {
-    backgroundImage: `url(${mainBackground})`,
+    backgroundImage: `url(${backgroundImage})`,
     borderColor: "rgb(117, 80, 24)",
   };
 
@@ -18,7 +23,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ title, children }) => {
       <Modal.Header style={modalStyles} closeButton>
         {title}
       </Modal.Header>
-      <Modal.Body style={{ backgroundImage: `url(${mainBackground})` }}>
+      <Modal.Body style={{ backgroundImage: `url(${backgroundImage})` }}>
         {children}
       </Modal.Body>
     </>
