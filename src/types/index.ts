@@ -194,8 +194,36 @@ export interface FooterLabels {
 }
 
 export interface ServicesLabels {
-  title: string;
-  subtitle: string;
+  // Messages d'état
+  loading: string;
+  errorLoading: string;
+  noResults: {
+    title: string;
+    description: string;
+  };
+  clickInstruction: string;
+
+  // Calendar
+  calendar: {
+    backButton: string;
+    backButtonArrow: string;
+    duration: string;
+    loadingSlots: string;
+    errorSlots: string;
+    noSlots: string;
+  };
+
+  // Modal
+  modal: {
+    title: string;
+    iframeTitle: string;
+  };
+
+  // Service items
+  service: {
+    viewSlots: string;
+    defaultDescription: string;
+  };
 }
 
 // =============================================
@@ -217,6 +245,7 @@ export interface ServiceItem {
   description: string;
   price: number;
   duration: string;
+  isApiData?: boolean;
 }
 
 export interface PricesProps {
