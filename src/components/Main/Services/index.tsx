@@ -13,7 +13,7 @@ import {
   ServicesCalendarView,
 } from "./components";
 
-const Services: React.FC<ServicesComponentProps> = () => {
+const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
   const [eventTypes, setEventTypes] = useState<CalendlyEventType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -54,6 +54,7 @@ const Services: React.FC<ServicesComponentProps> = () => {
       <ServicesCalendarView
         eventType={selectedEventType}
         onBack={() => setSelectedEventType(null)}
+        showModal={showModal}
       />
     );
   }

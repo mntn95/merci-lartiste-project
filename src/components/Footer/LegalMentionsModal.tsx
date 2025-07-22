@@ -1,13 +1,12 @@
 import React from "react";
-import { legalMentionsLabels } from "./labels";
-import { ModalWrapper, ArticleSection, Paragraph } from "./components";
+import { legalMentionsLabels } from "../Modal/labels";
+import { ArticleSection, Paragraph } from "../Modal/components";
 
-const LegalMentionsContent: React.FC = () => {
-  const { title, cguTitle, effectiveDate, introText, articles } =
-    legalMentionsLabels;
+const LegalMentionsModal: React.FC = () => {
+  const { cguTitle, effectiveDate, introText, articles } = legalMentionsLabels;
 
   return (
-    <ModalWrapper title={title}>
+    <>
       <div className="pt-4 flex flex-col items-center justify-center">
         <h2 className="text-center flex items-center justify-center text-xl uppercase">
           {cguTitle}
@@ -28,8 +27,8 @@ const LegalMentionsContent: React.FC = () => {
           </ArticleSection>
         ))}
       </div>
-    </ModalWrapper>
+    </>
   );
 };
 
-export default LegalMentionsContent;
+export default LegalMentionsModal;

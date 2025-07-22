@@ -13,7 +13,10 @@ const Main: React.FC<MainProps> = ({
     <>
       <main className="mt-44">
         <VideoComponent />
-        <Appointment setAppointmentRef={setAppointmentRef} />
+        <Appointment
+          setAppointmentRef={setAppointmentRef}
+          showModal={showModal}
+        />
         <Prices setPricesRef={setPricesRef} showModal={showModal} />
       </main>
     </>

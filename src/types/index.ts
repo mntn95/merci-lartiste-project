@@ -65,6 +65,7 @@ export interface NavigationProps extends NavigationRefs {}
 
 export interface AppointmentComponentProps {
   setAppointmentRef: React.Dispatch<React.SetStateAction<Ref>>;
+  showModal: (content: ModalContent) => void;
 }
 
 export interface PricesComponentProps {
@@ -73,7 +74,7 @@ export interface PricesComponentProps {
 }
 
 export interface ServicesComponentProps {
-  // Pas de props spécifiques pour l'instant
+  showModal: (content: ModalContent) => void;
 }
 
 export interface MovingTextProps {
