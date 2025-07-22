@@ -30,7 +30,6 @@ const Calendar: React.FC<CalendarProps> = ({
       try {
         setLoading(true);
 
-        // Période de 7 jours à partir d'aujourd'hui
         const startTime = new Date().toISOString();
         const endTime = new Date(
           Date.now() + 7 * 24 * 60 * 60 * 1000
@@ -169,7 +168,7 @@ const Calendar: React.FC<CalendarProps> = ({
               transition={{ delay: dateIndex * 0.1 }}
               className="space-y-0 bg-white/30 backdrop-blur-sm rounded-sm p-6 shadow-sm overflow-hidden"
             >
-              <h3 className="text-lg font-bold text-[#755018] mb-4 capitalize">
+              <h3 className="text-lg !font-botanika font-bold text-[#755018] mb-4 capitalize">
                 {formatDate(groupedTimes[date][0].start_time)}
               </h3>
 

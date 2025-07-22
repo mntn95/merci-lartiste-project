@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   CalendlyEventType,
   CalendlyAvailableTime,
 } from "../../../../services/calendly-api";
+import { ModalContent } from "../../../../types";
 import Calendar from "../Calendar";
-/* import CalendlyModal from "../CalendlyModal";
- */
+
 interface ServicesCalendarViewProps {
   eventType: CalendlyEventType;
   onBack: () => void;
+  showModal: (content: ModalContent) => void;
 }
 
 const ServicesCalendarView: React.FC<ServicesCalendarViewProps> = ({
   eventType,
   onBack,
+  showModal,
 }) => {
-  const [selectedTimeSlot, setSelectedTimeSlot] =
-    useState<CalendlyAvailableTime | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleTimeSlotClick = (timeSlot: CalendlyAvailableTime) => {
-    setSelectedTimeSlot(timeSlot);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedTimeSlot(null);
+    sessionStorage.setItem("selectedTimeSlot", JSON.stringify(timeSlot));
+    showModal("servicesBooking");
   };
 
   return (
@@ -36,12 +29,6 @@ const ServicesCalendarView: React.FC<ServicesCalendarViewProps> = ({
         onBack={onBack}
         onTimeSlotClick={handleTimeSlotClick}
       />
-      {/*       <CalendlyModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        timeSlot={selectedTimeSlot}
-      />
- */}{" "}
     </div>
   );
 };
