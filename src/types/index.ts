@@ -65,10 +65,15 @@ export interface NavigationProps extends NavigationRefs {}
 
 export interface AppointmentComponentProps {
   setAppointmentRef: React.Dispatch<React.SetStateAction<Ref>>;
+  showModal: (content: ModalContent) => void;
 }
 
 export interface PricesComponentProps {
   setPricesRef: React.Dispatch<React.SetStateAction<Ref>>;
+  showModal: (content: ModalContent) => void;
+}
+
+export interface ServicesComponentProps {
   showModal: (content: ModalContent) => void;
 }
 
@@ -189,6 +194,39 @@ export interface FooterLabels {
   legalMentions: string;
 }
 
+export interface ServicesLabels {
+  // Messages d'état
+  loading: string;
+  errorLoading: string;
+  noResults: {
+    title: string;
+    description: string;
+  };
+  clickInstruction: string;
+
+  // Calendar
+  calendar: {
+    backButton: string;
+    backButtonArrow: string;
+    duration: string;
+    loadingSlots: string;
+    errorSlots: string;
+    noSlots: string;
+  };
+
+  // Modal
+  modal: {
+    title: string;
+    iframeTitle: string;
+  };
+
+  // Service items
+  service: {
+    viewSlots: string;
+    defaultDescription: string;
+  };
+}
+
 // =============================================
 // TYPES PRIX ET SERVICES
 // =============================================
@@ -200,6 +238,15 @@ export interface PriceItem {
   price: number;
   duration?: string;
   category?: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  duration: string;
+  isApiData?: boolean;
 }
 
 export interface PricesProps {
