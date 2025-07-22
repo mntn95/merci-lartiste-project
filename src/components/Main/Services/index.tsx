@@ -1,41 +1,78 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import {
   ServicesComponentProps,
-  ServiceItem as ServiceItemT,
+  ServiceItem as ServiceItemType,
 } from "../../../types";
-import { servicesData } from "./services-data";
-import ServiceItem from "./ServiceItem";
+import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
+import { servicesLabels } from "./labels";
+import {
+  ServicesLoading,
+  ServicesError,
+  ServicesEmpty,
+  ServicesList,
+  ServicesCalendarView,
+} from "./components";
 
 const Services: React.FC<ServicesComponentProps> = () => {
-  const handleServiceClick = (service: ServiceItemT) => {
-    console.log("Service sélectionné:", service);
-    // TODO: Ajouter la logique de redirection/action
+  const [eventTypes, setEventTypes] = useState<CalendlyEventType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedEventType, setSelectedEventType] =
+    useState<CalendlyEventType | null>(null);
+
+  useEffect(() => {
+    const fetchEventTypes = async () => {
+      try {
+        setLoading(true);
+        const response = await calendlyApi.getEventTypes();
+        setEventTypes(response.collection);
+        setError(null);
+      } catch (err) {
+        console.error("Erreur lors du chargement des prestations:", err);
+        setError(servicesLabels.errorLoading);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEventTypes();
+  }, []);
+
+  const handleServiceClick = (service: ServiceItemType) => {
+    if (service.isApiData) {
+      // Retrouver l'eventType correspondant
+      const eventType = eventTypes.find((et) => et.uri === service.id);
+      if (eventType) {
+        setSelectedEventType(eventType);
+      }
+    }
   };
+
+  // Si un type d'événement est sélectionné, afficher le calendrier
+  if (selectedEventType) {
+    return (
+      <ServicesCalendarView
+        eventType={selectedEventType}
+        onBack={() => setSelectedEventType(null)}
+      />
+    );
+  }
 
   return (
     <div className="container mx-auto py-16 lg:py-24 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="space-y-0 bg-white/30 backdrop-blur-sm rounded-sm shadow-sm overflow-hidden">
-          {servicesData.map((service, index) => (
-            <ServiceItem
-              key={service.id}
-              service={service}
-              index={index}
-              onServiceClick={handleServiceClick}
-            />
-          ))}
-        </div>
+        {loading && <ServicesLoading />}
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center text-sm text-gray-500 mt-8 italic"
-        >
-          Cliquez sur une prestation pour plus d'informations
-        </motion.p>
+        {error && <ServicesError error={error} />}
+
+        {eventTypes.length > 0 ? (
+          <ServicesList
+            eventTypes={eventTypes}
+            onServiceClick={handleServiceClick}
+          />
+        ) : !loading ? (
+          <ServicesEmpty />
+        ) : null}
       </div>
     </div>
   );
