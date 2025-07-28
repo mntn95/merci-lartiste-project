@@ -1,4 +1,4 @@
-# 💈 Merci L'Artiste - Site Web Barbier Authentique
+# 💈 Merci L'Artiste
 
 > **Site web officiel :** [https://www.merci-lartiste.com/](https://www.merci-lartiste.com/)
 
