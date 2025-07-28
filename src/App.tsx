@@ -13,15 +13,10 @@ const App: React.FC = () => {
   const [pricesRef, setPricesRef] = useState<Ref>(null);
 
   const handleModal = (content: ModalContent): void => {
-    console.log(content);
     if (content) {
       showModal(content);
-      if (typeof window != "undefined" && window.document) {
-        document.body.style.overflow = "hidden";
-      }
     } else {
       showModal(null);
-      document.body.style.overflow = "unset";
     }
   };
 

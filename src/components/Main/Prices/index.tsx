@@ -39,7 +39,7 @@ const Prices: React.FC<PricesComponentProps> = ({
               stiffness: 50,
             }}
             viewport={{ once: true }}
-            className="rounded-[1px] m-auto text-lg md:text-lg lg:text-[26px] 3xl:text-[30px] px-10 py-[15px] border border-white text-white bg-transparent transition-colors duration-200 hover:!bg-[rgb(117,80,24)] hover:!border-black"
+            className="rounded-[1px] m-auto text-lg md:text-lg lg:text-[26px] 3xl:text-[30px] px-10 py-[15px] border border-white text-white bg-transparent hover:!border-black hover:!text-black hover:!bg-white/50 transition-colors duration-200"
             onClick={handleShowPrices}
           >
             {pricesLabels.viewAllPricesButton}
