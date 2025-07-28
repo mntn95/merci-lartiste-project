@@ -23,7 +23,10 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ title, children }) => {
       <Modal.Header style={modalStyles} closeButton>
         {title}
       </Modal.Header>
-      <Modal.Body style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <Modal.Body
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        className="p-0 h-[85vh] flex flex-col"
+      >
         {children}
       </Modal.Body>
     </>
