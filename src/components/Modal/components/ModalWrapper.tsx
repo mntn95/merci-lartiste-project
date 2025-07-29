@@ -8,9 +8,14 @@ import {
 interface ModalWrapperProps {
   title: string;
   children: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
-const ModalWrapper: React.FC<ModalWrapperProps> = ({ title, children }) => {
+const ModalWrapper: React.FC<ModalWrapperProps> = ({
+  title,
+  children,
+  style,
+}) => {
   const backgroundImage = useResponsiveBackground(backgroundImages);
 
   const modalStyles = {
@@ -24,8 +29,8 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({ title, children }) => {
         {title}
       </Modal.Header>
       <Modal.Body
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-        className="p-0 h-[85vh] flex flex-col"
+        style={{ ...style, backgroundImage: `url(${backgroundImage})` }}
+        className="flex flex-col"
       >
         {children}
       </Modal.Body>
