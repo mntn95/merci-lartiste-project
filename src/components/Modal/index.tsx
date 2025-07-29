@@ -29,6 +29,10 @@ const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
         return {
           title: pricesLabels.fullPriceTableTitle,
           content: <PricesTableModal />,
+          style: {
+            height: "85vh",
+            padding: 0,
+          },
         };
       case "servicesBooking":
         return {
@@ -50,7 +54,7 @@ const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
       onHide={handleHide}
     >
       {modalContent && (
-        <ModalWrapper title={modalContent.title}>
+        <ModalWrapper title={modalContent.title} style={modalContent.style}>
           {modalContent.content}
         </ModalWrapper>
       )}

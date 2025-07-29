@@ -154,6 +154,7 @@ export interface AppointmentLabels {
 
 export interface PricesLabels {
   title: string;
+  headerTitle: string;
   topFirstItem: string;
   topFirstPrice: string;
   topSecondItem: string;
@@ -164,6 +165,14 @@ export interface PricesLabels {
   bottomSecondPrice: string;
   viewAllPricesButton: string;
   fullPriceTableTitle: string;
+}
+
+export interface PriceService {
+  id: string;
+  name: string;
+  price: string;
+  duration: string;
+  description: string;
 }
 
 export interface VideoLabels {
