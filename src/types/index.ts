@@ -175,6 +175,15 @@ export interface PriceService {
   description: string;
 }
 
+// Types pour la logique de recherche du calendrier par semaines
+export type SearchDirection = "forward" | "backward";
+
+export interface FetchConfig {
+  startOffset: number;
+  searchDirection: SearchDirection;
+  maxAttempts?: number;
+}
+
 export interface VideoLabels {
   browserNotSupportedMessage: string;
   playerReadyLog: string;

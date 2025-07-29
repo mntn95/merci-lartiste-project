@@ -5,6 +5,7 @@ import { useMediaQuery } from "@mui/material";
 import Navigation from "./Navigation";
 import { bottomNavLabels } from "./labels";
 import { HeaderProps } from "../../types";
+import { handleScrollToRef } from "../../utils";
 
 import Logo from "../../assets/img/logo.png";
 import Ellipsis from "../../assets/img/header_double_ellipsis.png";
@@ -15,16 +16,6 @@ const Header: React.FC<HeaderProps> = ({
   pricesRef,
 }) => {
   const isDesktop = useMediaQuery("(min-width:1024px)");
-
-  const handleScrollToAppointment = (): void => {
-    if (appointmentRef?.current) {
-      appointmentRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "start",
-      });
-    }
-  };
 
   return (
     <div>
@@ -103,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({
             type: "spring",
             stiffness: 50,
           }}
-          onClick={handleScrollToAppointment}
+          onClick={() => handleScrollToRef(appointmentRef)}
           className="text-base text-[#755018] border-[0.8px] border-[#755018] rounded-[1px] uppercase bg-inherit px-[0.7rem] py-[0.3rem] pb-[0.1rem] mt-8 lg:mt-12 hover:underline"
         >
           {bottomNavLabels.bookingCta}
