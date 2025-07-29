@@ -3,24 +3,13 @@ import { Nav, Navbar } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { NavigationProps } from "../../../types";
 import { navLabels } from "../labels";
+import { handleScrollToRef } from "../../../utils";
 
 const Navigation: React.FC<NavigationProps> = ({
   appointmentRef,
   contactRef,
   pricesRef,
 }) => {
-  const handleScrollToRef = (
-    ref: React.RefObject<HTMLElement> | null
-  ): void => {
-    if (ref?.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "start",
-      });
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }}
