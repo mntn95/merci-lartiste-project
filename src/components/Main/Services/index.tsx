@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ServicesComponentProps,
   ServiceItem as ServiceItemType,
@@ -14,14 +14,12 @@ import {
   ServicesCalendarView,
 } from "./components";
 
-const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
+const Services: React.FC<ServicesComponentProps> = ({ appointmentRef }) => {
   const [eventTypes, setEventTypes] = useState<CalendlyEventType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedEventType, setSelectedEventType] =
     useState<CalendlyEventType | null>(null);
-
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchEventTypes = async () => {
@@ -41,11 +39,16 @@ const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
     fetchEventTypes();
   }, []);
 
+  useEffect(() => {
+    if (selectedEventType) {
+      handleScrollToRef(appointmentRef);
+    }
+  }, [selectedEventType, appointmentRef]);
+
   const handleServiceClick = (service: ServiceItemType) => {
     if (service.isApiData) {
       const eventType = eventTypes.find((et) => et.uri === service.id);
       if (eventType) {
-        handleScrollToRef(containerRef);
         setSelectedEventType(eventType);
       }
     }
@@ -56,13 +59,12 @@ const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
       <ServicesCalendarView
         eventType={selectedEventType}
         onBack={() => setSelectedEventType(null)}
-        showModal={showModal}
       />
     );
   }
 
   return (
-    <div ref={containerRef} className="container mx-auto py-16 lg:py-24 px-4">
+    <div className="container mx-auto py-16 lg:py-24 px-4">
       <div className="max-w-4xl mx-auto">
         {loading && <ServicesLoading />}
 

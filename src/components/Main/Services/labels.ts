@@ -20,11 +20,6 @@ export const servicesLabels: ServicesLabels = {
     noSlots: "Aucun créneau disponible pour cette prestation.",
   },
 
-  modal: {
-    title: "Finaliser la réservation",
-    iframeTitle: "Widget de réservation Calendly",
-  },
-
   service: {
     viewSlots: "Voir créneaux →",
     defaultDescription: "Cliquez pour voir les créneaux disponibles",

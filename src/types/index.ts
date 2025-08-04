@@ -65,7 +65,6 @@ export interface NavigationProps extends NavigationRefs {}
 
 export interface AppointmentComponentProps {
   setAppointmentRef: React.Dispatch<React.SetStateAction<Ref>>;
-  showModal: (content: ModalContent) => void;
 }
 
 export interface PricesComponentProps {
@@ -74,7 +73,7 @@ export interface PricesComponentProps {
 }
 
 export interface ServicesComponentProps {
-  showModal: (content: ModalContent) => void;
+  appointmentRef: Ref;
 }
 
 export interface MovingTextProps {
@@ -232,12 +231,6 @@ export interface ServicesLabels {
     noSlots: string;
   };
 
-  // Modal
-  modal: {
-    title: string;
-    iframeTitle: string;
-  };
-
   // Service items
   service: {
     viewSlots: string;
@@ -327,4 +320,16 @@ export interface FontAsset {
   sources: string[];
   weight?: string | number;
   style?: string;
+}
+
+// =============================================
+// TYPES CALENDLY WIDGET
+// =============================================
+
+declare global {
+  interface Window {
+    Calendly: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
 }
