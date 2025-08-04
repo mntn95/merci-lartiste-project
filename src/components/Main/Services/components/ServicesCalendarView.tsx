@@ -3,23 +3,20 @@ import {
   CalendlyEventType,
   CalendlyAvailableTime,
 } from "../../../../services/calendly-api";
-import { ModalContent } from "../../../../types";
 import Calendar from "../Calendar";
+import { openCalendlyPopup } from "../../../../utils";
 
 interface ServicesCalendarViewProps {
   eventType: CalendlyEventType;
   onBack: () => void;
-  showModal: (content: ModalContent) => void;
 }
 
 const ServicesCalendarView: React.FC<ServicesCalendarViewProps> = ({
   eventType,
   onBack,
-  showModal,
 }) => {
   const handleTimeSlotClick = (timeSlot: CalendlyAvailableTime) => {
-    sessionStorage.setItem("selectedTimeSlot", JSON.stringify(timeSlot));
-    showModal("servicesBooking");
+    openCalendlyPopup(timeSlot.scheduling_url);
   };
 
   return (
