@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal as BootstrapModal } from "react-bootstrap";
-import { ModalProps } from "../../types";
+import { ModalProps } from "@/types";
 import { ModalWrapper } from "./components";
 import LegalMentionsModal from "../Footer/LegalMentionsModal";
 import { legalMentionsLabels } from "./labels";

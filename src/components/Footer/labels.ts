@@ -1,4 +1,4 @@
-import { FooterLabels } from "../../types";
+import { FooterLabels } from "@/types";
 
 const footerLabels: FooterLabels = {
   street: "93 rue des Martyrs",

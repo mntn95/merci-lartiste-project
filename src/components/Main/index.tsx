@@ -1,5 +1,5 @@
 import React from "react";
-import { MainProps } from "../../types";
+import { MainProps } from "@/types";
 import Appointment from "./Appointment";
 import Prices from "./Prices";
 import VideoComponent from "./Video";

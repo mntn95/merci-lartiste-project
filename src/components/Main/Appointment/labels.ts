@@ -1,4 +1,4 @@
-import { AppointmentLabels } from "../../../types";
+import { AppointmentLabels } from "@/types";
 
 const appointmentLabels: AppointmentLabels = {
   title: "Tu souhaites prendre un rendez-vous ?",

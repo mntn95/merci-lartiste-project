@@ -1,4 +1,4 @@
-import { NavLabels, BottomNavLabels } from "../../types";
+import { NavLabels, BottomNavLabels } from "@/types";
 
 const navLabels: NavLabels = {
   home: "Accueil",

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   ServicesComponentProps,
   ServiceItem as ServiceItemType,
-} from "../../../types";
+} from "@/types";
 import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
 import { servicesLabels } from "./labels";
 import { handleScrollToRef } from "../../../utils";

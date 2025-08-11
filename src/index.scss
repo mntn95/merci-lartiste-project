@@ -6,6 +6,9 @@
 // File imports
 @import "~bootstrap/scss/bootstrap";
 
+// Calendly popup custom styles
+@import "./styles/calendly-overrides.css";
+
 // Custom font faces
 @font-face {
   font-family: "Botanika Mono Regular";

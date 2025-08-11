@@ -1,4 +1,4 @@
-import { ServicesLabels } from "../../../types";
+import { ServicesLabels } from "@/types";
 
 export const servicesLabels: ServicesLabels = {
   loading: "Chargement des prestations...",
