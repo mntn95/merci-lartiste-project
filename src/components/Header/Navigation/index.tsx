@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { NavigationProps } from "../../../types";
+import { NavigationProps } from "@/types";
 import { navLabels } from "../labels";
 import { handleScrollToRef } from "../../../utils";
 
@@ -25,7 +25,7 @@ const Navigation: React.FC<NavigationProps> = ({
       <div className="absolute right-0 text-right">
         <Navbar collapseOnSelect expand="lg" className="!justify-end">
           <Navbar.Toggle
-            className="!border-none"
+            className="!border-none !color-[#755018]"
             aria-controls="responsive-navbar-nav"
           />
           <Navbar.Collapse id="responsive-navbar-nav">

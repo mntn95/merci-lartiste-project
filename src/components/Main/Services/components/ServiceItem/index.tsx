@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ServiceItem as ServiceItemType } from "../../../../../types";
+import { ServiceItem as ServiceItemType } from "@/types";
 import ServiceInfo from "./ServiceInfo";
 import ServicePricing from "./ServicePricing";
 import ServiceSeparator from "./ServiceSeparator";

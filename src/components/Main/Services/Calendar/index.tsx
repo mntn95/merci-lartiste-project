@@ -2,9 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import {
   CalendlyEventType,
   CalendlyAvailableTime,
-  calendlyApi,
 } from "../../../../services/calendly-api";
-import { SearchDirection } from "../../../../types";
+import { SearchDirection } from "@/types";
 import { servicesLabels } from "../labels";
 import {
   CalendarHeader,
@@ -14,7 +13,12 @@ import {
   CalendarError,
   CalendarEmpty,
 } from "./components";
-import { generateFutureDates } from "./helpers";
+import {
+  fetchAvailableTimesLogic,
+  isValidPreviousWeekOffset,
+  getNextWeekOffset,
+  getPreviousWeekOffset,
+} from "./helpers";
 
 interface CalendarProps {
   eventType: CalendlyEventType;
@@ -32,62 +36,36 @@ const Calendar: React.FC<CalendarProps> = ({
   );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [weekOffset, setWeekOffset] = useState(0); // 0 = semaine courante, 1 = semaine suivante, etc.
+  const [weekOffset, setWeekOffset] = useState(0);
   const [firstAvailableWeek, setFirstAvailableWeek] = useState<number | null>(
     null
-  ); // Première semaine avec des créneaux
+  );
 
   const fetchAvailableTimes = useCallback(
     async (startOffset = 0, searchDirection: SearchDirection = "forward") => {
       try {
         setLoading(true);
-        let currentOffset = startOffset;
-        let foundResults = false;
-        const maxAttempts = 10;
 
-        for (let attempt = 0; attempt < maxAttempts; attempt++) {
-          if (currentOffset < 0) {
-            currentOffset = 0;
+        const result = await fetchAvailableTimesLogic(
+          eventType.uri,
+          startOffset,
+          searchDirection
+        );
+
+        if (result.success) {
+          setAvailableTimes(result.availableTimes);
+          setWeekOffset(result.weekOffset);
+
+          if (firstAvailableWeek === null) {
+            setFirstAvailableWeek(result.weekOffset);
           }
-
-          const { startTime, endTime } = generateFutureDates(currentOffset);
-
-          const response = await calendlyApi.getAvailableTimes(
-            eventType.uri,
-            startTime,
-            endTime
-          );
-
-          if (response.collection && response.collection.length > 0) {
-            setAvailableTimes(response.collection);
-            setWeekOffset(currentOffset);
-
-            if (firstAvailableWeek === null) {
-              setFirstAvailableWeek(currentOffset);
-            }
-
-            foundResults = true;
-            break;
-          } else {
-            if (searchDirection === "forward") {
-              currentOffset++;
-            } else {
-              currentOffset--;
-              if (currentOffset < 0) {
-                currentOffset = 0;
-                searchDirection = "forward";
-              }
-            }
-          }
-        }
-
-        if (!foundResults) {
+        } else {
           setAvailableTimes([]);
         }
 
         setError(null);
       } catch (err) {
-        console.error("Erreur lors du chargement des créneaux:", err);
+        console.error("Error loading time slots:", err);
         setError(servicesLabels.calendar.errorSlots);
         setAvailableTimes([]);
       } finally {
@@ -102,14 +80,14 @@ const Calendar: React.FC<CalendarProps> = ({
   }, [fetchAvailableTimes]);
 
   const handlePreviousWeek = () => {
-    if (weekOffset > (firstAvailableWeek ?? 0)) {
-      const newOffset = weekOffset - 1;
+    if (isValidPreviousWeekOffset(weekOffset, firstAvailableWeek)) {
+      const newOffset = getPreviousWeekOffset(weekOffset);
       fetchAvailableTimes(newOffset, "backward");
     }
   };
 
   const handleNextWeek = () => {
-    const newOffset = weekOffset + 1;
+    const newOffset = getNextWeekOffset(weekOffset);
     fetchAvailableTimes(newOffset, "forward");
   };
 
@@ -126,20 +104,20 @@ const Calendar: React.FC<CalendarProps> = ({
           direction="up"
           onClick={handlePreviousWeek}
           disabled={loading}
-          visible={weekOffset > (firstAvailableWeek ?? 0)}
+          visible={isValidPreviousWeekOffset(weekOffset, firstAvailableWeek)}
         />
       </div>
 
       <div className="space-y-8 min-h-[300px]">
         {loading ? (
           <CalendarLoading />
-        ) : availableTimes.length === 0 ? (
-          <CalendarEmpty />
-        ) : (
+        ) : availableTimes.length > 0 ? (
           <TimeSlotGrid
             availableTimes={availableTimes}
             onTimeSlotClick={onTimeSlotClick}
           />
+        ) : (
+          <CalendarEmpty />
         )}
       </div>
 
@@ -148,6 +126,7 @@ const Calendar: React.FC<CalendarProps> = ({
           direction="down"
           onClick={handleNextWeek}
           disabled={loading}
+          visible={true}
         />
       </div>
     </div>

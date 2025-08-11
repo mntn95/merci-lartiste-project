@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mui/material";
 
 import Navigation from "./Navigation";
 import { bottomNavLabels } from "./labels";
-import { HeaderProps } from "../../types";
+import { HeaderProps } from "@/types";
 import { handleScrollToRef } from "../../utils";
 
 import Logo from "../../assets/img/logo.png";

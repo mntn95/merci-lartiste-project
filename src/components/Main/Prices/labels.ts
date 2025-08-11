@@ -1,4 +1,4 @@
-import { PricesLabels } from "../../../types";
+import { PricesLabels } from "@/types";
 
 const pricesLabels: PricesLabels = {
   title: "Espèces uniquement",

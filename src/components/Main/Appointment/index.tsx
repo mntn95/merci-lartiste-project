@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { appointmentLabels } from "./labels";
-import { AppointmentComponentProps } from "../../../types";
+import { AppointmentComponentProps } from "@/types";
 import Services from "../Services";
 
 const Appointment: React.FC<AppointmentComponentProps> = ({

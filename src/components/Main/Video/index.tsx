@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 
-import { MobileVideoOptions } from "../../../types";
+import { MobileVideoOptions } from "@/types";
 import Video from "../../../assets/videos/merci_artiste.webm";
 import VideoMobile from "../../../assets/videos/compressedMerciLartiste.mp4";
 import MobileVideo from "./mobileVideo";

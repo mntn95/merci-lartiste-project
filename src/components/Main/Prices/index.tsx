@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { PricesComponentProps } from "../../../types";
+import { PricesComponentProps } from "@/types";
 import PricePicture from "../../../assets/img/work_image.webp";
 import MovingText from "./MovingText";
 import PricesTable from "./PricesTable";

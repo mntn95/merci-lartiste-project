@@ -1,4 +1,4 @@
-import { ServiceItem } from "../../../types";
+import { ServiceItem } from "@/types";
 import { CalendlyEventType } from "../../../services/calendly-api";
 import { servicesLabels } from "./labels";
 

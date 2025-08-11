@@ -1,7 +1,7 @@
 import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { MobileVideoProps } from "../../../types";
+import { MobileVideoProps } from "@/types";
 import { videoLabels } from "./labels";
 
 export const MobileVideo: React.FC<MobileVideoProps> = ({
