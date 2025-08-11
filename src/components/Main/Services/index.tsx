@@ -46,11 +46,9 @@ const Services: React.FC<ServicesComponentProps> = ({ appointmentRef }) => {
   }, [selectedEventType, appointmentRef]);
 
   const handleServiceClick = (service: ServiceItemType) => {
-    if (service.isApiData) {
-      const eventType = eventTypes.find((et) => et.uri === service.id);
-      if (eventType) {
-        setSelectedEventType(eventType);
-      }
+    const eventType = eventTypes.find((et) => et.uri === service.id);
+    if (eventType) {
+      setSelectedEventType(eventType);
     }
   };
 
