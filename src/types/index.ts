@@ -257,7 +257,6 @@ export interface ServiceItem {
   description: string;
   price: number;
   duration: string;
-  isApiData?: boolean;
 }
 
 export interface PricesProps {
