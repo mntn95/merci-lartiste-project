@@ -69,7 +69,6 @@ export interface AppointmentComponentProps {
 
 export interface PricesComponentProps {
   setPricesRef: React.Dispatch<React.SetStateAction<Ref>>;
-  showModal: (content: ModalContent) => void;
 }
 
 export interface ServicesComponentProps {
@@ -162,16 +161,7 @@ export interface PricesLabels {
   bottomFirstPrice: string;
   bottomSecondItem: string;
   bottomSecondPrice: string;
-  viewAllPricesButton: string;
   fullPriceTableTitle: string;
-}
-
-export interface PriceService {
-  id: string;
-  name: string;
-  price: string;
-  duration: string;
-  description: string;
 }
 
 // Types pour la logique de recherche du calendrier par semaines

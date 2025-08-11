@@ -1,24 +1,15 @@
 import React, { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
 import { PricesComponentProps } from "../../../types";
 import PricePicture from "../../../assets/img/work_image.webp";
 import MovingText from "./MovingText";
 import PricesTable from "./PricesTable";
-import { pricesLabels } from "./labels";
 
-const Prices: React.FC<PricesComponentProps> = ({
-  setPricesRef,
-  showModal,
-}) => {
+const Prices: React.FC<PricesComponentProps> = ({ setPricesRef }) => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setPricesRef(ref);
   }, [setPricesRef]);
-
-  const handleShowPrices = (): void => {
-    showModal("fullPriceTable");
-  };
 
   return (
     <section id="prices" className="min-h-[400px]" ref={ref}>
@@ -28,23 +19,6 @@ const Prices: React.FC<PricesComponentProps> = ({
           style={{ backgroundImage: `url(${PricePicture})` }}
         />
         <div className="absolute inset-0 bg-black w-full min-h-[400px] md:min-h-0 h-full opacity-50" />
-        <div className="flex w-full absolute inset-0 h-[432px] md:h-[60vw] lg:h-[57vw]">
-          <motion.button
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.5,
-              type: "spring",
-              stiffness: 50,
-            }}
-            viewport={{ once: true }}
-            className="rounded-[1px] m-auto text-lg md:text-lg lg:text-[26px] 3xl:text-[30px] px-10 py-[15px] border border-white text-white bg-transparent hover:!border-black hover:!text-black hover:!bg-white/50 transition-colors duration-200"
-            onClick={handleShowPrices}
-          >
-            {pricesLabels.viewAllPricesButton}
-          </motion.button>
-        </div>
         <div className="absolute top-0 w-full z-10">
           <MovingText />
           <PricesTable position="top" showSecondItem={false} />
