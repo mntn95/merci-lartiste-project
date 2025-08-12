@@ -1,0 +1,8 @@
+/* Custom styles for Calendly popup - Mobile and tablet only */
+@media (max-width: 975px) {
+  .calendly-popup {
+    top: 0 !important;
+    width: 95% !important;
+    margin: auto !important;
+  }
+}

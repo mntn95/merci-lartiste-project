@@ -1,7 +1,6 @@
-import { ServicesLabels } from "../../../types";
+import { ServicesLabels } from "@/types";
 
 export const servicesLabels: ServicesLabels = {
-  // Messages d'état
   loading: "Chargement des prestations...",
   errorLoading: "Impossible de charger les prestations. ",
   noResults: {
@@ -12,7 +11,6 @@ export const servicesLabels: ServicesLabels = {
   clickInstruction:
     "Cliquez sur une prestation pour voir les créneaux disponibles",
 
-  // Calendar
   calendar: {
     backButton: "Retour aux prestations",
     backButtonArrow: "← Retour aux prestations",
@@ -22,13 +20,6 @@ export const servicesLabels: ServicesLabels = {
     noSlots: "Aucun créneau disponible pour cette prestation.",
   },
 
-  // Modal
-  modal: {
-    title: "Finaliser la réservation",
-    iframeTitle: "Widget de réservation Calendly",
-  },
-
-  // Service items
   service: {
     viewSlots: "Voir créneaux →",
     defaultDescription: "Cliquez pour voir les créneaux disponibles",

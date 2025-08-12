@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import {
   ServicesComponentProps,
   ServiceItem as ServiceItemType,
-} from "../../../types";
+} from "@/types";
 import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
 import { servicesLabels } from "./labels";
+import { handleScrollToRef } from "../../../utils";
 import {
   ServicesLoading,
   ServicesError,
@@ -13,7 +14,7 @@ import {
   ServicesCalendarView,
 } from "./components";
 
-const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
+const Services: React.FC<ServicesComponentProps> = ({ appointmentRef }) => {
   const [eventTypes, setEventTypes] = useState<CalendlyEventType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,7 +26,12 @@ const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
       try {
         setLoading(true);
         const response = await calendlyApi.getEventTypes();
-        setEventTypes(response.collection);
+        const sortedEventTypes = response.collection.sort((a, b) => {
+          const positionA = a.position ?? 0;
+          const positionB = b.position ?? 0;
+          return positionA - positionB;
+        });
+        setEventTypes(sortedEventTypes);
         setError(null);
       } catch (err) {
         console.error("Erreur lors du chargement des prestations:", err);
@@ -38,23 +44,24 @@ const Services: React.FC<ServicesComponentProps> = ({ showModal }) => {
     fetchEventTypes();
   }, []);
 
+  useEffect(() => {
+    if (selectedEventType) {
+      handleScrollToRef(appointmentRef);
+    }
+  }, [selectedEventType, appointmentRef]);
+
   const handleServiceClick = (service: ServiceItemType) => {
-    if (service.isApiData) {
-      // Retrouver l'eventType correspondant
-      const eventType = eventTypes.find((et) => et.uri === service.id);
-      if (eventType) {
-        setSelectedEventType(eventType);
-      }
+    const eventType = eventTypes.find((et) => et.uri === service.id);
+    if (eventType) {
+      setSelectedEventType(eventType);
     }
   };
 
-  // Si un type d'événement est sélectionné, afficher le calendrier
   if (selectedEventType) {
     return (
       <ServicesCalendarView
         eventType={selectedEventType}
         onBack={() => setSelectedEventType(null)}
-        showModal={showModal}
       />
     );
   }

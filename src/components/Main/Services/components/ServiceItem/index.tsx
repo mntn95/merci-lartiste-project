@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ServiceItem as ServiceItemType } from "../../../../types";
+import { ServiceItem as ServiceItemType } from "@/types";
 import ServiceInfo from "./ServiceInfo";
 import ServicePricing from "./ServicePricing";
 import ServiceSeparator from "./ServiceSeparator";
@@ -29,7 +29,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
     className="cursor-pointer"
   >
     <motion.div whileHover={{ x: 10 }} className="p-6 lg:p-8">
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="flex flex-col items-end lg:flex-row lg:items-center justify-between gap-4">
         <ServiceInfo service={service} />
         <ServicePricing service={service} />
       </div>

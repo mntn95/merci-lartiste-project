@@ -2,12 +2,11 @@ import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { appointmentLabels } from "./labels";
-import { AppointmentComponentProps } from "../../../types";
+import { AppointmentComponentProps } from "@/types";
 import Services from "../Services";
 
 const Appointment: React.FC<AppointmentComponentProps> = ({
   setAppointmentRef,
-  showModal,
 }) => {
   const ref = useRef<HTMLElement>(null);
 
@@ -23,7 +22,7 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
 
   return (
     <section id="appointment" ref={ref}>
-      <div className="pb-32">
+      <div className="pb-4">
         <div className="min-h-[200px]" />
 
         <div className="mx-auto w-[70%] md:w-[60%] lg:w-[40%]">
@@ -51,7 +50,7 @@ const Appointment: React.FC<AppointmentComponentProps> = ({
           </motion.div>
         </div>
       </div>
-      <Services showModal={showModal} />
+      <Services appointmentRef={ref} />
     </section>
   );
 };

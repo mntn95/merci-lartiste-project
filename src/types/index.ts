@@ -65,16 +65,14 @@ export interface NavigationProps extends NavigationRefs {}
 
 export interface AppointmentComponentProps {
   setAppointmentRef: React.Dispatch<React.SetStateAction<Ref>>;
-  showModal: (content: ModalContent) => void;
 }
 
 export interface PricesComponentProps {
   setPricesRef: React.Dispatch<React.SetStateAction<Ref>>;
-  showModal: (content: ModalContent) => void;
 }
 
 export interface ServicesComponentProps {
-  showModal: (content: ModalContent) => void;
+  appointmentRef: Ref;
 }
 
 export interface MovingTextProps {
@@ -154,6 +152,7 @@ export interface AppointmentLabels {
 
 export interface PricesLabels {
   title: string;
+  headerTitle: string;
   topFirstItem: string;
   topFirstPrice: string;
   topSecondItem: string;
@@ -162,8 +161,16 @@ export interface PricesLabels {
   bottomFirstPrice: string;
   bottomSecondItem: string;
   bottomSecondPrice: string;
-  viewAllPricesButton: string;
   fullPriceTableTitle: string;
+}
+
+// Types pour la logique de recherche du calendrier par semaines
+export type SearchDirection = "forward" | "backward";
+
+export interface FetchConfig {
+  startOffset: number;
+  searchDirection: SearchDirection;
+  maxAttempts?: number;
 }
 
 export interface VideoLabels {
@@ -214,12 +221,6 @@ export interface ServicesLabels {
     noSlots: string;
   };
 
-  // Modal
-  modal: {
-    title: string;
-    iframeTitle: string;
-  };
-
   // Service items
   service: {
     viewSlots: string;
@@ -246,7 +247,6 @@ export interface ServiceItem {
   description: string;
   price: number;
   duration: string;
-  isApiData?: boolean;
 }
 
 export interface PricesProps {
@@ -309,4 +309,16 @@ export interface FontAsset {
   sources: string[];
   weight?: string | number;
   style?: string;
+}
+
+// =============================================
+// TYPES CALENDLY WIDGET
+// =============================================
+
+declare global {
+  interface Window {
+    Calendly: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
 }

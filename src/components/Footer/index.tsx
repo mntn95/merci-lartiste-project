@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FooterProps } from "../../types";
+import { FooterProps } from "@/types";
 import { footerLabels } from "./labels";
 import FooterEllipsis from "../../assets/img/contact_ellipsis.png";
 import FooterInstaLogo from "../../assets/img/insta_logo.png";

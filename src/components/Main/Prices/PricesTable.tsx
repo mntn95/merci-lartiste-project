@@ -1,5 +1,5 @@
 import React from "react";
-import { PricesTableExtendedProps } from "../../../types";
+import { PricesTableExtendedProps } from "@/types";
 import { pricesLabels } from "./labels";
 import PriceItem from "./PriceItem";
 import { getTableContainerClasses } from "./styles";

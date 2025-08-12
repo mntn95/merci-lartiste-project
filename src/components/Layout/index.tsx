@@ -1,6 +1,6 @@
 import React from "react";
 import Loader from "./loader";
-import { LayoutProps } from "../../types";
+import { LayoutProps } from "@/types";
 import {
   useResponsiveBackground,
   backgroundImages,
