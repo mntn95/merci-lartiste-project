@@ -26,7 +26,12 @@ const Services: React.FC<ServicesComponentProps> = ({ appointmentRef }) => {
       try {
         setLoading(true);
         const response = await calendlyApi.getEventTypes();
-        setEventTypes(response.collection);
+        const sortedEventTypes = response.collection.sort((a, b) => {
+          const positionA = a.position ?? 0;
+          const positionB = b.position ?? 0;
+          return positionA - positionB;
+        });
+        setEventTypes(sortedEventTypes);
         setError(null);
       } catch (err) {
         console.error("Erreur lors du chargement des prestations:", err);

@@ -33,6 +33,7 @@ export interface CalendlyEventType {
   duration: number;
   description_plain?: string;
   description_html?: string;
+  position?: number;
 }
 
 export interface CalendlyEventTypesResponse {
