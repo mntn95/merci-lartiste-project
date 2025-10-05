@@ -76,8 +76,8 @@ const Header: React.FC<HeaderProps> = ({
         >
           <div className="text-bold py-[40px] text-md md:text-xl">
             <span className="whitespace-pre-line">
-              INFORMATION IMPORTANTE: A partir du 20 Octobre 2025, nous vous
-              accueillerons au 31 rue jean jaures, 60570 Andeville
+              INFORMATION IMPORTANTE: A partir du 28 Octobre 2025, nous vous
+              accueillerons au 31 rue Jean Jaurès, 60570 Andeville
             </span>
           </div>
           <h1 className="text-[30px] lg:text-[40px] font-normal uppercase">
