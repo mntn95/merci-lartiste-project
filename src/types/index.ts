@@ -75,26 +75,6 @@ export interface ServicesComponentProps {
   appointmentRef: Ref;
 }
 
-export interface MovingTextProps {
-  direction?: "toLeft" | "toRight";
-}
-
-export interface PricesTableProps {
-  position?: "top" | "bottom";
-  marginBottom?: string | number;
-}
-
-export interface PriceItemProps {
-  label: string;
-  price: string;
-  position: "left" | "right";
-  tablePosition: "top" | "bottom";
-}
-
-export interface PricesTableExtendedProps extends PricesTableProps {
-  showSecondItem?: boolean;
-}
-
 export interface ModalContentProps {
   showModal?: (content: ModalContent) => void;
 }

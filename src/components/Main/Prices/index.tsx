@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { PricesComponentProps } from "@/types";
 import PricePicture from "../../../assets/img/work_image.webp";
-import MovingText from "./MovingText";
-import PricesTable from "./PricesTable";
 
 const Prices: React.FC<PricesComponentProps> = ({ setPricesRef }) => {
   const ref = useRef<HTMLElement>(null);
@@ -19,14 +17,6 @@ const Prices: React.FC<PricesComponentProps> = ({ setPricesRef }) => {
           style={{ backgroundImage: `url(${PricePicture})` }}
         />
         <div className="absolute inset-0 bg-black w-full min-h-[400px] md:min-h-0 h-full opacity-50" />
-        <div className="absolute top-0 w-full z-10">
-          <MovingText />
-          <PricesTable position="top" showSecondItem={false} />
-        </div>
-        <div className="relative max-sm:top-[310px] md:absolute md:bottom-0 w-full z-10">
-          <PricesTable position="bottom" />
-          <MovingText direction="toRight" />
-        </div>
       </div>
     </section>
   );
