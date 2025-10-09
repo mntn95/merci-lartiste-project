@@ -4,41 +4,73 @@ import {
 } from "../../../../services/calendly-api";
 import { SearchDirection } from "@/types";
 
+const validateAndCorrectDateRange = (
+  startTime: string,
+  endTime: string
+): string => {
+  const start = new Date(startTime);
+  const end = new Date(endTime);
+
+  const diffMs = end.getTime() - start.getTime();
+  const maxDiffMs = 7 * 24 * 60 * 60 * 1000 - 1;
+
+  if (diffMs > maxDiffMs) {
+    const correctedEnd = new Date(start.getTime() + maxDiffMs);
+    console.warn(
+      `Date range too long (${diffMs}ms), corrected to ${maxDiffMs}ms`
+    );
+    return correctedEnd.toISOString();
+  }
+
+  return endTime;
+};
+
+const calculateStartDate = (now: Date, weekOffset: number): Date => {
+  if (weekOffset === 0) {
+    return new Date(now.getTime() + 5 * 60 * 1000);
+  }
+
+  const date = new Date(now);
+  const dayOfWeek = date.getDay();
+  const daysFromMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  date.setDate(date.getDate() + daysFromMonday);
+  date.setDate(date.getDate() + weekOffset * 7);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
+
+const calculateEndDate = (
+  now: Date,
+  startDate: Date,
+  weekOffset: number
+): Date => {
+  if (weekOffset === 0) {
+    const date = new Date(now);
+    const dayOfWeek = date.getDay();
+    const daysUntilSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+    date.setDate(date.getDate() + daysUntilSunday);
+    date.setHours(23, 59, 59, 0);
+    return date;
+  }
+
+  const date = new Date(startDate);
+  date.setDate(date.getDate() + 7);
+  date.setTime(date.getTime() - 1);
+  return date;
+};
+
 export const generateFutureDates = (weekOffset = 0) => {
   const now = new Date();
+  const startDate = calculateStartDate(now, weekOffset);
+  const endDate = calculateEndDate(now, startDate, weekOffset);
 
-  if (weekOffset === 0) {
-    const startTime = new Date(now.getTime() + 5 * 60 * 1000); // +5 minutes
+  const startTimeStr = startDate.toISOString();
+  const endTimeStr = endDate.toISOString();
 
-    const endDate = new Date(now);
-    const dayOfWeek = endDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    const daysUntilSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek; // Days until Sunday
-    endDate.setDate(endDate.getDate() + daysUntilSunday);
-    endDate.setHours(23, 59, 59, 999); // End of Sunday
-
-    return {
-      startTime: startTime.toISOString(),
-      endTime: endDate.toISOString(),
-    };
-  } else {
-    const startDate = new Date(now);
-
-    const dayOfWeek = startDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    const daysFromMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Days since Monday
-    startDate.setDate(startDate.getDate() + daysFromMonday);
-
-    startDate.setDate(startDate.getDate() + weekOffset * 7);
-    startDate.setHours(0, 0, 0, 0); // Beginning of Monday
-
-    const endDate = new Date(startDate);
-    endDate.setDate(endDate.getDate() + 6); // +6 days to go to Sunday
-    endDate.setHours(23, 59, 59, 999); // End of Sunday
-
-    return {
-      startTime: startDate.toISOString(),
-      endTime: endDate.toISOString(),
-    };
-  }
+  return {
+    startTime: startTimeStr,
+    endTime: validateAndCorrectDateRange(startTimeStr, endTimeStr),
+  };
 };
 
 export const formatDate = (dateString: string) => {
@@ -70,15 +102,6 @@ export const groupTimesByDate = (times: CalendlyAvailableTime[]) => {
   }, {} as Record<string, CalendlyAvailableTime[]>);
 };
 
-/**
- * Core logic for fetching available times from Calendly API
-
- * @param eventTypeUri - URI of the Calendly event type
- * @param startOffset - Starting week offset
- * @param searchDirection - Direction to search (forward/backward)
- * @param maxAttempts - Maximum number of search attempts
- * @returns Promise with search result and metadata
- */
 export const fetchAvailableTimesLogic = async (
   eventTypeUri: string,
   startOffset = 0,
@@ -130,12 +153,6 @@ export const fetchAvailableTimesLogic = async (
   };
 };
 
-/**
- * Validates if a week offset is valid for navigation
- * @param currentOffset - Current week offset
- * @param firstAvailableWeek - First week with available times
- * @returns Whether the offset is valid for previous navigation
- */
 export const isValidPreviousWeekOffset = (
   currentOffset: number,
   firstAvailableWeek: number | null
@@ -143,20 +160,10 @@ export const isValidPreviousWeekOffset = (
   return currentOffset > (firstAvailableWeek ?? 0);
 };
 
-/**
- * Calculates the next week offset for forward navigation
- * @param currentOffset - Current week offset
- * @returns Next week offset
- */
 export const getNextWeekOffset = (currentOffset: number): number => {
   return currentOffset + 1;
 };
 
-/**
- * Calculates the previous week offset for backward navigation
- * @param currentOffset - Current week offset
- * @returns Previous week offset
- */
 export const getPreviousWeekOffset = (currentOffset: number): number => {
   return Math.max(0, currentOffset - 1);
 };
