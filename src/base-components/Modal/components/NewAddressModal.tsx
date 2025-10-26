@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../..";
 import { newAddressLabels } from "../../../labels/modal";
 import { ModalContentProps } from "../../../types";
 import { Paragraph } from ".";
@@ -27,12 +28,14 @@ const NewAddressModal: React.FC<ModalContentProps> = ({ showModal }) => {
       </div>
 
       <div className="flex justify-center pb-4">
-        <button
+        <Button
           onClick={handleClose}
-          className="px-6 py-2 bg-white/30 border-[0.4px] border-[#755018] text-[#755018] hover:underline"
+          variant="filled"
+          size="lg"
+          animated={false}
         >
           {buttonText}
-        </button>
+        </Button>
       </div>
     </>
   );

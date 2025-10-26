@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Button } from "../../../../../base-components";
 import { servicesLabels } from "../../../../../labels/services";
 import { CalendlyEventType } from "../../../../../services/calendly-api";
 
@@ -13,14 +14,11 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
   onBack,
 }) => (
   <div className="text-center mb-8">
-    <motion.button
-      onClick={onBack}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
-      className="mb-6 px-4 py-2 bg-transparent border-1 border-[#755018] text-[#755018] rounded-sm hover:bg-transparent transition-colors duration-200"
-    >
-      {servicesLabels.calendar.backButtonArrow}
-    </motion.button>
+    <div className="mb-6">
+      <Button onClick={onBack}>
+        {servicesLabels.calendar.backButtonArrow}
+      </Button>
+    </div>
 
     <motion.h2
       initial={{ opacity: 0, y: -20 }}

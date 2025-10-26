@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
 import React from "react";
 import DateHeader from "./DateHeader";
 import TimeSlotList from "./TimeSlotList";
+import { GlassCard } from "../../../../../base-components";
 import { CalendlyAvailableTime } from "../../../../../services/calendly-api";
 
 interface ExpandableDateCardProps {
@@ -21,19 +21,14 @@ const ExpandableDateCard: React.FC<ExpandableDateCardProps> = ({
   onTimeSlotClick,
   dateIndex,
 }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: dateIndex * 0.1 }}
-      className="bg-white/30 backdrop-blur-sm rounded-sm shadow-sm overflow-hidden"
-    >
-      <DateHeader date={date} isExpanded={isExpanded} onToggle={onToggle} />
-      <TimeSlotList
-        timeSlots={timeSlots}
-        onTimeSlotClick={onTimeSlotClick}
-        isVisible={isExpanded}
-      />
-    </motion.div>
-  );
+  <GlassCard animated={true} delay={dateIndex * 0.1}>
+    <DateHeader date={date} isExpanded={isExpanded} onToggle={onToggle} />
+    <TimeSlotList
+      timeSlots={timeSlots}
+      onTimeSlotClick={onTimeSlotClick}
+      isVisible={isExpanded}
+    />
+  </GlassCard>
+);
 
 export default ExpandableDateCard;

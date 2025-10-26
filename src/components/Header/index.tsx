@@ -3,6 +3,7 @@ import React from "react";
 import Navigation from "./Navigation";
 import Ellipsis from "../../assets/img/header_double_ellipsis.png";
 import Logo from "../../assets/img/logo.png";
+import { Button } from "../../base-components";
 import {
   ANIMATION_DELAYS,
   ANIMATION_DURATIONS,
@@ -66,18 +67,23 @@ const Header: React.FC = React.memo(() => {
           </div>
         </motion.div>
 
-        <motion.button
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={createSpringTransition(
             ANIMATION_DELAYS.HEADER_CTA,
             ANIMATION_DURATIONS.SLOW
           )}
-          onClick={() => handleScrollToRef(appointmentRef)}
-          className="text-base text-[#755018] border-[0.8px] border-[#755018] rounded-[1px] uppercase bg-inherit px-[0.7rem] py-[0.3rem] pb-[0.1rem] mt-8 lg:mt-12 hover:underline"
         >
-          {bottomNavLabels.bookingCta}
-        </motion.button>
+          <Button
+            onClick={() => handleScrollToRef(appointmentRef)}
+            variant="outline"
+            className="text-base uppercase mt-8 lg:mt-12"
+            animated={false}
+          >
+            {bottomNavLabels.bookingCta}
+          </Button>
+        </motion.div>
       </div>
     </div>
   );

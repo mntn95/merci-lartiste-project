@@ -1,5 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { Button } from "../../../../../base-components";
 import { CalendlyAvailableTime } from "../../../../../services/calendly-api";
 import { formatTime } from "../helpers";
 
@@ -26,20 +27,21 @@ const TimeSlotList: React.FC<TimeSlotListProps> = ({
         <div className="px-6 pb-6 pt-2">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {timeSlots.map((timeSlot, index) => (
-              <motion.button
+              <motion.div
                 key={timeSlot.start_time}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05, duration: 0.3 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => onTimeSlotClick(timeSlot)}
-                className="p-3 border-1 border-[#755018] rounded-sm text-center hover:bg-[#755018] hover:text-white transition-colors duration-200"
               >
-                <div className="font-medium">
-                  {formatTime(timeSlot.start_time)}
-                </div>
-              </motion.button>
+                <Button
+                  onClick={() => onTimeSlotClick(timeSlot)}
+                  className="p-3 w-full text-center"
+                >
+                  <span className="font-medium">
+                    {formatTime(timeSlot.start_time)}
+                  </span>
+                </Button>
+              </motion.div>
             ))}
           </div>
         </div>
