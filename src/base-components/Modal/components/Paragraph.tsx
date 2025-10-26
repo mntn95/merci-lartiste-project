@@ -5,8 +5,6 @@ interface ParagraphProps {
   className?: string;
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
-  return <p className={className}>{children}</p>;
-};
+const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => <p className={className}>{children}</p>;
 
 export default Paragraph;

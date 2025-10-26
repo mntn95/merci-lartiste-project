@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import { PricesComponentProps } from "@/types";
 import PricePicture from "../../../assets/img/work_image.webp";
+import { useNavigation } from "../../../contexts";
 
-const Prices: React.FC<PricesComponentProps> = ({ setPricesRef }) => {
+const Prices: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
+  const { setPricesRef } = useNavigation();
 
   useEffect(() => {
     setPricesRef(ref);

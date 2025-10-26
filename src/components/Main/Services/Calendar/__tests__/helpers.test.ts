@@ -1,4 +1,8 @@
 import {
+  CalendlyAvailableTime,
+  calendlyApi,
+} from "../../../../../services/calendly-api";
+import {
   generateFutureDates,
   formatDate,
   formatTime,
@@ -8,10 +12,6 @@ import {
   getNextWeekOffset,
   getPreviousWeekOffset,
 } from "../helpers";
-import {
-  CalendlyAvailableTime,
-  calendlyApi,
-} from "../../../../../services/calendly-api";
 
 // Mock calendlyApi
 jest.mock("../../../../../services/calendly-api", () => ({

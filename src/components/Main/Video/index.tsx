@@ -1,13 +1,13 @@
-import React from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-
-import { MobileVideoOptions } from "@/types";
-import Video from "../../../assets/videos/merci_artiste.webm";
-import VideoMobile from "../../../assets/videos/compressedMerciLartiste.mp4";
-import MobileVideo from "./mobileVideo";
+import React from "react";
 import { videoLabels } from "./labels";
+import MobileVideo from "./mobileVideo";
+import VideoMobile from "../../../assets/videos/compressedMerciLartiste.mp4";
+import Video from "../../../assets/videos/merci_artiste.webm";
+import { MobileVideoOptions } from "../../../types";
 
 const VideoComponent: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const playerRef = React.useRef<any>(null);
   const containerRef = React.useRef(null);
 
@@ -33,6 +33,7 @@ const VideoComponent: React.FC = () => {
     ],
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handlePlayerReady = (player: any): void => {
     playerRef.current = player;
   };

@@ -1,7 +1,7 @@
 import React from "react";
-import { ModalContentProps } from "@/types";
-import { newAddressLabels } from "../../base-components/Modal/labels";
 import { Paragraph } from "../../base-components";
+import { newAddressLabels } from "../../base-components/Modal/labels";
+import { ModalContentProps } from "../../types";
 
 const NewAddressModal: React.FC<ModalContentProps> = ({ showModal }) => {
   const { title, message, buttonText } = newAddressLabels;

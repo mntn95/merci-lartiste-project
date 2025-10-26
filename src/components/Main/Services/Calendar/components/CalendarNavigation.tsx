@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { KeyboardArrowUp, KeyboardArrowDown } from "@mui/icons-material";
+import { motion } from "framer-motion";
+import React from "react";
 
 interface CalendarNavigationProps {
   direction: "up" | "down";

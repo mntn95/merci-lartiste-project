@@ -1,14 +1,15 @@
 import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { MobileVideoProps } from "@/types";
 import { videoLabels } from "./labels";
+import { MobileVideoProps } from "../../../types";
 
 export const MobileVideo: React.FC<MobileVideoProps> = ({
   options,
   onReady,
 }) => {
   const videoRef = React.useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const playerRef = React.useRef<any>(null);
 
   React.useEffect(() => {

@@ -3,7 +3,6 @@ import {
   CalendlyEventType,
   CalendlyAvailableTime,
 } from "../../../../services/calendly-api";
-import { SearchDirection } from "@/types";
 import { servicesLabels } from "../labels";
 import {
   CalendarHeader,
@@ -19,6 +18,7 @@ import {
   getNextWeekOffset,
   getPreviousWeekOffset,
 } from "./helpers";
+import { SearchDirection } from "../../../../types";
 
 interface CalendarProps {
   eventType: CalendlyEventType;

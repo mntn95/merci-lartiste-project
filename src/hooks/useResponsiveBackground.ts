@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "./useMediaQuery";
 
 interface BackgroundImageUrls {
   mobile: string;

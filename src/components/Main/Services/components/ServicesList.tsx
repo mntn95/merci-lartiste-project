@@ -1,10 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { ServiceItem as ServiceItemType } from "@/types";
+import React from "react";
 import { CalendlyEventType } from "../../../../services/calendly-api";
-import { convertEventTypeToService } from "../transformers";
 import { servicesLabels } from "../labels";
+import { convertEventTypeToService } from "../transformers";
 import ServiceItem from "./ServiceItem";
+import { ServiceItem as ServiceItemType } from "../../../../types";
 
 interface ServicesListProps {
   eventTypes: CalendlyEventType[];

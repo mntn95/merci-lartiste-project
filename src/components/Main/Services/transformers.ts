@@ -1,5 +1,5 @@
-import { ServiceItem } from "@/types";
 import { CalendlyEventType } from "../../../services/calendly-api";
+import { ServiceItem } from "../../../types";
 import { servicesLabels } from "./labels";
 
 // Price mapping table by service URI
@@ -18,9 +18,8 @@ const SERVICE_PRICE_MAPPING: Record<string, number> = {
  * @param serviceUri - Unique URI of the Calendly service
  * @returns Service price or 0 if not found
  */
-const getServicePrice = (serviceUri: string): number => {
-  return SERVICE_PRICE_MAPPING[serviceUri] || 0;
-};
+const getServicePrice = (serviceUri: string): number =>
+  SERVICE_PRICE_MAPPING[serviceUri] || 0;
 
 /**
  * Converts HTML description to plain text, removing HTML tags

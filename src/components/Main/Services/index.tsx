@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  ServicesComponentProps,
-  ServiceItem as ServiceItemType,
-} from "@/types";
 import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
-import { servicesLabels } from "./labels";
 import { handleScrollToRef } from "../../../utils";
+import { ServiceItem as ServiceItemType, Ref } from "../../../types";
 import {
   ServicesLoading,
   ServicesError,
@@ -13,8 +9,13 @@ import {
   ServicesList,
   ServicesCalendarView,
 } from "./components";
+import { servicesLabels } from "./labels";
 
-const Services: React.FC<ServicesComponentProps> = ({ appointmentRef }) => {
+interface ServicesProps {
+  appointmentRef: Ref;
+}
+
+const Services: React.FC<ServicesProps> = ({ appointmentRef }) => {
   const [eventTypes, setEventTypes] = useState<CalendlyEventType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -50,12 +51,15 @@ const Services: React.FC<ServicesComponentProps> = ({ appointmentRef }) => {
     }
   }, [selectedEventType, appointmentRef]);
 
-  const handleServiceClick = (service: ServiceItemType) => {
-    const eventType = eventTypes.find((et) => et.uri === service.id);
-    if (eventType) {
-      setSelectedEventType(eventType);
-    }
-  };
+  const handleServiceClick = React.useCallback(
+    (service: ServiceItemType) => {
+      const eventType = eventTypes.find((et) => et.uri === service.id);
+      if (eventType) {
+        setSelectedEventType(eventType);
+      }
+    },
+    [eventTypes]
+  );
 
   if (selectedEventType) {
     return (

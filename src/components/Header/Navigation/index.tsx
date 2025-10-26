@@ -1,15 +1,13 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { motion } from "framer-motion";
-import { NavigationProps } from "@/types";
 import { navLabels } from "../labels";
+import { useNavigation } from "../../../contexts";
 import { handleScrollToRef } from "../../../utils";
 
-const Navigation: React.FC<NavigationProps> = ({
-  appointmentRef,
-  contactRef,
-  pricesRef,
-}) => {
+const Navigation: React.FC = React.memo(() => {
+  const { appointmentRef, contactRef, pricesRef } = useNavigation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }}
@@ -55,6 +53,8 @@ const Navigation: React.FC<NavigationProps> = ({
       </div>
     </motion.div>
   );
-};
+});
+
+Navigation.displayName = "Navigation";
 
 export default Navigation;

@@ -1,14 +1,12 @@
-import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-
+import React, { useRef, useEffect } from "react";
 import { appointmentLabels } from "./labels";
-import { AppointmentComponentProps } from "@/types";
 import Services from "../Services";
+import { useNavigation } from "../../../contexts";
 
-const Appointment: React.FC<AppointmentComponentProps> = ({
-  setAppointmentRef,
-}) => {
+const Appointment: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
+  const { setAppointmentRef } = useNavigation();
 
   useEffect(() => {
     setAppointmentRef(ref);

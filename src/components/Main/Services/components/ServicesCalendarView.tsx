@@ -3,8 +3,8 @@ import {
   CalendlyEventType,
   CalendlyAvailableTime,
 } from "../../../../services/calendly-api";
-import Calendar from "../Calendar";
 import { openCalendlyPopup } from "../../../../utils";
+import Calendar from "../Calendar";
 
 interface ServicesCalendarViewProps {
   eventType: CalendlyEventType;

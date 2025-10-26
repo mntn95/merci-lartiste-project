@@ -11,8 +11,7 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
   withTitle,
   title,
   children,
-}) => {
-  return (
+}) => (
     <>
       {withTitle && (
         <Modal.Header className="bg-[#BFAD8F] uppercase" closeButton>
@@ -24,6 +23,5 @@ const ModalWrapper: React.FC<ModalWrapperProps> = ({
       </Modal.Body>
     </>
   );
-};
 
 export default ModalWrapper;

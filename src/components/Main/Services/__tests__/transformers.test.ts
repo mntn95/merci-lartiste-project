@@ -1,5 +1,5 @@
-import { convertEventTypeToService } from "../transformers";
 import { CalendlyEventType } from "../../../../services/calendly-api";
+import { convertEventTypeToService } from "../transformers";
 
 // Mock des labels pour les tests
 jest.mock("../labels", () => ({

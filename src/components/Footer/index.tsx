@@ -1,19 +1,21 @@
 import React, { useRef, useEffect } from "react";
-import { FooterProps } from "@/types";
 import { footerLabels } from "./labels";
 import FooterEllipsis from "../../assets/img/contact_ellipsis.png";
 import FooterInstaLogo from "../../assets/img/insta_logo.png";
+import { useModal, useNavigation } from "../../contexts";
 
-const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
+const Footer: React.FC = React.memo(() => {
   const ref = useRef<HTMLElement>(null);
+  const { setContactRef } = useNavigation();
+  const { showModal } = useModal();
 
   useEffect(() => {
     setContactRef(ref);
   }, [setContactRef]);
 
-  const handleShowLegalMentions = (): void => {
+  const handleShowLegalMentions = React.useCallback((): void => {
     showModal("legalMentions");
-  };
+  }, [showModal]);
 
   return (
     <footer id="contact" ref={ref}>
@@ -37,7 +39,7 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
                   backgroundImage: `url(${FooterEllipsis})`,
                   clear: "both",
                 }}
-              ></div>
+              />
               <a
                 href="https://www.instagram.com/merci_lartist/?hl=fr"
                 target="_blank"
@@ -73,6 +75,8 @@ const Footer: React.FC<FooterProps> = ({ setContactRef, showModal }) => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

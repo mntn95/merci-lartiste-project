@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { KeyboardArrowDown } from "@mui/icons-material";
+import { motion } from "framer-motion";
+import React from "react";
 import { formatDate } from "../helpers";
 
 interface DateHeaderProps {
@@ -13,8 +13,7 @@ const DateHeader: React.FC<DateHeaderProps> = ({
   date,
   isExpanded,
   onToggle,
-}) => {
-  return (
+}) => (
     <motion.div
       onClick={onToggle}
       className="flex items-center justify-between p-6 cursor-pointer hover:bg-white/10 transition-colors duration-200"
@@ -36,6 +35,5 @@ const DateHeader: React.FC<DateHeaderProps> = ({
       </motion.div>
     </motion.div>
   );
-};
 
 export default DateHeader;

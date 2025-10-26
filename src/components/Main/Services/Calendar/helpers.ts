@@ -2,7 +2,7 @@ import {
   CalendlyAvailableTime,
   calendlyApi,
 } from "../../../../services/calendly-api";
-import { SearchDirection } from "@/types";
+import { SearchDirection } from "../../../../types";
 
 const validateAndCorrectDateRange = (
   startTime: string,
@@ -91,8 +91,8 @@ export const formatTime = (dateString: string) => {
   });
 };
 
-export const groupTimesByDate = (times: CalendlyAvailableTime[]) => {
-  return times.reduce((acc, time) => {
+export const groupTimesByDate = (times: CalendlyAvailableTime[]) =>
+  times.reduce((acc, time) => {
     const date = new Date(time.start_time).toDateString();
     if (!acc[date]) {
       acc[date] = [];
@@ -100,7 +100,6 @@ export const groupTimesByDate = (times: CalendlyAvailableTime[]) => {
     acc[date].push(time);
     return acc;
   }, {} as Record<string, CalendlyAvailableTime[]>);
-};
 
 export const fetchAvailableTimesLogic = async (
   eventTypeUri: string,
@@ -156,14 +155,10 @@ export const fetchAvailableTimesLogic = async (
 export const isValidPreviousWeekOffset = (
   currentOffset: number,
   firstAvailableWeek: number | null
-): boolean => {
-  return currentOffset > (firstAvailableWeek ?? 0);
-};
+): boolean => currentOffset > (firstAvailableWeek ?? 0);
 
-export const getNextWeekOffset = (currentOffset: number): number => {
-  return currentOffset + 1;
-};
+export const getNextWeekOffset = (currentOffset: number): number =>
+  currentOffset + 1;
 
-export const getPreviousWeekOffset = (currentOffset: number): number => {
-  return Math.max(0, currentOffset - 1);
-};
+export const getPreviousWeekOffset = (currentOffset: number): number =>
+  Math.max(0, currentOffset - 1);

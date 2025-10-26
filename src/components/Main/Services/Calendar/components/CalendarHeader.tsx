@@ -1,5 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 import { CalendlyEventType } from "../../../../../services/calendly-api";
 import { servicesLabels } from "../../labels";
 

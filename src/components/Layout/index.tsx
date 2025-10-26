@@ -1,10 +1,10 @@
 import React from "react";
-import Loader from "./loader";
-import { LayoutProps } from "@/types";
 import {
   useResponsiveBackground,
   backgroundImages,
 } from "../../hooks/useResponsiveBackground";
+import { LayoutProps } from "../../types";
+import Loader from "./loader";
 
 const Layout: React.FC<LayoutProps> = ({
   children,

@@ -1,8 +1,8 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { CalendlyAvailableTime } from "../../../../../services/calendly-api";
+import React from "react";
 import DateHeader from "./DateHeader";
 import TimeSlotList from "./TimeSlotList";
+import { CalendlyAvailableTime } from "../../../../../services/calendly-api";
 
 interface ExpandableDateCardProps {
   date: string;
@@ -20,8 +20,7 @@ const ExpandableDateCard: React.FC<ExpandableDateCardProps> = ({
   onToggle,
   onTimeSlotClick,
   dateIndex,
-}) => {
-  return (
+}) => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -36,6 +35,5 @@ const ExpandableDateCard: React.FC<ExpandableDateCardProps> = ({
       />
     </motion.div>
   );
-};
 
 export default ExpandableDateCard;

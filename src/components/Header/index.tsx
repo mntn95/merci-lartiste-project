@@ -1,20 +1,15 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "@mui/material";
-
-import Navigation from "./Navigation";
+import React from "react";
 import { bottomNavLabels } from "./labels";
-import { HeaderProps } from "@/types";
+import Navigation from "./Navigation";
+import Ellipsis from "../../assets/img/header_double_ellipsis.png";
+import Logo from "../../assets/img/logo.png";
+import { useNavigation } from "../../contexts";
+import { useMediaQuery } from "../../hooks";
 import { handleScrollToRef } from "../../utils";
 
-import Logo from "../../assets/img/logo.png";
-import Ellipsis from "../../assets/img/header_double_ellipsis.png";
-
-const Header: React.FC<HeaderProps> = ({
-  appointmentRef,
-  contactRef,
-  pricesRef,
-}) => {
+const Header: React.FC = React.memo(() => {
+  const { appointmentRef } = useNavigation();
   const isDesktop = useMediaQuery("(min-width:1024px)");
 
   return (
@@ -35,11 +30,7 @@ const Header: React.FC<HeaderProps> = ({
             clear: "both",
           }}
         />
-        <Navigation
-          appointmentRef={appointmentRef}
-          pricesRef={pricesRef}
-          contactRef={contactRef}
-        />
+        <Navigation />
       </div>
 
       <div>
@@ -102,6 +93,8 @@ const Header: React.FC<HeaderProps> = ({
       </div>
     </div>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

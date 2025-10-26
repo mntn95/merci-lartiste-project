@@ -1,4 +1,4 @@
-import { LegalMentionsLabels } from "@/types";
+import { LegalMentionsLabels } from "../../types";
 
 const legalMentionsLabels: LegalMentionsLabels = {
   title: "Mentions légales",

@@ -1,5 +1,5 @@
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 import { CalendlyAvailableTime } from "../../../../../services/calendly-api";
 import { formatTime } from "../helpers";
 

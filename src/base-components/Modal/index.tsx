@@ -1,10 +1,10 @@
 import React from "react";
 import { Modal as BootstrapModal } from "react-bootstrap";
-import { ModalProps } from "@/types";
 import { ModalWrapper } from "./components";
+import { legalMentionsLabels, newAddressLabels } from "./labels";
 import LegalMentionsModal from "../../components/Footer/LegalMentionsModal";
 import NewAddressModal from "../../components/Footer/NewAddressModal";
-import { legalMentionsLabels, newAddressLabels } from "./labels";
+import { ModalProps } from "../../types";
 
 const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
   const handleHide = (): void => {

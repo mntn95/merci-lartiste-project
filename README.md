@@ -29,7 +29,6 @@ Un site web moderne pour un salon de coiffeur barbier, alliant design retro et t
 - **React 18** avec TypeScript pour une base solide et typée
 - **Framer Motion** pour les animations et transitions
 - **Tailwind CSS** + **SASS** pour le styling modulaire
-- **Material UI** + **Bootstrap** pour certains composants
 
 ### Intégrations
 
