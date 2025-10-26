@@ -1,11 +1,8 @@
 import { NavLabels, BottomNavLabels } from "../../types";
 
 const navLabels: NavLabels = {
-  home: "Accueil",
-  about: "A propos",
   booking: "Réservation",
   contact: "Contact",
-  pricesCta: "Tarifs",
 };
 
 const bottomNavLabels: BottomNavLabels = {

@@ -109,5 +109,42 @@ describe("transformers", () => {
       const result = convertEventTypeToService(eventTypeWithEmptyDescription);
       expect(result.description).toBe("Description par défaut");
     });
+
+    it("should convert HTML description to plain text when description_html is provided", () => {
+      const eventTypeWithHtmlDescription: CalendlyEventType = {
+        ...mockEventType,
+        description_html: "<p>Description HTML</p><br>avec des balises",
+        description_plain: undefined,
+      };
+
+      const result = convertEventTypeToService(eventTypeWithHtmlDescription);
+      expect(result.description).toContain("Description HTML");
+      expect(result.description).toContain("avec des balises");
+    });
+
+    it("should handle HTML description with multiple paragraphs", () => {
+      const eventTypeWithMultipleParagraphs: CalendlyEventType = {
+        ...mockEventType,
+        description_html:
+          "<p>Premier paragraphe</p><br><p>Deuxième paragraphe</p>",
+        description_plain: undefined,
+      };
+
+      const result = convertEventTypeToService(eventTypeWithMultipleParagraphs);
+      expect(result.description).toContain("Premier paragraphe");
+      expect(result.description).toContain("Deuxième paragraphe");
+    });
+
+    it("should handle HTML description with only br tags", () => {
+      const eventTypeWithBrTags: CalendlyEventType = {
+        ...mockEventType,
+        description_html: "Texte avec<br>saut de ligne",
+        description_plain: undefined,
+      };
+
+      const result = convertEventTypeToService(eventTypeWithBrTags);
+      expect(result.description).toContain("Texte avec");
+      expect(result.description).toContain("saut de ligne");
+    });
   });
 });

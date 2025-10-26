@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
-import { handleScrollToRef } from "../../../utils";
-import { ServiceItem as ServiceItemType, Ref } from "../../../types";
 import {
   ServicesLoading,
   ServicesError,
@@ -10,6 +7,9 @@ import {
   ServicesCalendarView,
 } from "./components";
 import { servicesLabels } from "./labels";
+import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
+import { ServiceItem as ServiceItemType, Ref } from "../../../types";
+import { handleScrollToRef } from "../../../utils";
 
 interface ServicesProps {
   appointmentRef: Ref;

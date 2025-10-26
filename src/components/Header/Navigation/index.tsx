@@ -1,12 +1,22 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { navLabels } from "../labels";
 import { useNavigation } from "../../../contexts";
+import { useFocusManagement } from "../../../hooks";
 import { handleScrollToRef } from "../../../utils";
+import { navLabels } from "../labels";
 
 const Navigation: React.FC = React.memo(() => {
-  const { appointmentRef, contactRef, pricesRef } = useNavigation();
+  const { appointmentRef, contactRef } = useNavigation();
+  const { announceToScreenReader } = useFocusManagement();
+
+  const handleNavClick = (
+    ref: React.RefObject<HTMLElement> | null,
+    label: string
+  ) => {
+    handleScrollToRef(ref);
+    announceToScreenReader(`Navigation vers ${label}`);
+  };
 
   return (
     <motion.div
@@ -25,25 +35,28 @@ const Navigation: React.FC = React.memo(() => {
           <Navbar.Toggle
             className="!border-none !color-[#755018]"
             aria-controls="responsive-navbar-nav"
+            aria-label="Ouvrir le menu de navigation"
           />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            <Nav
+              className="me-auto"
+              role="navigation"
+              aria-label="Navigation principale"
+            >
               <Nav.Link
                 className="!text-[#755018] m-4 hover:underline rounded-[1px] bg-inherit px-2 py-1"
-                onClick={() => handleScrollToRef(appointmentRef)}
+                onClick={() =>
+                  handleNavClick(appointmentRef, navLabels.booking)
+                }
+                aria-label={`Aller à la section ${navLabels.booking}`}
               >
                 {navLabels.booking}
               </Nav.Link>
               <Nav.Link
                 className="!text-[#755018] m-4 hover:underline rounded-[1px] bg-inherit px-2 py-1"
-                onClick={() => handleScrollToRef(pricesRef)}
-              >
-                {navLabels.pricesCta}
-              </Nav.Link>
-              <Nav.Link
-                className="!text-[#755018] m-4 hover:underline rounded-[1px] bg-inherit px-2 py-1"
                 eventKey="4"
-                onClick={() => handleScrollToRef(contactRef)}
+                onClick={() => handleNavClick(contactRef, navLabels.contact)}
+                aria-label={`Aller à la section ${navLabels.contact}`}
               >
                 {navLabels.contact}
               </Nav.Link>

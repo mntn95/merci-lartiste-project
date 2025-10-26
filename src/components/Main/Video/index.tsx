@@ -48,7 +48,11 @@ const VideoComponent: React.FC = () => {
       style={{ opacity: scrollY }}
     >
       <div className="mobile-video xl:hidden">
-        <MobileVideo options={mobileVideoOptions} onReady={handlePlayerReady} />
+        <MobileVideo
+          options={mobileVideoOptions}
+          onReady={handlePlayerReady}
+          aria-label="Vidéo de présentation - version mobile"
+        />
       </div>
 
       <div className="max-xl:hidden xl:relative xl:w-full xl:h-0 xl:pb-[56.25%]">
@@ -57,6 +61,8 @@ const VideoComponent: React.FC = () => {
           autoPlay
           muted
           className="absolute top-0 left-0 w-full h-full object-cover"
+          aria-label="Vidéo de présentation - version desktop"
+          role="img"
         >
           <source src={Video} type="video/webm" />
           {videoLabels.browserNotSupportedMessage}

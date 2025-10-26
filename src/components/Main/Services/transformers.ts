@@ -1,6 +1,6 @@
+import { servicesLabels } from "./labels";
 import { CalendlyEventType } from "../../../services/calendly-api";
 import { ServiceItem } from "../../../types";
-import { servicesLabels } from "./labels";
 
 // Price mapping table by service URI
 // This mapping allows associating a price to each Calendly service via its unique URI
@@ -29,7 +29,7 @@ const getServicePrice = (serviceUri: string): number =>
 const convertHtmlToPlainText = (htmlDescription: string): string =>
   htmlDescription
     .replace(/<p>/g, "")
-    .replace(/<br>/g, "")
+    .replace(/<br>/g, "\n")
     .replace(/<\/p>/g, "\n")
     .trim();
 

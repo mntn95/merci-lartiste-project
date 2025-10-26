@@ -15,13 +15,11 @@ export interface BaseComponentProps {
 export interface NavigationRefs {
   appointmentRef: Ref;
   contactRef: Ref;
-  pricesRef: Ref;
 }
 
 export interface NavigationSetters {
   setAppointmentRef: React.Dispatch<React.SetStateAction<Ref>>;
   setContactRef: React.Dispatch<React.SetStateAction<Ref>>;
-  setPricesRef: React.Dispatch<React.SetStateAction<Ref>>;
 }
 
 // =============================================
@@ -52,7 +50,7 @@ export interface LayoutProps {
 export interface HeaderProps extends NavigationRefs {}
 
 export interface MainProps
-  extends Pick<NavigationSetters, "setAppointmentRef" | "setPricesRef">,
+  extends Pick<NavigationSetters, "setAppointmentRef">,
     ModalHandler {}
 
 export interface FooterProps
@@ -67,10 +65,6 @@ export interface NavigationProps extends NavigationRefs {}
 
 export interface AppointmentComponentProps {
   setAppointmentRef: React.Dispatch<React.SetStateAction<Ref>>;
-}
-
-export interface PricesComponentProps {
-  setPricesRef: React.Dispatch<React.SetStateAction<Ref>>;
 }
 
 export interface ServicesComponentProps {
@@ -113,11 +107,8 @@ export interface MobileVideoProps {
 // =============================================
 
 export interface NavLabels {
-  home: string;
-  about: string;
   booking: string;
   contact: string;
-  pricesCta: string;
 }
 
 export interface BottomNavLabels {
@@ -130,20 +121,6 @@ export interface AppointmentLabels {
   title: string;
   desc: string;
   desc_link: string;
-}
-
-export interface PricesLabels {
-  title: string;
-  headerTitle: string;
-  topFirstItem: string;
-  topFirstPrice: string;
-  topSecondItem: string;
-  topSecondPrice: string;
-  bottomFirstItem: string;
-  bottomFirstPrice: string;
-  bottomSecondItem: string;
-  bottomSecondPrice: string;
-  fullPriceTableTitle: string;
 }
 
 // Types pour la logique de recherche du calendrier par semaines
@@ -229,11 +206,6 @@ export interface ServiceItem {
   description: string;
   price: number;
   duration: string;
-}
-
-export interface PricesProps {
-  items?: PriceItem[];
-  onItemClick?: (item: PriceItem) => void;
 }
 
 // =============================================

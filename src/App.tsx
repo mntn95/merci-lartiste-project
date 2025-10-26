@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "./base-components";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
@@ -45,13 +46,12 @@ const AppContent: React.FC = () => {
   );
 };
 
-/**
- * Main App component with Context Provider
- */
 const App: React.FC = () => (
-  <AppProvider>
-    <AppContent />
-  </AppProvider>
+  <ErrorBoundary>
+    <AppProvider>
+      <AppContent />
+    </AppProvider>
+  </ErrorBoundary>
 );
 
 export default App;

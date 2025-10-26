@@ -17,11 +17,9 @@ export const useNavigation = () => {
     // Refs
     appointmentRef: state.navigationRefs.appointment,
     contactRef: state.navigationRefs.contact,
-    pricesRef: state.navigationRefs.prices,
 
     // Setters
     setAppointmentRef: actions.setAppointmentRef,
     setContactRef: actions.setContactRef,
-    setPricesRef: actions.setPricesRef,
   };
 };

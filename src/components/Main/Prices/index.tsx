@@ -1,26 +1,16 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import PricePicture from "../../../assets/img/work_image.webp";
-import { useNavigation } from "../../../contexts";
 
-const Prices: React.FC = () => {
-  const ref = useRef<HTMLElement>(null);
-  const { setPricesRef } = useNavigation();
-
-  useEffect(() => {
-    setPricesRef(ref);
-  }, [setPricesRef]);
-
-  return (
-    <section id="prices" className="min-h-[400px]" ref={ref}>
-      <div className="mt-20 relative w-full h-0 pb-[56.25%]">
-        <div
-          className="absolute inset-0 bg-no-repeat clear-both w-full min-h-[400px] bg-cover bg-center md:bg-[length:100%_auto]"
-          style={{ backgroundImage: `url(${PricePicture})` }}
-        />
-        <div className="absolute inset-0 bg-black w-full min-h-[400px] md:min-h-0 h-full opacity-50" />
-      </div>
-    </section>
-  );
-};
+const Prices: React.FC = () => (
+  <section id="prices" className="min-h-[400px]">
+    <div className="mt-20 relative w-full h-0 pb-[56.25%]">
+      <div
+        className="absolute inset-0 bg-no-repeat clear-both w-full min-h-[400px] bg-cover bg-center md:bg-[length:100%_auto]"
+        style={{ backgroundImage: `url(${PricePicture})` }}
+      />
+      <div className="absolute inset-0 bg-black w-full min-h-[400px] md:min-h-0 h-full opacity-50" />
+    </div>
+  </section>
+);
 
 export default Prices;

@@ -7,9 +7,6 @@ import { useState, useEffect } from "react";
  * @param query - Media query string (e.g., "(min-width: 768px)")
  * @returns boolean indicating if the media query matches
  *
- * @example
- * const isMobile = useMediaQuery("(max-width: 768px)");
- * const isDesktop = useMediaQuery("(min-width: 1024px)");
  */
 export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState<boolean>(() => {
@@ -53,5 +50,3 @@ export const useMediaQuery = (query: string): boolean => {
 
   return matches;
 };
-
-

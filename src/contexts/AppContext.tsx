@@ -11,7 +11,6 @@ interface AppState {
   navigationRefs: {
     appointment: Ref;
     contact: Ref;
-    prices: Ref;
   };
 }
 
@@ -19,8 +18,7 @@ type AppAction =
   | { type: "SET_MODAL"; payload: ModalContent }
   | { type: "SET_LOADING"; payload: boolean }
   | { type: "SET_APPOINTMENT_REF"; payload: Ref }
-  | { type: "SET_CONTACT_REF"; payload: Ref }
-  | { type: "SET_PRICES_REF"; payload: Ref };
+  | { type: "SET_CONTACT_REF"; payload: Ref };
 
 interface AppContextType {
   state: AppState;
@@ -29,7 +27,6 @@ interface AppContextType {
     setLoading: (loading: boolean) => void;
     setAppointmentRef: (ref: Ref) => void;
     setContactRef: (ref: Ref) => void;
-    setPricesRef: (ref: Ref) => void;
   };
 }
 
@@ -43,7 +40,6 @@ const initialState: AppState = {
   navigationRefs: {
     appointment: null,
     contact: null,
-    prices: null,
   },
 };
 
@@ -76,16 +72,6 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
           contact: action.payload,
         },
       };
-
-    case "SET_PRICES_REF":
-      return {
-        ...state,
-        navigationRefs: {
-          ...state.navigationRefs,
-          prices: action.payload,
-        },
-      };
-
     default:
       return state;
   }
@@ -125,10 +111,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
       setContactRef: (ref: Ref) => {
         dispatch({ type: "SET_CONTACT_REF", payload: ref });
-      },
-
-      setPricesRef: (ref: Ref) => {
-        dispatch({ type: "SET_PRICES_REF", payload: ref });
       },
     }),
     []

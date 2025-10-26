@@ -1,6 +1,6 @@
 import React from "react";
-import { servicesLabels } from "../../labels";
 import { ServiceItem } from "../../../../../types";
+import { servicesLabels } from "../../labels";
 
 interface ServicePricingProps {
   service: ServiceItem;
