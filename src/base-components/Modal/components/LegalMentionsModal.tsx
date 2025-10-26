@@ -1,4 +1,5 @@
 import React from "react";
+import { Heading } from "../..";
 import { legalMentionsLabels } from "../../../labels/modal";
 import { ArticleSection, Paragraph } from ".";
 
@@ -8,9 +9,14 @@ const LegalMentionsModal: React.FC = () => {
   return (
     <>
       <div className="pt-4 flex flex-col items-center justify-center">
-        <h2 className="text-center flex items-center justify-center text-xl uppercase">
+        <Heading
+          as="h2"
+          size="xl"
+          fontWeight="bold"
+          className="text-[#755018] text-center flex items-center justify-center uppercase"
+        >
           {cguTitle}
-        </h2>
+        </Heading>
         <span>{effectiveDate}</span>
       </div>
 

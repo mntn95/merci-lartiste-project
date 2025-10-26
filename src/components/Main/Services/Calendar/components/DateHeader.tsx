@@ -1,6 +1,7 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import React from "react";
+import { Heading } from "../../../../../base-components";
 import { formatDate } from "../helpers";
 
 interface DateHeaderProps {
@@ -14,26 +15,32 @@ const DateHeader: React.FC<DateHeaderProps> = ({
   isExpanded,
   onToggle,
 }) => (
-    <motion.div
-      onClick={onToggle}
-      className="flex items-center justify-between p-6 cursor-pointer hover:bg-white/10 transition-colors duration-200"
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
+  <motion.div
+    onClick={onToggle}
+    className="flex items-center justify-between p-6 cursor-pointer hover:bg-white/10 transition-colors duration-200"
+    whileHover={{ scale: 1.02 }}
+    transition={{ duration: 0.2 }}
+  >
+    <Heading
+      as="h3"
+      size="lg"
+      fontFamily="botanika"
+      fontWeight="bold"
+      className="text-[#755018] capitalize"
     >
-      <h3 className="text-lg !font-botanika font-bold text-[#755018] capitalize">
-        {formatDate(date)}
-      </h3>
+      {formatDate(date)}
+    </Heading>
 
-      <motion.div
-        animate={{
-          rotate: isExpanded ? 180 : 0,
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="text-[#755018]"
-      >
-        <KeyboardArrowDown fontSize="large" />
-      </motion.div>
+    <motion.div
+      animate={{
+        rotate: isExpanded ? 180 : 0,
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="text-[#755018]"
+    >
+      <KeyboardArrowDown fontSize="large" />
     </motion.div>
-  );
+  </motion.div>
+);
 
 export default DateHeader;

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { Button } from "../../../../../base-components";
+import { Button, Heading } from "../../../../../base-components";
 import { servicesLabels } from "../../../../../labels/services";
 import { CalendlyEventType } from "../../../../../services/calendly-api";
 
@@ -20,13 +20,21 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({
       </Button>
     </div>
 
-    <motion.h2
+    <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="!font-botanika font-bold text-[24px] lg:text-[30px] mb-2 mt-4 text-[#755018]"
+      className="mb-2 mt-4"
     >
-      {eventType.name}
-    </motion.h2>
+      <Heading
+        as="h2"
+        size="custom"
+        fontFamily="botanika"
+        fontWeight="bold"
+        className="text-[#755018] text-[24px] lg:text-[30px]"
+      >
+        {eventType.name}
+      </Heading>
+    </motion.div>
 
     <motion.p
       initial={{ opacity: 0 }}

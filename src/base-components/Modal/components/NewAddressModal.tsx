@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../..";
+import { Button, Heading } from "../..";
 import { newAddressLabels } from "../../../labels/modal";
 import { ModalContentProps } from "../../../types";
 import { Paragraph } from ".";
@@ -16,9 +16,14 @@ const NewAddressModal: React.FC<ModalContentProps> = ({ showModal }) => {
   return (
     <>
       <div className="pt-4 flex flex-col items-center justify-center">
-        <h2 className="text-center flex items-center justify-center text-xl uppercase">
+        <Heading
+          as="h2"
+          size="xl"
+          fontWeight="bold"
+          className="text-[#755018] text-center flex items-center justify-center uppercase"
+        >
           {title}
-        </h2>
+        </Heading>
       </div>
 
       <div className="text-lg flex items-start justify-center flex-col mx-auto w-[90%] pb-12">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Heading } from "../..";
 
 interface ArticleSectionProps {
   title: string;
@@ -6,10 +7,12 @@ interface ArticleSectionProps {
 }
 
 const ArticleSection: React.FC<ArticleSectionProps> = ({ title, children }) => (
-    <>
-      <h3 className="pt-4 text-xl uppercase">{title}</h3>
-      <div>{children}</div>
-    </>
-  );
+  <>
+    <Heading as="h3" size="xl" className="uppercase pt-4">
+      {title}
+    </Heading>
+    <div>{children}</div>
+  </>
+);
 
 export default ArticleSection;

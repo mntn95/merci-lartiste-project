@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { Heading } from "../ui";
 
 interface EmptyStateProps {
   title?: string;
@@ -25,7 +26,14 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           </div>
         )}
         {title && (
-          <h3 className="text-xl font-bold text-[#755018] mb-2">{title}</h3>
+          <Heading
+            as="h3"
+            size="xl"
+            fontWeight="bold"
+            className="text-[#755018] mb-2"
+          >
+            {title}
+          </Heading>
         )}
         {description && <p className="text-gray-600">{description}</p>}
       </div>
