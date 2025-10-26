@@ -2,9 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import LoaderImage from "../../assets/img/loader.png";
 
-const Loader: React.FC = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
+interface LoaderProps {
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const Loader: React.FC<LoaderProps> = ({ isLoading, setIsLoading }) => {
   React.useEffect(() => {
     requestAnimationFrame(() => {
       setTimeout(() => {

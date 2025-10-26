@@ -60,4 +60,11 @@ const legalMentionsLabels: LegalMentionsLabels = {
   ],
 };
 
-export { legalMentionsLabels };
+const newAddressLabels = {
+  title: "INFORMATION IMPORTANTE",
+  message:
+    "A partir du 28 Octobre 2025, nous vous accueillerons au 31 rue Jean Jaurès, 60570 Andeville",
+  buttonText: "J'ai compris",
+};
+
+export { legalMentionsLabels, newAddressLabels };

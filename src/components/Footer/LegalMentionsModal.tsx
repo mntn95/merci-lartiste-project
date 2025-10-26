@@ -1,6 +1,6 @@
 import React from "react";
-import { legalMentionsLabels } from "../Modal/labels";
-import { ArticleSection, Paragraph } from "../Modal/components";
+import { legalMentionsLabels } from "../../base-components/Modal/labels";
+import { ArticleSection, Paragraph } from "../../base-components";
 
 const LegalMentionsModal: React.FC = () => {
   const { cguTitle, effectiveDate, introText, articles } = legalMentionsLabels;

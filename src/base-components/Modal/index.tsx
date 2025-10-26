@@ -2,8 +2,9 @@ import React from "react";
 import { Modal as BootstrapModal } from "react-bootstrap";
 import { ModalProps } from "@/types";
 import { ModalWrapper } from "./components";
-import LegalMentionsModal from "../Footer/LegalMentionsModal";
-import { legalMentionsLabels } from "./labels";
+import LegalMentionsModal from "../../components/Footer/LegalMentionsModal";
+import NewAddressModal from "../../components/Footer/NewAddressModal";
+import { legalMentionsLabels, newAddressLabels } from "./labels";
 
 const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
   const handleHide = (): void => {
@@ -15,7 +16,14 @@ const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
       case "legalMentions":
         return {
           title: legalMentionsLabels.title,
+          withTitle: true,
           content: <LegalMentionsModal />,
+        };
+      case "newAddress":
+        return {
+          title: newAddressLabels.title,
+          withTitle: false,
+          content: <NewAddressModal showModal={showModal} />,
         };
       default:
         return null;
@@ -25,14 +33,12 @@ const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {
   const modalContent = getModalContent();
 
   return (
-    <BootstrapModal
-      show={Boolean(modal)}
-      size="xl"
-      fullscreen="lg-down"
-      onHide={handleHide}
-    >
+    <BootstrapModal show={Boolean(modal)} size="lg" onHide={handleHide}>
       {modalContent && (
-        <ModalWrapper title={modalContent.title}>
+        <ModalWrapper
+          title={modalContent.title}
+          withTitle={modalContent.withTitle}
+        >
           {modalContent.content}
         </ModalWrapper>
       )}

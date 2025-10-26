@@ -28,7 +28,7 @@ export interface NavigationSetters {
 // TYPES MODAL
 // =============================================
 
-export type ModalContent = string | React.ReactNode | null;
+export type ModalContent = "legalMentions" | "newAddress" | null;
 
 export interface ModalProps {
   modal: ModalContent;
@@ -45,6 +45,8 @@ export interface ModalHandler {
 
 export interface LayoutProps {
   children: React.ReactNode;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface HeaderProps extends NavigationRefs {}

@@ -1,9 +1,9 @@
 import { FooterLabels } from "@/types";
 
 const footerLabels: FooterLabels = {
-  street: "93 rue des Martyrs",
+  street: "31 rue Jean Jaurès",
   weekDays: "Du mardi au vendredi",
-  postalCode: "Champagne-sur-Oise 95660",
+  postalCode: "60570 Andeville",
   workHours: "De 11h à 20h (samedi de 13h à 18h)",
   phoneNumber: "09 56 22 03 71",
   mailAddress: "merci.lartist@gmail.com",
