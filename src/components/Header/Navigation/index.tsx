@@ -3,8 +3,8 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { useNavigation } from "../../../contexts";
 import { useFocusManagement } from "../../../hooks";
+import { navLabels } from "../../../labels/header";
 import { handleScrollToRef } from "../../../utils";
-import { navLabels } from "../labels";
 
 const Navigation: React.FC = React.memo(() => {
   const { appointmentRef, contactRef } = useNavigation();

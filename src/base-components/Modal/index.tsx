@@ -1,9 +1,11 @@
 import React from "react";
 import { Modal as BootstrapModal } from "react-bootstrap";
-import { ModalWrapper } from "./components";
-import { legalMentionsLabels, newAddressLabels } from "./labels";
-import LegalMentionsModal from "../../components/Footer/LegalMentionsModal";
-import NewAddressModal from "../../components/Footer/NewAddressModal";
+import {
+  ModalWrapper,
+  LegalMentionsModal,
+  NewAddressModal,
+} from "./components";
+import { legalMentionsLabels, newAddressLabels } from "../../labels/modal";
 import { ModalProps } from "../../types";
 
 const Modal: React.FC<ModalProps> = ({ modal, showModal }) => {

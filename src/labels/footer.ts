@@ -1,6 +1,6 @@
-import { FooterLabels } from "../../types";
+import { FooterLabels } from "../types";
 
-const footerLabels: FooterLabels = {
+export const footerLabels: FooterLabels = {
   street: "31 rue Jean Jaurès",
   weekDays: "Du mardi au vendredi",
   postalCode: "60570 Andeville",
@@ -9,5 +9,3 @@ const footerLabels: FooterLabels = {
   mailAddress: "merci.lartist@gmail.com",
   legalMentions: "Mentions légales",
 };
-
-export { footerLabels };

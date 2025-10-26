@@ -1,7 +1,7 @@
 import React from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { videoLabels } from "./labels";
+import { videoLabels } from "../../../labels/video";
 import { MobileVideoProps } from "../../../types";
 
 export const MobileVideo: React.FC<MobileVideoProps> = ({
@@ -21,15 +21,12 @@ export const MobileVideo: React.FC<MobileVideoProps> = ({
         videoRef.current.appendChild(videoElement);
       }
 
-      const player = (playerRef.current = videojs(videoElement, options, () => {
+      playerRef.current = videojs(videoElement, options, () => {
         videojs.log(videoLabels.playerReadyLog);
-        onReady && onReady(player);
-      }));
-    } else {
-      const player = playerRef.current;
-
-      player.autoplay(options.autoplay);
-      player.src(options.sources);
+        if (onReady && playerRef.current) {
+          onReady(playerRef.current);
+        }
+      });
     }
   }, [options, onReady]);
 

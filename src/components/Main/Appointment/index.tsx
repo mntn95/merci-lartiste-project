@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import React, { useRef, useEffect } from "react";
 import { useNavigation } from "../../../contexts";
+import { appointmentLabels } from "../../../labels/appointment";
 import Services from "../Services";
-import { appointmentLabels } from "./labels";
 
 const Appointment: React.FC = () => {
   const ref = useRef<HTMLElement>(null);

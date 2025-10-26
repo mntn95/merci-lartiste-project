@@ -94,11 +94,12 @@ export interface MobileVideoOptions {
   responsive?: boolean;
   fluid?: boolean;
   sources?: MobileVideoSource[];
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface MobileVideoProps {
   options: MobileVideoOptions;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onReady?: (player: any) => void;
 }
 

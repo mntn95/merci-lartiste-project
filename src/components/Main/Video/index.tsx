@@ -1,9 +1,9 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import React from "react";
-import { videoLabels } from "./labels";
 import MobileVideo from "./mobileVideo";
 import VideoMobile from "../../../assets/videos/compressedMerciLartiste.mp4";
 import Video from "../../../assets/videos/merci_artiste.webm";
+import { videoLabels } from "../../../labels/video";
 import { MobileVideoOptions } from "../../../types";
 
 const VideoComponent: React.FC = () => {

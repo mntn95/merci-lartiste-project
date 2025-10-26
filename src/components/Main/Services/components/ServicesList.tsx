@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { servicesLabels } from "../../../../labels/services";
 import { CalendlyEventType } from "../../../../services/calendly-api";
-import { servicesLabels } from "../labels";
 import { convertEventTypeToService } from "../transformers";
 import ServiceItem from "./ServiceItem";
 import { ServiceItem as ServiceItemType } from "../../../../types";

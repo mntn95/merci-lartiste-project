@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import { footerLabels } from "./labels";
 import FooterEllipsis from "../../assets/img/contact_ellipsis.png";
 import FooterInstaLogo from "../../assets/img/insta_logo.png";
 import { useModal, useNavigation } from "../../contexts";
+import { footerLabels } from "../../labels/footer";
 
 const Footer: React.FC = React.memo(() => {
   const ref = useRef<HTMLElement>(null);

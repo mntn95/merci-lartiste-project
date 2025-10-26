@@ -1,6 +1,6 @@
-import { LegalMentionsLabels } from "../../types";
+import { LegalMentionsLabels } from "../types";
 
-const legalMentionsLabels: LegalMentionsLabels = {
+export const legalMentionsLabels: LegalMentionsLabels = {
   title: "Mentions légales",
   cguTitle: "Conditions générales d'utilisation",
   effectiveDate: "En vigueur au 16/07/2025",
@@ -60,11 +60,9 @@ const legalMentionsLabels: LegalMentionsLabels = {
   ],
 };
 
-const newAddressLabels = {
+export const newAddressLabels = {
   title: "INFORMATION IMPORTANTE",
   message:
     "A partir du 28 Octobre 2025, nous vous accueillerons au 31 rue Jean Jaurès, 60570 Andeville",
   buttonText: "J'ai compris",
 };
-
-export { legalMentionsLabels, newAddressLabels };

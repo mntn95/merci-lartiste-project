@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
 import Main from "./components/Main";
+import { APP_CONFIG } from "./constants";
 import { AppProvider, useModal } from "./contexts";
 import {
   shouldShowNewAddressModal,
@@ -29,11 +30,11 @@ const AppContent: React.FC = () => {
 
   // Initialize loader
   useEffect(() => {
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    });
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, APP_CONFIG.LOADER_TIMEOUT_MS);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (

@@ -2,7 +2,7 @@ import { CalendlyEventType } from "../../../../services/calendly-api";
 import { convertEventTypeToService } from "../transformers";
 
 // Mock des labels pour les tests
-jest.mock("../labels", () => ({
+jest.mock("../../../../labels", () => ({
   servicesLabels: {
     service: {
       defaultDescription: "Description par défaut",

@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
-  CalendlyEventType,
-  CalendlyAvailableTime,
-} from "../../../../services/calendly-api";
-import { servicesLabels } from "../labels";
-import {
   CalendarHeader,
   CalendarNavigation,
   TimeSlotGrid,
@@ -18,6 +13,11 @@ import {
   getNextWeekOffset,
   getPreviousWeekOffset,
 } from "./helpers";
+import { servicesLabels } from "../../../../labels/services";
+import {
+  CalendlyEventType,
+  CalendlyAvailableTime,
+} from "../../../../services/calendly-api";
 import { SearchDirection } from "../../../../types";
 
 interface CalendarProps {

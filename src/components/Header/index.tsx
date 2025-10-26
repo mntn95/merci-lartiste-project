@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { bottomNavLabels } from "./labels";
 import Navigation from "./Navigation";
 import Ellipsis from "../../assets/img/header_double_ellipsis.png";
 import Logo from "../../assets/img/logo.png";
+import {
+  ANIMATION_DELAYS,
+  ANIMATION_DURATIONS,
+  createSpringTransition,
+} from "../../constants";
 import { useNavigation } from "../../contexts";
 import { useMediaQuery } from "../../hooks";
+import { bottomNavLabels } from "../../labels/header";
 import { handleScrollToRef } from "../../utils";
 
 const Header: React.FC = React.memo(() => {
@@ -18,12 +23,7 @@ const Header: React.FC = React.memo(() => {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{
-            delay: 1.5,
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-          }}
+          transition={createSpringTransition(ANIMATION_DELAYS.HEADER_LOGO)}
           className="bg-cover bg-no-repeat w-[200px] h-[60px] md:w-[300px] md:h-[90px]"
           style={{
             backgroundImage: `url(${Logo})`,
@@ -37,12 +37,7 @@ const Header: React.FC = React.memo(() => {
         <motion.div
           initial={{ opacity: 0, x: isDesktop ? 200 : -200 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{
-            delay: 2,
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-          }}
+          transition={createSpringTransition(ANIMATION_DELAYS.HEADER_ELLIPSIS)}
           className="bg-cover bg-no-repeat 
                      w-[208px] h-[200px] mt-16 mb-6 mr-auto -ml-[4.5rem]
                      md:w-[208px] md:h-[200px] md:mt-8 md:mb-6 md:mr-auto md:ml-16
@@ -58,12 +53,7 @@ const Header: React.FC = React.memo(() => {
         <motion.div
           initial={{ opacity: 0, x: -200 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{
-            delay: 2.5,
-            duration: 0.5,
-            type: "spring",
-            stiffness: 50,
-          }}
+          transition={createSpringTransition(ANIMATION_DELAYS.HEADER_TITLE)}
         >
           <h1 className="text-[30px] lg:text-[40px] font-normal uppercase">
             {bottomNavLabels.title}
@@ -79,12 +69,10 @@ const Header: React.FC = React.memo(() => {
         <motion.button
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 3.5,
-            duration: 1.5,
-            type: "spring",
-            stiffness: 50,
-          }}
+          transition={createSpringTransition(
+            ANIMATION_DELAYS.HEADER_CTA,
+            ANIMATION_DURATIONS.SLOW
+          )}
           onClick={() => handleScrollToRef(appointmentRef)}
           className="text-base text-[#755018] border-[0.8px] border-[#755018] rounded-[1px] uppercase bg-inherit px-[0.7rem] py-[0.3rem] pb-[0.1rem] mt-8 lg:mt-12 hover:underline"
         >

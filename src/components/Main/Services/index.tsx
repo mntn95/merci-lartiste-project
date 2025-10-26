@@ -6,7 +6,7 @@ import {
   ServicesList,
   ServicesCalendarView,
 } from "./components";
-import { servicesLabels } from "./labels";
+import { servicesLabels } from "../../../labels/services";
 import { calendlyApi, CalendlyEventType } from "../../../services/calendly-api";
 import { ServiceItem as ServiceItemType, Ref } from "../../../types";
 import { handleScrollToRef } from "../../../utils";

@@ -68,7 +68,7 @@ describe("Calendar Week Navigation Logic", () => {
       jest.useFakeTimers();
       jest.setSystemTime(wednesday);
 
-      const { startTime, endTime } = generateFutureDates(0);
+      const { endTime } = generateFutureDates(0);
 
       // Doit toujours finir le dimanche de la même semaine
       const actualEndTime = new Date(endTime);

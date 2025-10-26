@@ -7,7 +7,6 @@ import { ModalContent, Ref } from "../types";
 
 interface AppState {
   modal: ModalContent;
-  isLoading: boolean;
   navigationRefs: {
     appointment: Ref;
     contact: Ref;
@@ -16,7 +15,6 @@ interface AppState {
 
 type AppAction =
   | { type: "SET_MODAL"; payload: ModalContent }
-  | { type: "SET_LOADING"; payload: boolean }
   | { type: "SET_APPOINTMENT_REF"; payload: Ref }
   | { type: "SET_CONTACT_REF"; payload: Ref };
 
@@ -24,7 +22,6 @@ interface AppContextType {
   state: AppState;
   actions: {
     showModal: (content: ModalContent) => void;
-    setLoading: (loading: boolean) => void;
     setAppointmentRef: (ref: Ref) => void;
     setContactRef: (ref: Ref) => void;
   };
@@ -36,7 +33,6 @@ interface AppContextType {
 
 const initialState: AppState = {
   modal: null,
-  isLoading: true,
   navigationRefs: {
     appointment: null,
     contact: null,
@@ -51,9 +47,6 @@ const appReducer = (state: AppState, action: AppAction): AppState => {
   switch (action.type) {
     case "SET_MODAL":
       return { ...state, modal: action.payload };
-
-    case "SET_LOADING":
-      return { ...state, isLoading: action.payload };
 
     case "SET_APPOINTMENT_REF":
       return {
@@ -99,10 +92,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     () => ({
       showModal: (content: ModalContent) => {
         dispatch({ type: "SET_MODAL", payload: content });
-      },
-
-      setLoading: (loading: boolean) => {
-        dispatch({ type: "SET_LOADING", payload: loading });
       },
 
       setAppointmentRef: (ref: Ref) => {
