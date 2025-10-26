@@ -156,7 +156,7 @@ export interface FooterLabels {
   weekDays: string;
   postalCode: string;
   workHours: string;
-  phoneNumber: string;
+  instagramUrl: string;
   mailAddress: string;
   legalMentions: string;
 }

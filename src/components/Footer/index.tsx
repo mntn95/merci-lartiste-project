@@ -59,7 +59,7 @@ const Footer: React.FC = React.memo(() => {
         <div className="flex flex-wrap">
           <div className="w-10/12">
             <div className="flex flex-wrap">
-              <div className="w-full">{footerLabels.phoneNumber}</div>
+              <div className="w-full">{footerLabels.instagramUrl}</div>
             </div>
             <div className="flex flex-wrap w-1/2 md:w-full">
               <div className="md:w-1/2">{footerLabels.mailAddress}</div>
